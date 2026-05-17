@@ -9,8 +9,7 @@ const CARDS =
     "posPatient": "Sentado relajado, brazos paralelos al tronco, manos sobre rodillas.",
     "posTherapist": "De pie detrás (finta doble). Manos a ambos lados de la cabeza.",
     "execution": "Rotación pasiva máxima a izquierda y derecha sin forzar.",
-    "interpretation": "✅ Tope seco antes del arco normal + asimetría → alteración cervical.\n• Inicio del movimiento → cervical alta (artrosis/bloqueo).\n• Mitad → cervical media.\n• Final del arco → cervical baja o torácica alta (hasta D5).\n⚠️ Mareos/vértigos/nistagmo → descartar alteración vascular o vestibular.",
-    "evidence": "S: 77,80% · E: 77%"
+    "interpretation": "✅ Tope seco + asimetría → alteración cervical (localización según momento del arco). ⚠️ Mareos/nistagmo → descartar causa vascular o vestibular."
   },
   {
     "id": 2,
@@ -21,8 +20,7 @@ const CARDS =
     "posPatient": "Sentado relajado, brazos a lo largo del tronco, manos sobre piernas.",
     "posTherapist": "De pie lateral (finta doble). Mano posterior en occipucio; mano anterior en mentón.",
     "execution": "1. Extensión pasiva cervical máxima (bloquea segmento cervical alto).\n2. Manteniendo extensión → rotación a cada lado.\n(La rotación se realiza solo con cervical baja, zona cervicotorácica y dorsal alta.)",
-    "interpretation": "✅ Dolor + limitación de rotación con cuello en extensión → artrosis/degeneración cervical media-baja o torácica alta.\n⚠️ Vértigos → descartar problema vascular arteria vertebral o vestibular.",
-    "evidence": "S: 82,70% · E: 58,90%\nLR+ 2,01 · LR− 0,29\nKappa interexam: 0,92-0,93 / intraexam: 0,73-0,75"
+    "interpretation": "✅ Dolor + limitación en rotación con cuello en extensión → artrosis/degeneración cervical media-baja o torácica alta."
   },
   {
     "id": 3,
@@ -33,8 +31,7 @@ const CARDS =
     "posPatient": "Sentado relajado, brazos a lo largo del tronco, manos sobre piernas.",
     "posTherapist": "De pie lateral (finta doble). Mano posterior en occipucio; mano anterior en mentón.",
     "execution": "1. Flexión pasiva cervical máxima (bloquea segmento cervical por debajo de D2).\n2. Manteniendo flexión → rotación a cada lado.\n(Rotación solo con cervical alta: occipucio, atlas, axis.)",
-    "interpretation": "✅ Dolor + limitación rotación con cuello en flexión → alteración degenerativa CERVICAL ALTA (occipucio, atlas, axis).\n⚠️ Vértigos → descartar problema vascular o vestibular.",
-    "evidence": "Sin evidencia científica disponible."
+    "interpretation": "✅ Dolor + limitación en rotación con cuello en flexión → alteración degenerativa cervical alta (occipucio, atlas, axis)."
   },
   {
     "id": 4,
@@ -45,8 +42,7 @@ const CARDS =
     "posPatient": "Sentado, brazos extendidos a lo largo del tronco, manos sobre muslos, cabeza en posición neutra.\n⚠️ Contraindicada en inestabilidad importante de columna cervical.",
     "posTherapist": "De pie lateral (finta doble). Mano posterior bajo occipucio; mano anterior bajo mandíbula.",
     "execution": "Tracción axial lenta y progresiva hacia el techo de la cabeza del paciente.",
-    "interpretation": "✅ Dolor DESAPARECE → atrapamiento radicular (tracción separa carillas y descomprime raíces nerviosas).\n✅ Dolor AUMENTA → afectación capsuloligamentosa cervical.\n✅ Dolor AUMENTA mucho → posible afectación musculatura monoarticular del raquis.",
-    "evidence": "S: 44% · E: 90%\nLR+ 4,4 · LR− 0,62"
+    "interpretation": "✅ Dolor desaparece → atrapamiento radicular. ✅ Dolor aumenta → afectación capsuloligamentosa o musculatura monoarticular."
   },
   {
     "id": 5,
@@ -57,8 +53,7 @@ const CARDS =
     "posPatient": "Sedestación, brazos extendidos paralelos al cuerpo, cabeza en posición neutra con cuello en ligera flexión.",
     "posTherapist": "De pie lateral (finta doble), cabeza del paciente a la altura de su pecho. Mano anterior en frontal; mano posterior en occipucio.",
     "execution": "Con la mano anterior → deslizamiento anteroposterior del frontal.\nEsto impone movimiento del occipucio respecto al atlas y del atlas respecto al axis.",
-    "interpretation": "✅ Positivo si aparece DOLOR en región cervical → posible inestabilidad atlantoaxial por afectación del plano ligamentoso.\n⚠️ Test muy inespecífico: combinar con otras pruebas.",
-    "evidence": "Sin datos de evidencia disponibles."
+    "interpretation": "✅ Dolor en región cervical → posible inestabilidad atlantoaxial ligamentosa. ⚠️ Test muy inespecífico."
   },
   {
     "id": 6,
@@ -69,8 +64,7 @@ const CARDS =
     "posPatient": "Sentado, brazos paralelos al tronco, manos sobre muslos.",
     "posTherapist": "De pie lateral (finta doble). Mano anterior sobre frontal (codo estabiliza hombro homolateral); mano posterior libre.",
     "execution": "1. Ligera flexión pasiva de la columna cervical.\n2. Con la mano posterior → percutir con dedos las apófisis espinosas cervicales.",
-    "interpretation": "✅ Dolor LOCALIZADO (no radicular) → fractura, afectación ligamentosa o muscular.\n✅ Dolor RADICULAR → posible afectación raíces nerviosas (discal o artrósica).",
-    "evidence": "Sin evidencia científica disponible."
+    "interpretation": "✅ Dolor localizado → fractura/afectación ligamentosa o muscular. ✅ Dolor radicular → afectación de raíces nerviosas."
   },
   {
     "id": 7,
@@ -81,8 +75,7 @@ const CARDS =
     "posPatient": "Sedestación, brazos extendidos, manos sobre muslos, mirando al frente.",
     "posTherapist": "Bipedestación detrás del paciente (finta doble). Dedos de ambas manos entrelazados sobre la parte superior de la cabeza; codos estabilizan hombros del paciente.",
     "execution": "Compresión axial descendente y progresiva sobre la cabeza.",
-    "interpretation": "✅ Positivo: dolor cervical CON irradiación a un brazo → posible afectación discal o síndrome facetario.\n⚡ Negativo (sin irradiación al brazo) → DESCARTA afectación discal cervical.\nLa distribución del dolor orienta hacia la raíz afectada.",
-    "evidence": "S: 36% · E: 100%"
+    "interpretation": "✅ Dolor cervical con irradiación al brazo → afectación discal o facetaria. ⚡ Sin irradiación → descarta patología discal cervical."
   },
   {
     "id": 8,
@@ -93,8 +86,7 @@ const CARDS =
     "posPatient": "Sentado, brazos a lo largo del cuerpo, manos sobre muslos, cabeza en posición neutra. Paciente RELAJADO.\n⚠️ Precaución en osteoporosis grave o tumores.",
     "posTherapist": "De pie detrás del paciente (finta doble). Una mano plana sobre la parte superior de la cabeza.",
     "execution": "Se realiza en 3 posiciones (según Bradley):\n1. POSICIÓN NEUTRA: golpe seco suave con el puño sobre la mano en el vértex.\n2. EXTENSIÓN cervical: igual.\n3. EXTENSIÓN + ROTACIÓN homolateral: igual.\nCada posición provoca un cierre foraminal progresivo.",
-    "interpretation": "✅ Aumento de síntomas → afectación discal o hernia.\n• La extensión disminuye el espacio foraminal un 20-30% extra.\n• Los síntomas se desencadenan en el territorio del dermatoma de la raíz afectada.",
-    "evidence": "Posición NEUTRA: S 50% / E 86% · LR+ 3,5 · LR− 0,58\nEXTENSIÓN: S 92% / E 95% · VPP 96,4% · VPN 90,9%\nEXTENSIÓN+ROT: S 50% / E 74% · LR+ 1,9 · LR− 0,67"
+    "interpretation": "✅ Aumento de síntomas → afectación discal o hernia cervical. Distribución del dolor orienta hacia la raíz afectada."
   },
   {
     "id": 9,
@@ -105,8 +97,7 @@ const CARDS =
     "posPatient": "Paciente coloca activamente la mano/brazo afectado sobre la cabeza (abducción).",
     "posTherapist": "Observación.",
     "execution": "Paciente eleva el brazo afectado y coloca la mano sobre la cabeza de forma activa.",
-    "interpretation": "✅ Positivo: el paciente siente ALIVIO o cese de síntomas → compatible con RADICULOPATÍA CERVICAL (la abducción reduce la tensión sobre la raíz nerviosa).",
-    "evidence": "Especificidad: moderada-alta\nSensibilidad: baja"
+    "interpretation": "✅ Alivio o cese de síntomas → compatible con radiculopatía cervical."
   },
   {
     "id": 10,
@@ -117,8 +108,7 @@ const CARDS =
     "posPatient": "Sentado, brazos a lo largo del tronco, manos sobre muslos.",
     "posTherapist": "De pie, observando al paciente.",
     "execution": "El paciente realiza ACTIVAMENTE:\nRotación + inclinación lateral del mismo lado + extensión cervical.\n→ Esto implica cierre máximo del agujero de conjunción homolateral.",
-    "interpretation": "✅ Dolor LOCAL homolateral (no irradiado) → imbricación de carillas articulares.\n✅ Dolor en lado CONTRALATERAL → afectación muscular (distensión).\n✅ Dolor RADICULAR → afectación de raíces nerviosas (discal o artrósica).",
-    "evidence": "Sin evidencia científica disponible."
+    "interpretation": "✅ Dolor local homolateral → imbricación de carillas. ✅ Dolor contralateral → afectación muscular. ✅ Dolor radicular → afectación de raíces nerviosas."
   },
   {
     "id": 11,
@@ -129,8 +119,7 @@ const CARDS =
     "posPatient": "Decúbito prono sobre la camilla.",
     "posTherapist": "De pie lateral al paciente.",
     "execution": "Terapeuta aplica presión posteroanterior sobre las apófisis espinosas o costillas dorsales, segmento por segmento, con las manos.",
-    "interpretation": "✅ Rigidez o dolor localizado → hipomobilidad o disfunción en ese segmento dorsal.\n✅ Hipermobilidad → posible inestabilidad.",
-    "evidence": "Sin datos específicos en el documento."
+    "interpretation": "✅ Rigidez o dolor localizado → hipomobilidad segmentaria dorsal. ✅ Hipermobilidad → posible inestabilidad."
   },
   {
     "id": 12,
@@ -141,8 +130,7 @@ const CARDS =
     "posPatient": "Sentado, brazos relajados paralelos al tronco, manos sobre muslos.",
     "posTherapist": "De pie detrás del paciente (finta doble). Pasa sus brazos rodeando el tórax y abdomen del paciente por los huecos formados por los brazos; dedos entrelazados en parte anterior del tórax.",
     "execution": "Compresión ANTEROPOSTERIOR y LATERAL con ambos brazos simultáneamente.",
-    "interpretation": "✅ Dolor LOCAL → restricción movilidad costal (vértebras, cartílagos o esternón no aceptan el movimiento).\n✅ Dolor RADICULAR de atrás hacia delante → neuralgia intercostal.\n✅ Paciente NO AGUANTA la prueba → posible fractura o fisura costal.",
-    "evidence": "Sin evidencia científica disponible."
+    "interpretation": "✅ Dolor local → restricción costal. ✅ Dolor radicular → neuralgia intercostal. ✅ No aguanta la prueba → posible fractura/fisura costal."
   },
   {
     "id": 13,
@@ -153,8 +141,7 @@ const CARDS =
     "posPatient": "Sedestación, brazos paralelos al tronco, manos reposadas sobre la camilla.",
     "posTherapist": "Bipedestación detrás del paciente (finta doble).",
     "execution": "Terapeuta solicita al paciente que incline el cuerpo hacia un lado y luego al otro de forma alternativa (lateroflexión activa del tronco).",
-    "interpretation": "✅ Dolor en el lado de la INCLINACIÓN → neuralgia intercostal (la lateroflexión homolateral cierra los espacios intercostales y atrapa los nervios).\n✅ Dolor en el lado CONTRARIO a la inclinación → signo de PLEURITIS (estiramiento de la pleura contralateral).",
-    "evidence": "Sin evidencia científica disponible."
+    "interpretation": "✅ Dolor en el lado de la inclinación → neuralgia intercostal. ✅ Dolor en el lado contrario → signo de pleuritis."
   },
   {
     "id": 14,
@@ -165,8 +152,7 @@ const CARDS =
     "posPatient": "Bipedestación, brazos a lo largo del tronco.",
     "posTherapist": "Detrás del paciente, observando.",
     "execution": "Paciente realiza:\n1. Flexión cervical máxima.\n2. Flexión de tronco ~90°.\n3. Brazos colgando de forma relajada.",
-    "interpretation": "✅ Aparece ABOMBAMIENTO en un hemitórax durante la flexión → ESCOLIOSIS ESTRUCTURAL.\n✅ La curvatura DESAPARECE con la flexión de tronco → actitud escoliótica o escoliosis FUNCIONAL.",
-    "evidence": "S: 73-92% · E: 60-68%\nVPP: 64-70% · VPN: 77-80%\nKappa: 0,48-0,70"
+    "interpretation": "✅ Abombamiento en hemitórax → escoliosis estructural. ✅ Curvatura desaparece con la flexión → escoliosis funcional."
   },
   {
     "id": 15,
@@ -177,8 +163,7 @@ const CARDS =
     "posPatient": "Decúbito supino, brazos extendidos, rodillas en extensión, piernas relajadas sobre camilla.",
     "posTherapist": "De pie lateral (finta adelante hacia la cabeza). Mano caudal bajo talón; mano craneal a altura de rodilla para fijar extensión.",
     "execution": "Pedir al paciente que levante la pierna NO fijada con rodilla en extensión. Terapeuta sujeta la otra pierna. Realizar en ambas piernas.",
-    "interpretation": "✅ Normal: levanta la pierna sin problema.\n✅ Dolor REAL: no puede levantar → empuja con talón contrario hacia la camilla (presión en mano del terapeuta).\n⚠️ SIMULACIÓN: refiere no poder levantar pero NO hay presión en la mano bajo el calcáneo contralateral.",
-    "evidence": "S: 63-100% · E: 97-100%"
+    "interpretation": "✅ Refiere no poder levantar la pierna pero sin presión en el calcáneo contralateral → simulación."
   },
   {
     "id": 16,
@@ -189,8 +174,7 @@ const CARDS =
     "posPatient": "De pie, brazos a lo largo del tronco.",
     "posTherapist": "De pie a un lado del paciente (finta doble).",
     "execution": "1. Con rotulador: marca horizontal a nivel S1 y otra 10 cm por encima.\n2. Pedir que se incline hacia delante → medir distancia entre marcas.\n3. Pedir que se extienda → medir nuevamente.",
-    "interpretation": "✅ Normal:\n  • En FLEXIÓN: marcas se separan ~15 cm.\n  • En EXTENSIÓN: se aproximan ~8-9 cm.\n✅ Disminución → limitación elasticidad de columna lumbar, art. coxofemorales o isquiotibiales.\nÚtil en pelviespondilitis anquilosante.",
-    "evidence": "CCI: 0,60-0,97"
+    "interpretation": "✅ Separación <15 cm en flexión o <8-9 cm en extensión → limitación de la elasticidad lumbar. Útil en espondilitis anquilosante."
   },
   {
     "id": 17,
@@ -201,8 +185,7 @@ const CARDS =
     "posPatient": "Bipedestación, pies juntos, rodillas completamente extendidas.",
     "posTherapist": "A un lado del paciente en cuclillas con cinta métrica.",
     "execution": "Paciente realiza anteflexión activa de columna (brazos, manos y dedos extendidos y relajados hacia delante):\n1. Flexión de caderas bilateralmente.\n2. Flexión del raquis lumbar (sobre todo L5-S1).\n3. Retroversión de pelvis.\nMedir distancia entre la punta de los dedos y el suelo.",
-    "interpretation": "✅ Dolor al INICIO de la anteflexión → restricción de la art. coxofemoral.\n✅ Dolor en la 2ª PARTE → disfunción del raquis lumbar o art. sacroilíacas.\n✅ Dolor en la 3ª PARTE → alteración de la columna lumbar alta o torácica.\n⚠️ Signo inespecífico: validar con otras pruebas complementarias.",
-    "evidence": "Sin evidencia científica disponible."
+    "interpretation": "✅ Dolor al inicio → restricción coxofemoral. ✅ Dolor en 2ª parte → disfunción lumbar o sacroilíaca. ✅ Dolor en 3ª parte → lumbar alta o torácica."
   },
   {
     "id": 18,
@@ -213,8 +196,7 @@ const CARDS =
     "posPatient": "Sedestación, brazos a lo largo del cuerpo, manos sobre muslos.\n⚠️ Contraindicado en glaucoma (aumenta presión intracraneal).",
     "posTherapist": "Bipedestación junto al paciente.",
     "execution": "Paciente: inspiración máxima → espiración forzada máxima SIN expulsar el aire (como para defecar).",
-    "interpretation": "✅ Dolor o aumento del dolor en el raquis (lumbar/cervical/dorsal) → afectación discal con posible hernia (↑ presión intraabdominal → ↑ presión intradiscal en todos los niveles).\n✅ Dolor en zona medial del ligamento inguinal → posible hernia inguinal.\n💡 Otras maniobras que ↑ presión intradiscal: tos y estornudo.",
-    "evidence": "Sin evidencia científica disponible."
+    "interpretation": "✅ Dolor o aumento del dolor raquídeo → afectación discal con posible hernia. ✅ Dolor en ligamento inguinal → posible hernia inguinal."
   },
   {
     "id": 19,
@@ -225,8 +207,7 @@ const CARDS =
     "posPatient": "Decúbito dorsal, MMSS a lo largo del cuerpo. Pierna a valorar: rodilla en flexión, planta del pie apoyada en camilla. Pierna contraria: extensión de rodilla.",
     "posTherapist": "De pie en el lado a valorar (finta doble), altura de caderas. Mano craneal sobre rodilla homolateral; mano caudal abarca el empeine del mismo pie.",
     "execution": "Terapeuta realiza APROXIMACIÓN + ROTACIÓN INTERNA de la cadera del lado a evaluar.",
-    "interpretation": "✅ Positivo: aparece dolor y/o parestesias en el recorrido del nervio ciático → compresión del nervio ciático a nivel del músculo piramidal de la pelvis.",
-    "evidence": "Sin evidencia científica disponible."
+    "interpretation": "✅ Dolor y/o parestesias en recorrido ciático → compresión del nervio ciático a nivel del músculo piramidal."
   },
   {
     "id": 20,
@@ -237,8 +218,7 @@ const CARDS =
     "posPatient": "Decúbito ventral, brazos a lo largo del cuerpo, piernas sobre camilla con rodillas en extensión.",
     "posTherapist": "Bipedestación en el lado a valorar (finta adelante en dirección craneal) a la altura de las rodillas del paciente.",
     "execution": "1. Flexionar rodilla del paciente ~90°.\n2. Mano caudal sobre cara anterior de rodilla homolateral.\n3. Mano craneal abarca el pie.\n4. Contactar el pecho con la cara anterior de la tibia del lado a valorar.\n5. Dejarse caer lentamente → inducir flexión de rodilla + extensión de cadera.",
-    "interpretation": "✅ Positivo: dolor en zona LUMBAR o a lo largo del recorrido del nervio FEMORAL → compresión del nervio femoral.\n⚠️ Diferenciar dolor por estiramiento nervio femoral vs. dolor muscular anterior del muslo.",
-    "evidence": "Sin datos de evidencia en el documento."
+    "interpretation": "✅ Dolor lumbar o en recorrido del nervio femoral → compresión del nervio femoral."
   },
   {
     "id": 21,
@@ -249,8 +229,7 @@ const CARDS =
     "posPatient": "Decúbito supino, brazos a lo largo del cuerpo, rodillas extendidas.",
     "posTherapist": "Bipedestación lateral (finta doble) a la altura de las tibias. Mano craneal en cara anterolateral de la pierna SANA algo por encima de la rodilla (mantiene extensión); mano caudal en calcáneo del mismo lado.",
     "execution": "Terapeuta flexiona pasivamente la cadera SANA del paciente manteniendo la rodilla en extensión. La otra pierna queda en reposo sobre la camilla.\n💡 Se aplica estiramiento dural en ambos lados → puede aparecer dolor radicular también en pierna contra la camilla.",
-    "interpretation": "✅ Positivo: dolor LUMBAR o CIÁTICO durante la maniobra → afectación discal de la columna lumbar.",
-    "evidence": "S: 69-85% · E: 52-84%\nKappa: 0,93 · Concordancia: 99%\nLR+ 1,7-11 · LR− 0,21-0,65"
+    "interpretation": "✅ Dolor lumbar o ciático durante la maniobra → afectación discal lumbar."
   },
   {
     "id": 22,
@@ -261,8 +240,7 @@ const CARDS =
     "posPatient": "Decúbito supino (igual que Lasègue).",
     "posTherapist": "Igual que Lasègue.",
     "execution": "1. Realizar Lasègue hasta el punto donde aparece el dolor.\n2. Bajar ligeramente el miembro (reducir la tensión).\n3. Realizar DORSIFLEXIÓN del pie.",
-    "interpretation": "✅ Positivo (reaparece o aumenta el dolor con la dorsiflexión) → confirma origen NEURAL y descarta causa musculoesquelética pura.\n(Complementa y confirma el Lasègue.)",
-    "evidence": "Complementa al Lasègue."
+    "interpretation": "✅ Reaparece el dolor con la dorsiflexión → confirma origen neural (complementa el Lasègue)."
   },
   {
     "id": 23,
@@ -273,8 +251,7 @@ const CARDS =
     "posPatient": "Decúbito supino. Paciente lleva AMBAS rodillas al pecho con sus manos, fijándolas en esa posición.",
     "posTherapist": "De pie lateral al paciente (finta adelante), altura de caderas. Mano craneal bajo columna lumbar; mano caudal abarca el tercio distal de la tibia del lado a evaluar.",
     "execution": "Terapeuta baja lentamente hacia la extensión la pierna del lado cuyo músculo psoas quiere examinar. Examinar ambas piernas de forma alternativa.",
-    "interpretation": "✅ Normal: paciente puede extender la pierna completamente sobre la camilla SIN aumentar la lordosis lumbar.\n✅ Positivo:\n  a) Al extender la cadera → aumenta la lordosis lumbar, O\n  b) No puede extender completamente → flexo de rodilla + cadera.\n💡 Variante: desde decúbito supino con piernas extendidas, realizar flexión máxima de la pierna contraria. Normal si la pierna examinada se queda en camilla; Positivo si se levanta.",
-    "evidence": "Sin datos específicos en el documento."
+    "interpretation": "✅ Al extender la cadera aumenta la lordosis lumbar o no puede extender completamente → retracción/acortamiento del psoas."
   },
   {
     "id": 24,
@@ -285,8 +262,7 @@ const CARDS =
     "posPatient": "Decúbito supino, piernas en extensión de rodillas, brazos a lo largo del tronco reposados sobre la camilla.",
     "posTherapist": "Bipedestación lateral en el lado a valorar (finta doble), a la altura de las rodillas del paciente, orientado hacia este.",
     "execution": "1. Pedir al paciente que eleve la pierna SIN flexionar la rodilla.\n2. Aproximadamente a mitad del recorrido articular → terapeuta realiza una presión inesperada y súbita sobre la zona anterior del muslo llevándolo a extensión de cadera.",
-    "interpretation": "✅ La extensión súbita activa los husos neuromusculares del psoas → espasmo reflejo que tracciona las vértebras lumbares.\n✅ Negativo: NO genera dolor en columna lumbar, art. sacroilíaca o art. coxofemoral.\n✅ Positivo: aparece dolor → afectación de columna lumbar o pelvis (espondiloartrosis, espondilitis o hernia discal).",
-    "evidence": "Sin evidencia científica disponible."
+    "interpretation": "✅ Dolor lumbar, sacroilíaco o coxofemoral → afectación lumbar o pélvica (espondiloartrosis, espondilitis o hernia discal)."
   },
   {
     "id": 25,
@@ -297,8 +273,7 @@ const CARDS =
     "posPatient": "Decúbito prono. Parte inferior del cuerpo apoyada en camilla y parte superior SUSPENDIDA horizontalmente. Brazos cruzados, manos en hombros. Borde de la camilla ≈ a nivel EIAS. Miembros inferiores fijados con cinchas a tobillos, rodillas y caderas.",
     "posTherapist": "Observando.",
     "execution": "Paciente mantiene el tronco en posición HORIZONTAL el mayor tiempo posible.\nSe da por finalizada cuando el paciente contacta con cualquier parte del tren superior en el suelo.",
-    "interpretation": "✅ Tiempo de resistencia muy corto (hombres media: 146 s; mujeres: 189 s, según McGuill 1999) o presencia de dolor lumbar → patología lumbar relacionada con la musculatura extensora.",
-    "evidence": "CCI: 0,78-0,85"
+    "interpretation": "✅ Tiempo de resistencia reducido → debilidad de la musculatura extensora lumbar, factor de riesgo de lumbalgia."
   },
   {
     "id": 26,
@@ -309,8 +284,7 @@ const CARDS =
     "posPatient": "Decúbito dorsal, MMSS a lo largo del cuerpo, rodillas en extensión sobre la camilla.",
     "posTherapist": "Bipedestación en finta doble en el lado a valorar, a la altura de las tibias del paciente, orientado hacia este.",
     "execution": "1. Mano superior sobre la articulación de la rodilla homolateral.\n2. Mano inferior abarca el calcáneo de la pierna a valorar.\n3. Llevar la cadera y la rodilla a 90° de flexión cada una.\n4. Desde ahí, conducir de forma pasiva la cadera a separación y rotación externa, acercando el calcáneo a la línea media del cuerpo.",
-    "interpretation": "✅ Dolor en zona SACROILÍACA o en la NALGA → afectación sacroilíaca.\n✅ Dolor sobre la CADERA → proceso artrósico u otra disfunción de la articulación coxofemoral.",
-    "evidence": "Sin datos específicos en el documento."
+    "interpretation": "✅ Dolor con la palpación de apófisis espinosas → disfunción sacroilíaca (comparar ambos lados)."
   },
   {
     "id": 27,
@@ -321,8 +295,7 @@ const CARDS =
     "posPatient": "La prueba comprende 4 posiciones (por orden):\n1. Decúbito dorsal, brazos a lo largo del cuerpo, rodillas extendidas.\n2. Tumbado de lado, miembro a valorar arriba con rodilla en extensión y miembro contralateral en flexión de cadera y rodilla sobre la camilla.\n3. Decúbito dorsal, brazos a lo largo, rodillas extendidas.\n4. Decúbito ventral, brazos a lo largo, rodillas extendidas.",
     "posTherapist": "4 posiciones del terapeuta correspondientes:\n1. Bipedestación a un lado, finta craneal. Talón de mano derecha sobre EIAS derecha y mano izquierda sobre EIAS izquierda (brazos cruzados).\n2. Bipedestación por delante del paciente (finta doble). Ambas manos sobre el hueso ilíaco a valorar en su parte externa.\n3. Bipedestación a un lado, finta craneal. Manos sobre crestas ilíacas por su borde externo.\n4. Bipedestación a la altura de la pelvis (finta craneal). Mano inferior encima del sacro; mano superior refuerza.",
     "execution": "4 empujes correspondientes a cada posición:\n1. Empuje hacia la camilla como para ABRIR los huesos ilíacos.\n2. Empuje hacia la camilla COMPRIMIENDO el hueso ilíaco.\n3. Empuje intentando UNIR ambas manos (cerrar los huesos ilíacos).\n4. Empuje COMPRIMIENDO el sacro hacia la camilla.",
-    "interpretation": "1. Dolor en zona glútea o el muslo → afectación ligamentos sacroilíacos ANTERIORES.\n2. Cuadro álgico o incremento → disfunción de la articulación sacroilíaca (ligamentos posteriores).\n3. Dolor en articulación sacroilíaca → afectación ligamentos POSTERIORES.\n4. Cuadro álgico → disfunción de la articulación sacroilíaca.",
-    "evidence": "Kappa 82-88% · Concordancia 0,48-0,63"
+    "interpretation": "✅ Cada empuje positivo orienta hacia la afectación de ligamentos sacroilíacos anteriores o posteriores según la dirección."
   },
   {
     "id": 28,
@@ -333,8 +306,7 @@ const CARDS =
     "posPatient": "Decúbito dorsal, MMSS a lo largo del tronco. El miembro del lado a valorar en flexión de rodilla de 90° y en abducción de cadera, de forma que la planta del pie contacte con la cara interna de la rodilla de la otra pierna (que reposa en extensión).",
     "posTherapist": "De pie en el lado a valorar, finta adelante en dirección craneal, a la altura de las rodillas del paciente. Mano interna contacta con la espina ilíaca anterosuperior de la hemipelvis CONTRALATERAL para bloquearla. Mano externa sobre cara interna de la rodilla del miembro a valorar.",
     "execution": "El terapeuta pide al paciente que lleve de forma activa el miembro del lado a valorar a abducción de cadera (rodilla hacia la camilla). Cuando ya no pueda más o la rodilla contacte la camilla → el terapeuta ejerce un poco de presión sobre ella hacia el suelo. Medir y contabilizar la distancia entre la rodilla del lado afecto y la camilla. Realizar en el miembro contralateral.",
-    "interpretation": "✅ Normal: la rodilla contacta con la camilla.\n✅ Positivo: mayor distancia de la rodilla a la camilla en algún miembro + dolor con la compresión → posible disfunción de la articulación de la cadera O de la articulación sacroilíaca (según localización del dolor).",
-    "evidence": "Sin datos específicos en el documento."
+    "interpretation": "✅ Mayor distancia rodilla-camilla + dolor → disfunción de cadera o articulación sacroilíaca."
   },
   {
     "id": 29,
@@ -345,8 +317,7 @@ const CARDS =
     "posPatient": "Decúbito lateral con la cadera INFERIOR en flexión.",
     "posTherapist": "Detrás del paciente con una mano estabilizando la hemipelvis a testar.",
     "execution": "1. Mano proximal estabiliza la pelvis.\n2. Mano caudal realiza extensión de rodilla y extensión de cadera del muslo superior (la pierna queda libre).\n3. La pierna libre (superior) se deja caer por acción de la gravedad para que aduzca la cadera tanto como sea posible hasta contactar la camilla.",
-    "interpretation": "✅ Positivo: la rodilla NO contacta con la camilla → acortamiento de la banda iliotibial (cintilla iliotibial).\n💡 También recibe tensión el nervio cutáneo femoral lateral.",
-    "evidence": "Test de referencia clínica para valorar la BIT."
+    "interpretation": "✅ La rodilla no contacta la camilla → acortamiento de la banda iliotibial."
   },
   {
     "id": 30,
@@ -357,8 +328,7 @@ const CARDS =
     "posPatient": "De pie, MMSS a lo largo del cuerpo.",
     "posTherapist": "De pie a la espalda del paciente, observándolo.",
     "execution": "El terapeuta pide al paciente que separe un pie del suelo mediante flexión de la articulación coxofemoral y de la rodilla del mismo lado → apoyo monopodal. Observar la postura adoptada. Repetir en el miembro contralateral.",
-    "interpretation": "✅ Positivo: la hemipelvis CONTRALATERAL al miembro en apoyo se encuentra DESCENDIDA comparada con la otra hemipelvis → afectación de la musculatura pélvica (principalmente músculo glúteo medio).\n💡 Signo de Duchenne: el paciente realiza una lateroflexión lumbar homolateral al miembro afecto para restablecer el equilibrio en el espacio.",
-    "evidence": "S: 55-72,7% · E: 70-76,9%\nLR+ 1,83 · LR− 0,82\nKappa 0,68"
+    "interpretation": "✅ Hemipelvis contralateral descendida en apoyo monopodal → afectación de la musculatura pélvica (glúteo medio)."
   },
   {
     "id": 31,
@@ -369,8 +339,7 @@ const CARDS =
     "posPatient": "Decúbito ventral con flexión de 70-80° de ambas rodillas, de forma que las plantas de los pies se encuentren orientadas hacia el techo.",
     "posTherapist": "Bipedestación próximo al borde inferior de la camilla en finta doble, orientado hacia la cabeza del paciente. Toma contacto con la palma de las manos sobre la región interna de cada uno de los dos pies.",
     "execution": "El paciente ha de mantener unidas ambas rodillas mientras el terapeuta ejerce una fuerza de separación de los tobillos.",
-    "interpretation": "✅ Positivo: dolor en zona GLÚTEA y/o a lo largo del recorrido del nervio ciático → posible afectación del músculo piramidal (espasmo o retracción).\n💡 La afectación del piramidal puede comprimir el nervio ciático a su paso por la zona glútea. La contracción resistida aumenta la compresión nerviosa.\n⚠️ Si piramidal acortado → rotación externa de cadera que limita la rotación interna.",
-    "evidence": "Sin evidencia científica disponible."
+    "interpretation": "✅ Dolor glúteo y/o en recorrido ciático → posible espasmo o retracción del músculo piramidal con compresión del nervio ciático."
   },
   {
     "id": 32,
@@ -381,8 +350,7 @@ const CARDS =
     "posPatient": "Decúbito supino con las piernas flexionadas bilateralmente de forma que los pies queden apoyados en el plano de la camilla.",
     "posTherapist": "De pie, lateralmente al paciente del lado a valorar. Coloca el PUÑO entre las rodillas del paciente.",
     "execution": "Se pide al paciente que contraiga bilateralmente la musculatura APROXIMADORA de la cadera uniendo las rodillas contra el puño del terapeuta.",
-    "interpretation": "✅ Positivo: aparece dolor durante la ejecución → lesión tendinosa de la musculatura aproximadora de la cadera (aductores).",
-    "evidence": "S: 43% · E: 91%\nLR+ 4,8 · LR− 0,63"
+    "interpretation": "✅ Dolor durante la contracción aproximadora → lesión tendinosa de los aductores de cadera."
   },
   {
     "id": 33,
@@ -393,8 +361,7 @@ const CARDS =
     "posPatient": "Decúbito dorsal, brazos a lo largo del cuerpo, rodillas y caderas flexionadas de forma que las plantas de los pies estén en contacto con la camilla.",
     "posTherapist": "De pie, observando al paciente desde los pies.",
     "execution": "Observar la altura de las rodillas comparando ambos lados: se valora si existe diferencia de altura entre las dos rodillas en la misma posición.",
-    "interpretation": "✅ Positivo: una rodilla se encuentra más alta o más baja que la otra → asimetría en los MMII.\n• Rodilla más ALTA → tibia más larga en ese lado.\n• Rodilla más BAJA → fémur más corto en ese lado o luxación/displasia de cadera.",
-    "evidence": "Sin datos específicos en el documento."
+    "interpretation": "✅ Una rodilla más alta → tibia más larga. ✅ Una rodilla más baja → fémur más corto o displasia/luxación de cadera."
   },
   {
     "id": 34,
@@ -405,8 +372,7 @@ const CARDS =
     "posPatient": "Decúbito supino con las piernas estiradas y los brazos a lo largo del cuerpo.",
     "posTherapist": "De pie, lateralmente al paciente del lado a valorar, a la altura de la pelvis. Mano caudal a la altura del tobillo; mano proximal en cara externa de la rodilla del paciente.",
     "execution": "1. Flexión pasiva de cadera y rodilla a 90°.\n2. Desde ahí → aducción de cadera + rotación interna asociada a un valgo de rodilla.",
-    "interpretation": "✅ La maniobra NO debe ser dolorosa.\n✅ Positivo: aparece dolor en zona INGUINAL → posible pinzamiento femoroacetabular, desgarro del labrum de la cadera, cuerpos libres o lesión condral.",
-    "evidence": "S: 59-99% · E: 7-100%\nLR+ 1,02-1,06 · LR− 0,15-0,48\nVPP: 100% · VPN: 13%\nKappa 0,58 · Concordancia 91%"
+    "interpretation": "✅ Dolor inguinal → posible pinzamiento femoroacetabular, desgarro del labrum, cuerpos libres o lesión condral."
   },
   {
     "id": 35,
@@ -417,8 +383,7 @@ const CARDS =
     "posPatient": "Decúbito dorsal con el miembro del lado a valorar en flexión coxofemoral y de rodilla, de forma que la planta del pie se encuentre apoyada sobre la camilla.",
     "posTherapist": "De pie, en el mismo lado de la pierna a evaluar, a la altura de las rodillas, en finta adelante en dirección craneal. Mano superior sobre la articulación de la rodilla en la interlínea articular EXTERNA. Mano inferior abarca el talón del pie homolateral por la zona interna, de forma que el borde medial del pie esté en contacto con el antebrazo del terapeuta.",
     "execution": "El terapeuta eleva la pierna del lado a valorar separando el talón de la camilla. Según el cuerno y menisco a valorar:\n• Cuerno posterior menisco INTERNO: desde flexión máxima → rotación externa de tibia + valgo de rodilla + extensión.\n• Cuerno posterior menisco EXTERNO: desde flexión máxima → rotación interna de tibia + varo de rodilla + extensión.\n⚠️ Hay que corroborar el resultado con otras pruebas.",
-    "interpretation": "✅ Positivo: dolor o chasquido articular palpable a lo largo de la interlínea articular durante el movimiento → posible lesión meniscal.\n⚠️ El dolor en la interlínea también puede ser de ligamentos colaterales: no basta una simple palpación para diagnosticar.",
-    "evidence": "S: 28-88% · E: 11-97%\nPrecisión: 45-73%\nLR+ 0,83-8,85 · LR− 0,24-0,82\nVPP 82,6-92,31% · VPN 48,28%\nKappa 0,20-0,82"
+    "interpretation": "✅ Dolor o chasquido en la interlínea articular → posible lesión meniscal (cuerno según rotación aplicada)."
   },
   {
     "id": 36,
@@ -429,8 +394,7 @@ const CARDS =
     "posPatient": "Decúbito ventral con la rodilla del lado a valorar en flexión de 90°, de forma que la planta del pie homolateral esté orientada hacia el techo.",
     "posTherapist": "De pie, en el mismo lado de la rodilla que se valora, en finta doble a la altura de esta, orientado hacia el paciente. Mano inferior sobre la planta del pie del lado a evaluar. Mano superior sobre la porción posterior del tercio distal del muslo homolateral, bloqueándolo.",
     "execution": "A través del contacto de la mano caudal → rotación de la rodilla a un lado y hacia el otro.\nActo seguido: compresión hacia la camilla con mano caudal + sin modificar la compresión → rotaciones internas y externas de la tibia.\n💡 Variante en extensión de rodilla para valorar mejor los cuernos anteriores.\n⚠️ Realizar primero sin compresión (distracción) para descartar ligamentos.",
-    "interpretation": "✅ Dolor con ROTACIÓN sin compresión → estructuras ligamentosas/capsulares en disfunción.\n✅ Dolor CON COMPRESIÓN → posible lesión meniscal:\n  • Rot. externa + compresión → cuerno posterior menisco externo + cuerno anterior menisco interno.\n  • Rot. interna + compresión → cuerno posterior menisco interno + cuerno anterior menisco externo.",
-    "evidence": "S: 16-83,7% · E: 33-100%\nPrecisión: 75-82%\nLR+ 0,78-20 · LR− 0,2-1,6"
+    "interpretation": "✅ Dolor sin compresión → estructuras ligamentosas. ✅ Dolor con compresión → posible lesión meniscal (cuerno según rotación)."
   },
   {
     "id": 37,
@@ -441,8 +405,7 @@ const CARDS =
     "posPatient": "Decúbito supino, brazos a lo largo del cuerpo, un rulo bajo las rodillas que se encuentran relajadas en ligera flexión.",
     "posTherapist": "De pie en el lado CONTRARIO a la pierna a evaluar, en finta doble a la altura de las rodillas del paciente, orientado hacia este. Toma contacto con el 1.er y 2.o dedos de ambas manos sobre los dos polos superior e inferior de la rótula del lado a valorar, abarcándola.",
     "execution": "Movilización de la rótula de un lateral a otro.\nSi durante la maniobra se observa elasticidad importante → puede solicitarse contracción isométrica del cuádriceps y repetir los desplazamientos.",
-    "interpretation": "✅ Positivo: el paciente refiere molestia y chasquido articular → condropatía rotuliana.\n✅ Desplazamiento amplio → alteración ligamentosa (posible luxación de rótula).\n⚠️ También puede indicar desgaste articular por artrosis.",
-    "evidence": "S: 49-63% · E: 51-69%\nLR+ 1,4-1,8 · LR− 0,70\nKappa 0,55-0,59"
+    "interpretation": "✅ Molestia y chasquido articular → condropatía rotuliana. ✅ Desplazamiento amplio → posible inestabilidad/luxación de rótula."
   },
   {
     "id": 38,
@@ -453,8 +416,7 @@ const CARDS =
     "posPatient": "Decúbito supino.",
     "posTherapist": "De pie junto a la rodilla del paciente.",
     "execution": "1. Terapeuta desliza la rótula hacia EXTERNO.\n2. A partir de ahí → produce una flexión de rodilla.\n3. El paciente evitará el movimiento y apartará la mano del fisioterapeuta ante la sensación de luxación.",
-    "interpretation": "✅ Positivo: el paciente retira la mano del fisioterapeuta o muestra sensación de aprehensión (miedo a la luxación) → inestabilidad rotuliana / posible tendencia a la luxación de la rótula.",
-    "evidence": "Prueba de referencia para inestabilidad rotuliana."
+    "interpretation": "✅ Aprehensión o retirada de la mano → inestabilidad rotuliana con tendencia a la luxación."
   },
   {
     "id": 39,
@@ -465,8 +427,7 @@ const CARDS =
     "posPatient": "Decúbito dorsal, MMSS a lo largo del cuerpo, rodillas en extensión.",
     "posTherapist": "Bipedestación del lado a valorar en finta doble, a la altura de las rodillas, orientado hacia el paciente. Mano craneal sobre el margen superior de la rótula del lado a evaluar (comisura 1.er-2.o dedo sobre porción superior de la rótula; 1.er dedo en borde externo, 2.o en borde interno).",
     "execution": "El paciente lleva a cabo una contracción del músculo CUÁDRICEPS del lado a valorar mientras el terapeuta impide el ascenso de la rótula con una compresión en dirección CAUDAL.\n💡 Realizarla bilateral y a distintos grados de flexión (30°, 60° y 90°) para más especificidad.",
-    "interpretation": "✅ Positivo: cuadro álgico agudo en la rodilla valorada → posible afectación de la articulación femoropatelar (condromalacia rotuliana).",
-    "evidence": "S: 39% · E: 67%\nLR+ 0,18-1,9 · LR− 0,7-0,91\nVPP 25% · VPN 80%"
+    "interpretation": "✅ Dolor agudo en la rodilla → posible afectación de la articulación femoropatelar (condromalacia rotuliana)."
   },
   {
     "id": 40,
@@ -477,8 +438,7 @@ const CARDS =
     "posPatient": "Decúbito dorsal con la rodilla del lado a valorar flexionada unos 20-30°, brazos a lo largo del cuerpo.",
     "posTherapist": "De pie en el mismo lado de la pierna a evaluar, en finta adelante a la altura de las tibias del paciente, orientado hacia este en dirección craneal. Mano superior sobre la porción anterolateral del tercio distal del fémur homolateral. Mano inferior abarca internamente el extremo proximal de la tibia (pulgar en parte anterior, resto de dedos bajo el hueco poplíteo).",
     "execution": "El terapeuta estabiliza el fémur a través de su contacto superior mientras induce de forma pasiva un desplazamiento ANTERIOR de la tibia con la mano inferior.",
-    "interpretation": "✅ Positivo: al desplazar la tibia hacia anterior respecto al fémur, el movimiento está anormalmente aumentado → posible desgarro del ligamento cruzado anterior (LCA).",
-    "evidence": "S: 81-99% · E: 91%"
+    "interpretation": "✅ Desplazamiento anterior anormalmente aumentado de la tibia → posible desgarro del LCA."
   },
   {
     "id": 41,
@@ -489,8 +449,7 @@ const CARDS =
     "posPatient": "Decúbito dorsal, brazos a lo largo del cuerpo, cadera y rodilla del lado a valorar en flexión, planta del pie homolateral reposando sobre la camilla. Paciente RELAJADO (isquiotibiales y cuádriceps sin tensión).",
     "posTherapist": "Sedestación sobre el dorso del pie del lado a valorar en dirección craneal. Ambas manos abarcando el tercio proximal de la tibia: pulgares sobre la parte anterior en la interlínea articular femorotibial; resto de dedos entrelazados en el hueco poplíteo.",
     "execution": "Tracción anterior de la tibia del lado a valorar generando un desplazamiento anterior de esta con respecto al fémur.\n⚠️ El paciente debe estar completamente relajado para que la musculatura no altere el resultado.",
-    "interpretation": "✅ Positivo: desplazamiento anterior anormalmente aumentado de la tibia respecto al fémur → posible afectación o rotura total o parcial del LCA.",
-    "evidence": "S: 18-91% · E: 96-100%\nLR+ 2-37 · LR− 0,1-0,78\nVPP: 31-100% · VPN: 94,7%\nKappa 0,57"
+    "interpretation": "✅ Desplazamiento anterior aumentado de la tibia → posible afectación o rotura del LCA."
   },
   {
     "id": 42,
@@ -501,8 +460,7 @@ const CARDS =
     "posPatient": "Decúbito dorsal, brazos a lo largo del cuerpo, cadera y rodilla del lado a valorar flexionadas, pie homolateral reposando sobre la camilla.",
     "posTherapist": "Sedestación sobre el dorso del pie del lado a valorar en dirección craneal. Ambas eminencias tenares sobre la parte anterior de los cóndilos tibiales: pulgares a ambos lados de la interlínea articular femorotibial; resto de dedos abrazando la parte posterior de la tibia.",
     "execution": "Empuje de la tibia en dirección POSTERIOR generando un desplazamiento posterior con respecto al fémur, produciendo rotación interna o externa según las estructuras estabilizadoras que se pretendan evaluar.",
-    "interpretation": "✅ Positivo: desplazamiento posterior anormalmente aumentado de la tibia respecto al fémur → posible afectación del LCP.\n✅ Desplazamiento posterior + bostezo articular lateral en rot. interna o externa → posible afectación también de los elementos estabilizadores posterointernos o posteroexternos.",
-    "evidence": "S: 90% · E: 99%"
+    "interpretation": "✅ Desplazamiento posterior aumentado de la tibia → posible afectación del LCP."
   },
   {
     "id": 43,
@@ -513,8 +471,7 @@ const CARDS =
     "posPatient": "De pie, descalzo. Posición de zancada (lunge) con el pie a evaluar adelante y la rodilla alineada sobre el 2.o dedo del pie.",
     "posTherapist": "De pie observando al paciente de lado o de frente.",
     "execution": "1. El paciente avanza la rodilla hacia delante (movimiento de lunge) intentando que toque la pared sin que el talón se levante del suelo.\n2. Se mide la distancia máxima del pie a la pared (en cm) donde la rodilla aún puede tocarla sin despegar el talón.\n3. Se compara con el lado contralateral.\n💡 Referencia: ≥10 cm se considera rango funcional de flexión dorsal en carga.",
-    "interpretation": "✅ Distancia inferior a la del lado contralateral o <10 cm → restricción de la flexión dorsal del tobillo en carga.\n✅ Puede indicar: retracción del tríceps sural (gastrocnemio/sóleo), rigidez articular del tobillo o bloqueo anterior del astrágalo.",
-    "evidence": "Alta fiabilidad intraexaminador e interexaminador.\nCCI elevado en la literatura."
+    "interpretation": "✅ Distancia <10 cm o menor que el lado contralateral → restricción de la flexión dorsal en carga (tríceps sural, rigidez articular o bloqueo anterior del astrágalo)."
   },
   {
     "id": 44,
@@ -525,8 +482,7 @@ const CARDS =
     "posPatient": "Decúbito supino sobre la camilla.",
     "posTherapist": "De pie lateral al paciente, a nivel del hombro a evaluar.",
     "execution": "1. Terapeuta lleva el hombro a 90° de abducción.\n2. Flexiona el codo a 90°.\n3. Realiza una rotación externa pasiva progresiva del hombro.\n4. Puede añadir una presión anterior sobre la cabeza del húmero.",
-    "interpretation": "✅ Positivo: el paciente experimenta sensación de APREHENSIÓN (miedo a la luxación) o dolor anterior en el hombro durante la rotación externa → inestabilidad glenohumeral anterior o lesión del labrum (SLAP).",
-    "evidence": "Alta especificidad para inestabilidad anterior del hombro."
+    "interpretation": "✅ Aprehensión (miedo a la luxación) o dolor anterior → inestabilidad glenohumeral anterior o lesión del labrum."
   },
   {
     "id": 45,
@@ -537,8 +493,7 @@ const CARDS =
     "posPatient": "De pie o sentado.",
     "posTherapist": "De pie delante o al lado del paciente.",
     "execution": "1. Brazo en flexión de 90° con 10° de aducción horizontal.\n2. FASE A: Rotación interna máxima (pulgar hacia el suelo) → terapeuta presiona hacia abajo.\n3. FASE B: Rotación NEUTRA (palma hacia arriba) → terapeuta presiona hacia abajo.",
-    "interpretation": "✅ Positivo: dolor o chasquido en FASE A (rot. interna) que desaparece o mejora en FASE B (rot. neutra) → lesión del LABRUM superior (SLAP) o lesión de la articulación acromioclavicular.",
-    "evidence": "Variable según estudio."
+    "interpretation": "✅ Dolor/chasquido en fase A (rot. interna) que mejora en fase B (rot. neutra) → lesión del labrum superior (SLAP) o afectación acromioclavicular."
   },
   {
     "id": 46,
@@ -549,8 +504,7 @@ const CARDS =
     "posPatient": "Sentado con brazos paralelos al tronco y manos sobre muslos, o de pie con miembros a lo largo del cuerpo.",
     "posTherapist": "De pie lateral al paciente (finta doble). Mano anterior abarca la articulación del codo; mano posterior contacta la parte superior del hombro (pulgar sobre acromion, demás dedos sobre extremo externo de clavícula).",
     "execution": "1. Inducir flexión de codo a 90°.\n2. Llevar el brazo a 90° de abducción.\n3. Realizar flexión horizontal de 45°.\n4. Rotación interna de la glenohumeral (mano hacia el suelo).\n5. Punto fijo en parte superior del hombro con mano posterior + elevar el codo con mano anterior.",
-    "interpretation": "✅ Positivo: dolor agudo en el hombro → posible compromiso del espacio subacromial (impingement).\nEstructuras comprometidas: supraespinoso, porción larga bíceps braquial y bursa deltoidea (por compresión entre húmero, acromion y ligamento acromiocoracoideo).",
-    "evidence": "S: 47-87% · E: 26-89%\nLR+ 0,85-6,50 · LR− 0,31-1,18"
+    "interpretation": "✅ Dolor agudo en el hombro → posible pinzamiento subacromial (supraespinoso, bíceps, bursa)."
   },
   {
     "id": 47,
@@ -561,8 +515,7 @@ const CARDS =
     "posPatient": "Sentado, brazos paralelos al cuerpo, manos sobre muslos (o de pie, brazos a lo largo del cuerpo).",
     "posTherapist": "De pie lateral al paciente (finta doble). Mano posterior contacta la escápula (porción dorsal). Mano anterior abarca el tercio proximal del cúbito homolateral.",
     "execution": "1. Terapeuta orienta la palma de la mano del lado a evaluar hacia el suelo → rotación interna máxima de la glenohumeral.\n2. Manteniendo el codo en extensión → conduce el hombro hacia FLEXIÓN MÁXIMA.",
-    "interpretation": "✅ Positivo: cuadro álgico agudo en hombro → pinzamiento de musculatura del espacio subacromiodeltoideo (impingement).\nEstructuras afectadas: supraespinoso y tendón porción larga del bíceps braquial (choque entre porción inferior del acromion y ligamento acromiocoracoideo).",
-    "evidence": "S: 72% · E: 60%\nLR+ 1,79 · LR− 0,47"
+    "interpretation": "✅ Dolor agudo en el hombro → pinzamiento subacromial (supraespinoso y tendón largo del bíceps)."
   },
   {
     "id": 48,
@@ -573,8 +526,7 @@ const CARDS =
     "posPatient": "Sentado, con el miembro a valorar en aducción anterior: palma de la mano del lado a estudiar contacta la parte superior del hombro contralateral.",
     "posTherapist": "Bipedestación a la espalda del paciente, ligeramente desplazado del lado a valorar (finta adelante). Mano externa sobre el codo homolateral; otra mano contacta dorso de los dedos del paciente sobre el hombro contrario.",
     "execution": "Terapeuta indica al paciente que eleve el codo del lado a valorar hacia el techo, SIN despegar la mano del hombro contralateral, mientras el terapeuta ofrece RESISTENCIA a este movimiento.",
-    "interpretation": "✅ Positivo: sintomatología álgica en la región ANTERIOR del hombro → posible afectación de la región subacromial.",
-    "evidence": "S: 70-79% · E: 40-92%\nLR+ 1,32-8,80 · LR− 0,33-0,53"
+    "interpretation": "✅ Dolor anterior en el hombro → posible afectación subacromial."
   },
   {
     "id": 49,
@@ -585,8 +537,7 @@ const CARDS =
     "posPatient": "Sentado, brazos paralelos al tronco, manos sobre muslos (o de pie, brazos a lo largo del cuerpo).",
     "posTherapist": "De pie detrás del paciente, ligeramente desviado al lado a valorar (finta doble). Mano externa abarca la muñeca homolateral; otra mano reposa en porción superior de la escápula del mismo lado.",
     "execution": "1. Terapeuta induce pasivamente separación glenohumeral de 90-120° manteniendo el codo en extensión.\n2. Pide al paciente que MANTENGA el brazo en esa postura.\n3. Pasados unos segundos → le pide que lo lleve LENTAMENTE a la posición inicial.\n💡 Fase 1 alternativa: pedir al paciente que haga el gesto activamente.",
-    "interpretation": "✅ Positivo:\n  a) Paciente INCAPAZ de mantener el brazo en la posición, O\n  b) Incapaz de devolverlo LENTAMENTE a la posición inicial.\n→ Posible disfunción muscular del complejo escapular, en mayoría de casos por afectación o ROTURA del músculo supraespinoso.\n⚠️ A veces el brazo cae súbitamente por la disfunción (no implica que sea doloroso).",
-    "evidence": "S: 24-74% · E: 66-93%\nLR+ 2,41-3,30 · LR− 0,71-0,80"
+    "interpretation": "✅ Incapacidad de mantener o bajar lentamente el brazo → posible disfunción o rotura del supraespinoso."
   },
   {
     "id": 50,
@@ -597,8 +548,7 @@ const CARDS =
     "posPatient": "Sedestación. Miembro superior del lado a valorar: separación de 90° por la glenohumeral + 30° de aproximación anterior, húmero y antebrazo en ROTACIÓN INTERNA y PRONACIÓN respectivamente.",
     "posTherapist": "Bipedestación detrás del paciente, desplazado al lado a valorar (finta doble). Mano interna sobre región superior del hombro homolateral; otra mano contacta la porción cubital inferior de la articulación radiocubital.",
     "execution": "El paciente ha de MANTENER la posición mientras el terapeuta realiza un EMPUJE hacia el suelo de la muñeca del brazo a valorar con su mano externa.",
-    "interpretation": "✅ Positivo: sintomatología álgica o INCAPACIDAD de mantener la postura ante el empuje → afectación del músculo supraespinoso a nivel del tendón.",
-    "evidence": "S: 88% · E: 70%\nLR+ 2,93 · LR− 0,17"
+    "interpretation": "✅ Dolor o incapacidad de mantener la postura → afectación del tendón del supraespinoso."
   },
   {
     "id": 51,
@@ -609,8 +559,7 @@ const CARDS =
     "posPatient": "De pie o sentado.",
     "posTherapist": "Observación.",
     "execution": "Se pide al paciente que se TOQUE LA BOCA con ambas manos.",
-    "interpretation": "✅ Positivo: el paciente tiene que ELEVAR EL CODO POR ENCIMA DEL HOMBRO para poder llegar a la boca → indica insuficiencia COMPLETA del infraespinoso y redondo menor (ausencia de rotación externa del hombro).",
-    "evidence": "Indicador de insuficiencia completa de los rotadores externos del hombro."
+    "interpretation": "✅ Eleva el codo por encima del hombro para llegar a la boca → insuficiencia completa de infraespinoso y redondo menor."
   },
   {
     "id": 52,
@@ -621,8 +570,7 @@ const CARDS =
     "posPatient": "Sedestación. Miembro a valorar en ABDUCCIÓN de 90° de la glenohumeral y FLEXIÓN de codo de 90°.",
     "posTherapist": "Bipedestación a la espalda del paciente, ligeramente desplazado al lado a valorar (finta doble). Mano interna contacta la parte superior de la escápula homolateral; mano externa abarca la articulación radiocubital inferior.",
     "execution": "El paciente ha de llevar la mano hacia el terapeuta realizando una ROTACIÓN EXTERNA de la glenohumeral. El terapeuta RESISTE el movimiento a través del contacto de la mano externa.",
-    "interpretation": "✅ Positivo: sintomatología álgica FOCALIZADA en la región POSTERIOR del hombro → posible afectación del tendón del músculo infraespinoso.\n💡 La abducción glenohumeral hace la prueba más específica vs. valoración global de la rotación externa.",
-    "evidence": "S: 36-71% · E: 60-95%\nLR+ 1,50-2,43 · LR− 0,50-0,67"
+    "interpretation": "✅ Dolor posterior en el hombro → posible afectación del tendón del infraespinoso."
   },
   {
     "id": 53,
@@ -633,8 +581,7 @@ const CARDS =
     "posPatient": "Sedestación. Miembro a valorar en: extensión + aproximación posterior + rotación interna de la glenohumeral, codo en flexión → la dorso de la mano contacta las apófisis espinosas torácicas.",
     "posTherapist": "Bipedestación a la espalda del paciente (finta doble), ligeramente desplazado al lado a valorar. Mano externa sobre la espina escapular homolateral; otra mano abarca la mano del paciente del mismo lado.",
     "execution": "Terapeuta pide al paciente que realice una fuerza con la mano del lado a valorar en dirección POSTERIOR (separando la mano de la espalda). El terapeuta aplica RESISTENCIA a este movimiento impidiendo que lo lleve a cabo.",
-    "interpretation": "✅ Positivo: sintomatología álgica y/o INCAPACIDAD funcional de realizar el gesto → afectación del músculo SUBESCAPULAR.\n⚠️ Si el paciente es incapaz de mantener la posición inicial, valorar también la posible afectación de estructuras periarticulares (ligamentos o cápsula articular glenohumeral).",
-    "evidence": "Sin evidencia científica disponible (fecha publicación)."
+    "interpretation": "✅ Dolor e incapacidad de separar la mano de la espalda → afectación del músculo subescapular."
   },
   {
     "id": 54,
@@ -645,8 +592,7 @@ const CARDS =
     "posPatient": "Sentado, miembro superior a valorar en contacto con el tronco, codo en flexión de 90°, palma mirando al suelo (PRONACIÓN del antebrazo).",
     "posTherapist": "Delante del paciente, ligeramente lateralizado del lado a testar (finta doble). Mano externa toma contacto sensitivo a través de la yema de los dedos sobre la CORREDERA BICIPITAL; otra mano abarca la muñeca del mismo lado.",
     "execution": "El terapeuta pide al paciente que realice DOS movimientos SIMULTÁNEAMENTE:\n1. Orientar la palma hacia el techo → SUPINACIÓN del antebrazo.\n2. FLEXIÓN del codo.\nEl terapeuta RESISTE ambos movimientos. El plano de movimiento debe ser paralelo al esternón.",
-    "interpretation": "✅ Positivo: dolor en el TENDÓN de la porción larga del bíceps braquial → afectación de este tendón (tendinitis) o rotura del ligamento transverso (puede producir luxación del tendón → palpable por el terapeuta).\n⚠️ Chasquido durante la prueba → puede ser indicativo de tenosinovitis.",
-    "evidence": "S: 12-75% · E: 70-89%"
+    "interpretation": "✅ Dolor en el tendón de la porción larga del bíceps → tendinitis o rotura del ligamento transverso (posible luxación del tendón)."
   },
   {
     "id": 55,
@@ -657,8 +603,7 @@ const CARDS =
     "posPatient": "De pie o sentado. Miembro a valorar en FLEXIÓN de 90° de la glenohumeral, codo en EXTENSIÓN, antebrazo en SUPINACIÓN (palma hacia el techo).",
     "posTherapist": "De pie, finta adelante lateralmente al paciente del lado a valorar. Mano posterior sobre el tercio superior del húmero palpando con yemas de dedos la CORREDERA BICIPITAL; mano anterior contacta con el tercio distal del cúbito por cara anterior.",
     "execution": "El paciente ha de FLEXIONAR aún más la articulación glenohumeral llevando la palma hacia el techo. El terapeuta RESISTE el movimiento intentando llevar el brazo hacia el suelo. Tras finalizar la prueba, realizarla en el miembro contralateral.",
-    "interpretation": "✅ Positivo: incapacidad de vencer la resistencia por impotencia funcional o por aparición de cuadro álgico → posible afectación del TENDÓN de la porción larga del músculo bíceps braquial.\n💡 El terapeuta puede aumentar el estrés del tendón incrementando la compresión a nivel de la corredera bicipital con su mano posterior.\n⚠️ Gran hipotoría del músculo → no descartar una rotura tendinosa importante.",
-    "evidence": "S: 28-71% · E: 38-85%\nLR+ 0,90 · LR− 1,03"
+    "interpretation": "✅ Dolor o incapacidad de vencer la resistencia → posible afectación del tendón de la porción larga del bíceps braquial."
   },
   {
     "id": 56,
@@ -669,8 +614,7 @@ const CARDS =
     "posPatient": "Codo en ligera flexión o posición neutra.",
     "posTherapist": "Frente al codo del paciente.",
     "execution": "Terapeuta percute con el dedo (o martillo de reflejos) sobre el NERVIO CUBITAL a su paso por el surco epitrocleo-olecraneano (cara interna del codo).",
-    "interpretation": "✅ Positivo: aparece parestesias (hormigueo/corriente eléctrica) irradiadas hacia el 4.º y 5.º dedos → signo de atrapamiento o irritación del nervio cubital en el túnel cubital (codo).",
-    "evidence": "Variable según estudio."
+    "interpretation": "✅ Parestesias irradiadas al 4.º y 5.º dedo → atrapamiento del nervio cubital en el túnel cubital."
   },
   {
     "id": 57,
@@ -681,8 +625,7 @@ const CARDS =
     "posPatient": "De pie o sentado.",
     "posTherapist": "De pie frente al paciente o a su lado.",
     "execution": "1. Terapeuta palpa el epicóndilo lateral.\n2. Lleva el codo a EXTENSIÓN completa.\n3. Realiza PRONACIÓN del antebrazo.\n4. Realiza FLEXIÓN de muñeca.\n→ Todo de forma pasiva o pidiéndoselo activamente al paciente.",
-    "interpretation": "✅ Positivo: dolor en el EPICÓNDILO LATERAL durante la maniobra → afectación de la musculatura epicondílea (epicondilitis lateral / codo de tenista).\nEl estiramiento de los extensores de muñeca en pronación y extensión de codo pone en tensión máxima el origen del extensor radial corto del carpo.",
-    "evidence": "Prueba de referencia clínica para epicondilitis lateral."
+    "interpretation": "✅ Dolor en el epicóndilo lateral → afectación de la musculatura epicondílea (epicondilitis lateral)."
   },
   {
     "id": 58,
@@ -693,8 +636,7 @@ const CARDS =
     "posPatient": "Sentado, codo en 90° de flexión, antebrazo en posición neutra, muñeca en posición neutra.",
     "posTherapist": "Entrega el DINAMÓMETRO de mano al paciente; registra el valor.",
     "execution": "1. El paciente agarra el dinamómetro con fuerza máxima.\n2. Se realizan varias mediciones (generalmente 3) con descanso entre ellas.\n3. Se compara el lado dominante con el no dominante y con valores normativos.",
-    "interpretation": "✅ Fuerza reducida respecto al lado contralateral o valores normativos → debilidad de la musculatura flexora de la mano.\n✅ Dolor durante la prueba → puede indicar patología de la musculatura flexora o estructuras asociadas.",
-    "evidence": "Herramienta de medida objetiva y reproducible. Alta fiabilidad intraexaminador."
+    "interpretation": "✅ Fuerza reducida o dolor → debilidad de la musculatura flexora de la mano."
   },
   {
     "id": 59,
@@ -705,8 +647,7 @@ const CARDS =
     "posPatient": "Muñeca en posición neutra, mano apoyada con la palma hacia arriba.",
     "posTherapist": "Frente a la muñeca del paciente.",
     "execution": "Terapeuta percute con el dedo índice o martillo de reflejos sobre el LIGAMENTO TRANSVERSO DEL CARPO (retináculo flexor), en la cara palmar de la muñeca, sobre el trayecto del nervio mediano.",
-    "interpretation": "✅ Positivo: parestesias (hormigueo/corriente eléctrica) irradiadas hacia los dedos 1.º, 2.º, 3.º y mitad radial del 4.º → signo de atrapamiento del nervio MEDIANO en el túnel carpiano.",
-    "evidence": "S: ~36-50% · E: ~77%\n(Muy variable según estudio)"
+    "interpretation": "✅ Parestesias irradiadas a dedos 1.º-3.º y mitad del 4.º → atrapamiento del nervio mediano en el túnel carpiano."
   },
   {
     "id": 60,
@@ -717,8 +658,7 @@ const CARDS =
     "posPatient": "De pie o sentado.",
     "posTherapist": "Observación.",
     "execution": "El paciente mantiene ambas muñecas en FLEXIÓN MÁXIMA durante 60 segundos (dorso de las manos en contacto, codos en flexión, antebrazo vertical), O el terapeuta realiza la flexión pasivamente.",
-    "interpretation": "✅ Positivo: aparición o reproducción de parestesias (hormigueo/adormecimiento) en el territorio del nervio MEDIANO (dedos 1.º al 3.º y mitad radial del 4.º) durante la maniobra → síndrome del túnel carpiano.\n⚠️ La flexión máxima de muñeca aumenta la presión dentro del túnel carpiano comprimiendo el nervio mediano.",
-    "evidence": "S: ~57-68% · E: ~58-73%"
+    "interpretation": "✅ Parestesias en territorio del nervio mediano (dedos 1.º-3.º y mitad del 4.º) durante la maniobra → síndrome del túnel carpiano."
   }
 ]
 ;
