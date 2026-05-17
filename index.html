@@ -578,6 +578,16 @@ function flip() {
   isFlipped = !isFlipped;
   cardEl.classList.toggle('flipped', isFlipped);
   ratingDiv.style.display = isFlipped ? 'flex' : 'none';
+  adjustCardHeight();
+}
+
+function adjustCardHeight() {
+  if (isFlipped) {
+    const backH = document.querySelector('.card-back').scrollHeight;
+    cardEl.style.height = backH + 'px';
+  } else {
+    cardEl.style.height = '';
+  }
 }
 
 function unflip(animate = true) {
@@ -585,6 +595,7 @@ function unflip(animate = true) {
   isFlipped = false;
   cardEl.classList.remove('flipped');
   ratingDiv.style.display = 'none';
+  cardEl.style.height = ''; // ← ajoute cette ligne
   if (!animate) requestAnimationFrame(() => { cardEl.style.transition = ''; });
 }
 
