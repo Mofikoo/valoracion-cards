@@ -935,7 +935,6 @@ function showQ() {
   document.getElementById('q-text').textContent = t('q_texts')[param](cd);
   document.getElementById('q-hint').textContent = t('q_hint', cd, param);
 
-  const cd = getCardData(card);
   const correct = cd[param];
   const pool = getQuizPool().filter(c => c.id !== card.id && getCardData(c)[param]?.trim());
   shuffle(pool);
