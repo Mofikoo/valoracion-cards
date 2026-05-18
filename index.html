@@ -1232,14 +1232,12 @@ function applyUIStrings() {
 }
 
 function rebuildFilters() {
-  // Reconstruit les options des selects avec les valeurs traduites
   const rv = filterRegion.value, cv = filterCat.value;
-  // "Todas/Toutes/All"
+  // Option "Toutes"
   filterRegion.options[0].textContent = t('all_regions');
   filterCat.options[0].textContent    = t('all_cats');
   document.getElementById('quiz-filter-region').options[0].textContent = t('all_regions');
-  // Les options de région = valeurs issues des cartes dans la langue active
-  // On les garde en valeur ES (clé stable) mais on affiche la traduction
+  // Régions — valeur stable ES, texte traduit
   for (let i = 1; i < filterRegion.options.length; i++) {
     const esVal = filterRegion.options[i].value;
     const card = CARDS.find(c => c.es.region === esVal);
@@ -1248,6 +1246,12 @@ function rebuildFilters() {
       filterRegion.options[i].textContent = translated;
       document.getElementById('quiz-filter-region').options[i].textContent = translated;
     }
+  }
+  // Catégories — valeur stable ES, texte traduit
+  for (let i = 1; i < filterCat.options.length; i++) {
+    const esVal = filterCat.options[i].value;
+    const card = CARDS.find(c => c.es.category === esVal);
+    if (card) filterCat.options[i].textContent = getCardData(card).category;
   }
   filterRegion.value = rv;
   filterCat.value    = cv;
