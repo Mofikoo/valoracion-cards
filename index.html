@@ -34,80 +34,80 @@
       flex-direction: column;
     }
 
-    /* ── NAVBAR ── */
-    nav {
+    /* ── TOPBAR : une seule barre fusionnée ── */
+    .topbar {
       background: var(--surface);
       border-bottom: 1px solid var(--border);
-      padding: 0 24px;
-      display: flex;
-      align-items: stretch;
-      gap: 0;
-      height: 52px;
       position: sticky;
       top: 0;
       z-index: 50;
     }
+
+    /* Ligne 1 : brand + onglets */
+    .topbar-nav {
+      display: flex;
+      align-items: stretch;
+      height: 48px;
+      padding: 0 20px;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+    }
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-right: 28px;
+      gap: 8px;
+      padding-right: 24px;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       color: var(--accent2);
       letter-spacing: -0.01em;
+      white-space: nowrap;
     }
     .nav-brand .dot {
-      width: 8px; height: 8px;
+      width: 7px; height: 7px;
       border-radius: 50%;
       background: var(--accent);
+      flex-shrink: 0;
     }
     .nav-tab {
       display: flex;
       align-items: center;
-      gap: 7px;
-      padding: 0 18px;
-      font-size: 0.83rem;
+      gap: 6px;
+      padding: 0 16px;
+      font-size: 0.8rem;
       font-weight: 500;
       color: var(--muted);
       cursor: pointer;
       border: none;
       background: none;
       border-bottom: 2px solid transparent;
+      margin-bottom: -1px; /* couvre la border-bottom du parent */
       transition: color 0.2s, border-color 0.2s;
       font-family: inherit;
+      white-space: nowrap;
     }
     .nav-tab:hover { color: var(--text); }
     .nav-tab.active { color: var(--accent2); border-bottom-color: var(--accent); }
     .nav-tab svg { flex-shrink: 0; }
 
-    /* ── PAGE SECTIONS ── */
-    .page { display: none; flex: 1; flex-direction: column; }
-    .page.active { display: flex; }
-
-    /* ══════════════════════════════
-       FLASHCARD PAGE
-    ══════════════════════════════ */
-
-    /* ── SUBHEADER ── */
-    .subheader {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 10px 24px;
+    /* Ligne 2 : controls flashcard */
+    .topbar-controls {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
+      padding: 7px 20px;
       flex-wrap: wrap;
     }
+    .topbar-controls-right { margin-left: auto; display: flex; gap: 6px; align-items: center; }
+
+    /* Progress inline dans les controls */
     .progress-wrap {
       display: flex;
       align-items: center;
-      gap: 10px;
-      flex: 1;
-      max-width: 280px;
+      gap: 8px;
     }
     .progress-bar {
-      flex: 1; height: 4px;
+      width: 100px; height: 3px;
       background: var(--border);
       border-radius: 99px; overflow: hidden;
     }
@@ -117,28 +117,26 @@
       border-radius: 99px;
       transition: width 0.4s ease;
     }
-    .progress-label { font-size: 0.75rem; color: var(--muted); white-space: nowrap; font-family: 'DM Mono', monospace; }
+    .progress-label { font-size: 0.72rem; color: var(--muted); white-space: nowrap; font-family: 'DM Mono', monospace; }
 
-    /* ── CONTROLS ── */
-    .controls {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 8px 24px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-    }
+    /* Séparateur vertical */
+    .sep { width: 1px; height: 18px; background: var(--border); flex-shrink: 0; }
+
+    /* ── PAGE SECTIONS ── */
+    .page { display: none; flex: 1; flex-direction: column; }
+    .page.active { display: flex; }
+
     select, button {
       font-family: inherit;
-      font-size: 0.8rem;
-      border-radius: 8px;
+      font-size: 0.78rem;
+      border-radius: 7px;
       border: 1px solid var(--border);
       background: var(--surface2);
       color: var(--text);
-      padding: 6px 11px;
+      padding: 5px 10px;
       cursor: pointer;
       transition: border-color 0.2s, background 0.2s;
+      line-height: 1.4;
     }
     select:hover, button:hover { border-color: var(--accent); }
     button.primary {
@@ -148,8 +146,7 @@
       font-weight: 600;
     }
     button.primary:hover { background: var(--accent2); border-color: var(--accent2); color: #1d1a17; }
-    .controls-right { margin-left: auto; display: flex; gap: 8px; }
-    label { font-size: 0.78rem; color: var(--muted); }
+    label { font-size: 0.72rem; color: var(--muted); }
 
     /* ── MAIN AREA ── */
     main {
@@ -546,45 +543,44 @@
 </head>
 <body>
 
-<!-- ── NAVBAR ── -->
-<nav>
-  <div class="nav-brand">
-    <div class="dot"></div>
-    Pruebas Funcionales
+<!-- ── TOPBAR UNIFIÉE ── -->
+<div class="topbar">
+  <div class="topbar-nav">
+    <div class="nav-brand">
+      <div class="dot"></div>
+      Pruebas Funcionales
+    </div>
+    <button class="nav-tab active" id="tab-flash" onclick="switchPage('flash')">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      Flashcards
+    </button>
+    <button class="nav-tab" id="tab-quiz" onclick="switchPage('quiz')">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+      Quiz MCQ
+    </button>
   </div>
-  <button class="nav-tab active" id="tab-flash" onclick="switchPage('flash')">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-    Flashcards
-  </button>
-  <button class="nav-tab" id="tab-quiz" onclick="switchPage('quiz')">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
-    Quiz MCQ
-  </button>
-</nav>
-
-<!-- ══════════════════════════════
-     PAGE: FLASHCARDS
-══════════════════════════════ -->
-<div class="page active" id="page-flash">
-
-  <div class="subheader">
+  <div class="topbar-controls" id="flash-controls">
     <div class="progress-wrap">
       <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
       <span class="progress-label" id="progress-label">0 / 0</span>
     </div>
-  </div>
-
-  <div class="controls">
+    <div class="sep"></div>
     <label>Región:</label>
     <select id="filter-region"><option value="all">Todas las regiones</option></select>
     <label>Categoría:</label>
     <select id="filter-cat"><option value="all">Todas las categorías</option></select>
-    <div class="controls-right">
+    <div class="topbar-controls-right">
       <button id="btn-shuffle">🔀 Mezclar</button>
       <button id="btn-reset">↺ Reiniciar</button>
       <button class="primary" id="btn-review-hard">🔴 Solo difíciles</button>
     </div>
   </div>
+</div>
+
+<!-- ══════════════════════════════
+     PAGE: FLASHCARDS
+══════════════════════════════ -->
+<div class="page active" id="page-flash">
 
   <main>
     <div class="card-counter" id="card-counter"></div>
@@ -763,6 +759,8 @@ function switchPage(name) {
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('page-' + name).classList.add('active');
   document.getElementById('tab-' + name).classList.add('active');
+  // Affiche la barre de controls seulement sur Flashcards
+  document.getElementById('flash-controls').style.display = name === 'flash' ? '' : 'none';
 }
 
 // ══════════════════════════════
