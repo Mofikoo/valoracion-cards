@@ -4,152 +4,232 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pruebas Funcionales – Fisioterapia</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #13110f;
-      --surface:  #1d1a17;
-      --surface2: #272320;
-      --surface3: #31291f;
-      --border:   #3a3028;
-      --accent:   #d97b3a;
-      --accent2:  #e8a96a;
-      --accent-dim: rgba(217,123,58,0.15);
-      --green:    #5cb87a;
-      --amber:    #e8a96a;
-      --red:      #e06060;
-      --text:     #ede8e2;
-      --muted:    #8a7d70;
-      --radius:   14px;
+      --bg:         #121008;
+      --surface:    #1c1912;
+      --surface2:   #26221a;
+      --surface3:   #302b20;
+      --border:     #3c3526;
+      --border2:    #4a4130;
+      --accent:     #d97b3a;
+      --accent2:    #e8a96a;
+      --accent-dim: rgba(217,123,58,0.13);
+      --green:      #5cb87a;
+      --amber:      #e8a96a;
+      --red:        #e06060;
+      --text:       #ede8e0;
+      --muted:      #8a7d6a;
+      --muted2:     #6a5f50;
+      --radius:     12px;
     }
 
+    html, body { height: 100%; }
     body {
       font-family: 'DM Sans', system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
     }
 
-    /* ── TOPBAR : une seule barre fusionnée ── */
-    .topbar {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
+    /* ════════════════════════════
+       TOPBAR — deux niveaux
+    ════════════════════════════ */
+    #topbar {
       position: sticky;
       top: 0;
-      z-index: 50;
-    }
-
-    /* Ligne 1 : brand + onglets */
-    .topbar-nav {
-      display: flex;
-      align-items: stretch;
-      height: 48px;
-      padding: 0 20px;
-      gap: 0;
+      z-index: 60;
+      background: var(--surface);
       border-bottom: 1px solid var(--border);
     }
-    .nav-brand {
+
+    .topbar-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 0 20px;
+      height: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand-logo {
       display: flex;
       align-items: center;
       gap: 8px;
-      padding-right: 24px;
       font-weight: 700;
-      font-size: 0.88rem;
-      color: var(--accent2);
+      font-size: 0.9rem;
       letter-spacing: -0.01em;
+      color: var(--text);
       white-space: nowrap;
     }
-    .nav-brand .dot {
-      width: 7px; height: 7px;
+    .brand-pip {
+      width: 8px; height: 8px;
       border-radius: 50%;
       background: var(--accent);
+      box-shadow: 0 0 6px rgba(217,123,58,0.6);
       flex-shrink: 0;
     }
-    .nav-tab {
+    .brand-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+      font-weight: 400;
+      margin-left: 2px;
+    }
+    .topbar-progress {
       display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 0 16px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--muted);
-      cursor: pointer;
-      border: none;
-      background: none;
-      border-bottom: 2px solid transparent;
-      margin-bottom: -1px; /* couvre la border-bottom du parent */
-      transition: color 0.2s, border-color 0.2s;
+      gap: 10px;
+      flex: 1;
+      max-width: 260px;
+      margin-left: auto;
+    }
+
+    /* ── LANG PICKER ── */
+    .lang-wrap {
+      position: relative;
+      margin-left: 12px;
+      flex-shrink: 0;
+    }
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 7px;
+      border: 1px solid var(--border2);
+      background: var(--surface2);
+      color: var(--text);
       font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: border-color 0.15s;
       white-space: nowrap;
     }
-    .nav-tab:hover { color: var(--text); }
-    .nav-tab.active { color: var(--accent2); border-bottom-color: var(--accent); }
-    .nav-tab svg { flex-shrink: 0; }
+    .lang-btn:hover { border-color: var(--accent); }
+    .lang-btn .lang-flag { font-size: 0.9rem; }
+    .lang-btn svg { opacity: 0.6; flex-shrink: 0; }
+    .lang-btn.translating { color: var(--accent2); border-color: var(--accent); }
+    .lang-btn.translating svg { animation: spin 1s linear infinite; opacity: 1; }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* Ligne 2 : controls flashcard */
-    .topbar-controls {
+    .lang-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: 9px;
+      overflow: hidden;
+      min-width: 140px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      z-index: 100;
+    }
+    .lang-dropdown.open { display: block; }
+    .lang-option {
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 7px 20px;
-      flex-wrap: wrap;
+      padding: 9px 14px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      cursor: pointer;
+      transition: background 0.12s, color 0.12s;
+      border: none;
+      background: none;
+      width: 100%;
+      font-family: inherit;
+      text-align: left;
     }
-    .topbar-controls-right { margin-left: auto; display: flex; gap: 6px; align-items: center; }
-
-    /* Progress inline dans les controls */
-    .progress-wrap {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .progress-bar {
-      width: 100px; height: 3px;
-      background: var(--border);
-      border-radius: 99px; overflow: hidden;
-    }
-    .progress-fill {
+    .lang-option:hover { background: var(--surface2); color: var(--text); }
+    .lang-option.active { color: var(--accent2); background: var(--accent-dim); }
+    .lang-option .flag { font-size: 1rem; }
+    .prog-bar { flex: 1; height: 3px; background: var(--border2); border-radius: 99px; overflow: hidden; }
+    .prog-fill {
       height: 100%;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
       border-radius: 99px;
       transition: width 0.4s ease;
+      width: 0%;
     }
-    .progress-label { font-size: 0.72rem; color: var(--muted); white-space: nowrap; font-family: 'DM Mono', monospace; }
+    .prog-label { font-size: 0.7rem; color: var(--muted); font-family: 'DM Mono', monospace; white-space: nowrap; }
 
-    /* Séparateur vertical */
-    .sep { width: 1px; height: 18px; background: var(--border); flex-shrink: 0; }
+    .topbar-tabs {
+      display: flex;
+      align-items: stretch;
+      padding: 0 20px;
+      height: 38px;
+      gap: 2px;
+    }
+    .tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 14px;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--muted);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+    .tab-btn svg { opacity: 0.6; transition: opacity 0.15s; }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn:hover svg { opacity: 0.9; }
+    .tab-btn.active { color: var(--accent2); border-bottom-color: var(--accent); }
+    .tab-btn.active svg { opacity: 1; }
 
-    /* ── PAGE SECTIONS ── */
+    /* ════════════════════════════
+       PAGES
+    ════════════════════════════ */
     .page { display: none; flex: 1; flex-direction: column; }
     .page.active { display: flex; }
 
-    select, button {
+    /* ════════════════════════════
+       FLASHCARD PAGE
+    ════════════════════════════ */
+    .fc-controls {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .fc-controls label { font-size: 0.72rem; color: var(--muted); }
+    .fc-controls select,
+    .fc-btn {
       font-family: inherit;
       font-size: 0.78rem;
       border-radius: 7px;
-      border: 1px solid var(--border);
+      border: 1px solid var(--border2);
       background: var(--surface2);
       color: var(--text);
       padding: 5px 10px;
       cursor: pointer;
-      transition: border-color 0.2s, background 0.2s;
-      line-height: 1.4;
+      transition: border-color 0.15s;
     }
-    select:hover, button:hover { border-color: var(--accent); }
-    button.primary {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
+    .fc-controls select:hover, .fc-btn:hover { border-color: var(--accent); }
+    .fc-btn-primary {
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+      color: #fff !important;
       font-weight: 600;
     }
-    button.primary:hover { background: var(--accent2); border-color: var(--accent2); color: #1d1a17; }
-    label { font-size: 0.72rem; color: var(--muted); }
+    .fc-btn-primary:hover { background: var(--accent2) !important; border-color: var(--accent2) !important; color: #1c1912 !important; }
+    .controls-right { margin-left: auto; display: flex; gap: 6px; }
 
-    /* ── MAIN AREA ── */
-    main {
+    .fc-main {
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -157,28 +237,22 @@
       padding: 28px 16px 48px;
       gap: 20px;
     }
-    .card-counter { font-size: 0.78rem; color: var(--muted); font-family: 'DM Mono', monospace; }
+    .card-counter { font-size: 0.72rem; color: var(--muted); font-family: 'DM Mono', monospace; }
 
-    /* ── FLASHCARD ── */
-    .card-scene {
-      width: 100%;
-      max-width: 700px;
-      perspective: 1200px;
-    }
-    .card {
+    .card-scene { width: 100%; max-width: 680px; perspective: 1200px; }
+    .card-3d {
       position: relative;
       width: 100%;
       transform-style: preserve-3d;
       transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
     }
-    .card.flipped { transform: rotateY(180deg); }
-
+    .card-3d.flipped { transform: rotateY(180deg); }
     .card-face {
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
       border-radius: var(--radius);
-      border: 1px solid var(--border);
+      border: 1px solid var(--border2);
       overflow: hidden;
     }
     .card-front {
@@ -189,14 +263,14 @@
       justify-content: center;
       text-align: center;
       padding: 52px 40px;
-      min-height: 320px;
+      min-height: 300px;
       position: relative;
     }
-    .card-front::before {
+    .card-front::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(217,123,58,0.08) 0%, transparent 65%);
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(217,123,58,0.07) 0%, transparent 100%);
       pointer-events: none;
     }
     .card-back {
@@ -205,420 +279,294 @@
       min-height: 100%;
       background: var(--surface);
       transform: rotateY(180deg);
-      padding: 24px 28px;
+      padding: 22px 26px;
     }
-
     .card-region-badge {
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      padding: 3px 10px;
-      border-radius: 99px;
-      margin-bottom: 18px;
+      font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--muted); background: var(--surface2); border: 1px solid var(--border2);
+      padding: 3px 10px; border-radius: 99px; margin-bottom: 16px;
     }
-    .card-num { font-size: 0.68rem; color: var(--muted); margin-bottom: 6px; font-family: 'DM Mono', monospace; }
-    .card-name { font-size: 1.5rem; font-weight: 700; line-height: 1.25; color: var(--text); margin-bottom: 10px; }
-    .card-category { font-size: 0.78rem; color: var(--accent2); font-weight: 500; }
-    .flip-hint {
-      margin-top: 24px;
-      font-size: 0.68rem;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
+    .card-num { font-size: 0.65rem; color: var(--muted2); margin-bottom: 6px; font-family: 'DM Mono', monospace; }
+    .card-name { font-size: 1.45rem; font-weight: 700; line-height: 1.25; margin-bottom: 10px; }
+    .card-category { font-size: 0.75rem; color: var(--accent2); font-weight: 500; }
+    .flip-hint { margin-top: 22px; font-size: 0.65rem; color: var(--muted2); display: flex; align-items: center; gap: 5px; }
 
-    /* ── BACK SECTIONS ── */
-    .back-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 16px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border);
-    }
-    .back-title { font-size: 1.05rem; font-weight: 700; line-height: 1.3; }
-    .back-meta { font-size: 0.7rem; color: var(--accent2); margin-top: 3px; }
+    .back-header { margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .back-title { font-size: 1rem; font-weight: 700; line-height: 1.3; }
+    .back-meta  { font-size: 0.68rem; color: var(--accent2); margin-top: 3px; }
 
-    .sections { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    @media (max-width: 560px) { .sections { grid-template-columns: 1fr; } }
-
-    .section {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 12px 14px;
-    }
+    .sections { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+    @media (max-width: 540px) { .sections { grid-template-columns: 1fr; } }
+    .section { background: var(--surface2); border: 1px solid var(--border); border-radius: 9px; padding: 11px 13px; }
     .section.full { grid-column: 1 / -1; }
     .section-label {
-      font-size: 0.62rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      font-weight: 600;
-      margin-bottom: 7px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
+      font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--muted); font-weight: 600; margin-bottom: 6px;
+      display: flex; align-items: center; gap: 5px;
     }
-    .section-label .dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
-    .section-content { font-size: 0.81rem; line-height: 1.55; color: var(--text); white-space: pre-line; }
-    .section.interpretation .section-label .dot { background: var(--green); }
+    .sdot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .section.interp .sdot { background: var(--green); }
+    .section-content { font-size: 0.8rem; line-height: 1.55; white-space: pre-line; }
 
-    /* ── NAVIGATION ── */
-    .nav-row { display: flex; align-items: center; gap: 12px; }
-    .nav-btn {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text);
-      font-size: 1rem;
+    .card-nav-row { display: flex; align-items: center; gap: 12px; }
+    .cnav-btn {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid var(--border2); background: var(--surface);
+      color: var(--text); font-size: 0.9rem;
       display: flex; align-items: center; justify-content: center;
-      cursor: pointer;
-      transition: background 0.2s, border-color 0.2s;
+      cursor: pointer; font-family: inherit;
+      transition: border-color 0.15s, background 0.15s;
     }
-    .nav-btn:hover { background: var(--surface2); border-color: var(--accent); }
-    .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .cnav-btn:hover { background: var(--surface2); border-color: var(--accent); }
+    .cnav-btn:disabled { opacity: 0.25; cursor: not-allowed; }
 
-    /* ── RATING ── */
-    .rating { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .rating-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
     .rating-btn {
-      padding: 7px 18px;
-      border-radius: 99px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      border: 1.5px solid;
-      cursor: pointer;
-      font-family: inherit;
+      padding: 6px 16px; border-radius: 99px; font-size: 0.76rem; font-weight: 600;
+      border: 1.5px solid; cursor: pointer; font-family: inherit; background: transparent;
       transition: all 0.15s;
     }
-    .rating-btn.easy   { border-color: var(--green); color: var(--green); background: transparent; }
-    .rating-btn.medium { border-color: var(--amber); color: var(--amber); background: transparent; }
-    .rating-btn.hard   { border-color: var(--red);   color: var(--red);   background: transparent; }
+    .rating-btn.easy   { border-color: var(--green); color: var(--green); }
+    .rating-btn.medium { border-color: var(--amber); color: var(--amber); }
+    .rating-btn.hard   { border-color: var(--red);   color: var(--red); }
     .rating-btn.easy:hover   { background: var(--green); color: #0d1f14; }
     .rating-btn.medium:hover { background: var(--amber); color: #1d160a; }
     .rating-btn.hard:hover   { background: var(--red);   color: #fff; }
 
-    /* ── DONE SCREEN ── */
     #done-screen {
-      display: none; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 16px; padding: 48px 24px;
-      text-align: center; max-width: 440px; width: 100%;
+      display: none; flex-direction: column; align-items: center;
+      gap: 14px; padding: 40px 24px; text-align: center; max-width: 420px; width: 100%;
     }
-    #done-screen h2 { font-size: 1.7rem; }
-    #done-screen p  { color: var(--muted); line-height: 1.6; font-size: 0.9rem; }
-    .stats { display: flex; gap: 24px; margin: 8px 0; }
+    #done-screen h2 { font-size: 1.6rem; }
+    #done-screen p  { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
+    .stats { display: flex; gap: 24px; }
     .stat { text-align: center; }
-    .stat-n { font-size: 2rem; font-weight: 700; font-family: 'DM Mono', monospace; }
-    .stat-n.easy   { color: var(--green); }
-    .stat-n.medium { color: var(--amber); }
-    .stat-n.hard   { color: var(--red); }
-    .stat-l { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+    .stat-n { font-size: 1.9rem; font-weight: 700; font-family: 'DM Mono', monospace; }
+    .stat-n.easy { color: var(--green); } .stat-n.medium { color: var(--amber); } .stat-n.hard { color: var(--red); }
+    .stat-l { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+    .done-btns { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
 
-    /* ── TOAST ── */
     #toast {
-      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
-      background: var(--surface2); border: 1px solid var(--border);
-      padding: 9px 18px; border-radius: 99px;
-      font-size: 0.78rem; color: var(--text);
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.3s; z-index: 100;
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      background: var(--surface2); border: 1px solid var(--border2);
+      padding: 8px 16px; border-radius: 99px; font-size: 0.76rem; color: var(--text);
+      opacity: 0; pointer-events: none; transition: opacity 0.25s; z-index: 200;
     }
     #toast.show { opacity: 1; }
 
-    /* ══════════════════════════════
-       QUIZ PAGE
-    ══════════════════════════════ */
+    /* ════════════════════════════
+       QUIZ
+    ════════════════════════════ */
     .quiz-wrap {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 28px 16px 48px;
-      gap: 0;
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; padding: 28px 16px 48px; gap: 20px;
     }
-
     .quiz-setup {
-      width: 100%;
-      max-width: 680px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      margin-bottom: 24px;
+      width: 100%; max-width: 660px;
+      background: var(--surface); border: 1px solid var(--border2);
+      border-radius: var(--radius); padding: 22px 24px;
     }
-    .quiz-setup h2 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--accent2);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .quiz-setup-title {
+      font-size: 0.85rem; font-weight: 700; color: var(--accent2);
+      margin-bottom: 18px; display: flex; align-items: center; gap: 8px;
     }
-    .quiz-setup-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 16px;
+    .quiz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; }
+    @media (max-width: 500px) { .quiz-grid { grid-template-columns: 1fr; } }
+    .quiz-field { display: flex; flex-direction: column; gap: 5px; }
+    .quiz-field label {
+      font-size: 0.65rem; text-transform: uppercase;
+      letter-spacing: 0.09em; color: var(--muted); font-weight: 600;
     }
-    @media (max-width: 540px) { .quiz-setup-grid { grid-template-columns: 1fr; } }
+    .quiz-field select {
+      font-family: inherit; font-size: 0.78rem; border-radius: 7px;
+      border: 1px solid var(--border2); background: var(--surface2);
+      color: var(--text); padding: 6px 10px; cursor: pointer; width: 100%;
+      transition: border-color 0.15s;
+    }
+    .quiz-field select:hover { border-color: var(--accent); }
 
-    .quiz-setup-group { display: flex; flex-direction: column; gap: 5px; }
-    .quiz-setup-group label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
-    .quiz-setup-group select { width: 100%; }
+    .qparams-label {
+      font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.09em;
+      color: var(--muted); font-weight: 600; margin-bottom: 8px;
+    }
+    .quiz-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 20px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 12px; border-radius: 99px; border: 1.5px solid var(--border2);
+      background: var(--surface2); font-size: 0.76rem; color: var(--muted);
+      cursor: pointer; font-family: inherit; transition: all 0.15s; user-select: none;
+    }
+    .chip:hover { border-color: var(--accent); color: var(--text); }
+    .chip.on { border-color: var(--accent); color: var(--accent2); background: var(--accent-dim); }
+    .chip-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
 
-    .quiz-param-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-    .quiz-param-chip {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      border-radius: 99px;
-      border: 1.5px solid var(--border);
-      background: var(--surface2);
-      font-size: 0.78rem;
-      color: var(--muted);
-      cursor: pointer;
-      transition: all 0.15s;
-      font-family: inherit;
-      user-select: none;
-    }
-    .quiz-param-chip:hover { border-color: var(--accent); color: var(--text); }
-    .quiz-param-chip.selected { border-color: var(--accent); color: var(--accent2); background: var(--accent-dim); }
-    .quiz-param-chip .chip-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: currentColor; flex-shrink: 0;
-    }
+    .quiz-launch-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .quiz-avail { font-size: 0.75rem; color: var(--muted); }
 
-    .quiz-start-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-    .quiz-start-row .q-count { font-size: 0.78rem; color: var(--muted); }
-
-    /* ── QUESTION CARD ── */
-    .quiz-card {
-      width: 100%;
-      max-width: 680px;
-      display: none;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .quiz-card.visible { display: flex; }
-
-    .quiz-progress-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .quiz-prog-bar {
-      flex: 1; height: 4px;
-      background: var(--border); border-radius: 99px; overflow: hidden;
-    }
-    .quiz-prog-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      border-radius: 99px;
-      transition: width 0.4s ease;
-    }
-    .quiz-prog-label { font-size: 0.72rem; color: var(--muted); font-family: 'DM Mono', monospace; white-space: nowrap; }
-
-    .quiz-question-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 22px;
-    }
-    .quiz-question-tag {
-      font-size: 0.62rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .quiz-question-text {
-      font-size: 0.92rem;
-      line-height: 1.55;
-      color: var(--text);
-      font-weight: 500;
-    }
-    .quiz-question-hint {
-      font-size: 0.7rem;
-      color: var(--muted);
-      margin-top: 10px;
-    }
-
-    .quiz-choices {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .quiz-choice {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 13px 16px;
-      border-radius: 10px;
-      border: 1.5px solid var(--border);
-      background: var(--surface);
-      cursor: pointer;
+    .gbtn {
+      font-family: inherit; font-size: 0.78rem; border-radius: 7px;
+      border: 1px solid var(--border2); background: var(--surface2);
+      color: var(--text); padding: 6px 14px; cursor: pointer;
       transition: border-color 0.15s, background 0.15s;
-      font-size: 0.83rem;
-      line-height: 1.4;
-      color: var(--text);
-      font-family: inherit;
-      text-align: left;
     }
-    .quiz-choice:hover { border-color: var(--accent); background: var(--surface2); }
-    .quiz-choice.selected { border-color: var(--accent); background: var(--accent-dim); }
-    .quiz-choice.correct  { border-color: var(--green) !important; background: rgba(92,184,122,0.1) !important; color: var(--green); }
-    .quiz-choice.wrong    { border-color: var(--red) !important;   background: rgba(224,96,96,0.1) !important;  color: var(--red);   opacity: 0.8; }
-    .quiz-choice.revealed { cursor: default; }
+    .gbtn:hover { border-color: var(--accent); }
+    .gbtn.primary {
+      background: var(--accent); border-color: var(--accent);
+      color: #fff; font-weight: 600;
+    }
+    .gbtn.primary:hover { background: var(--accent2); border-color: var(--accent2); color: #1c1912; }
+
+    .quiz-qcard { width: 100%; max-width: 660px; display: none; flex-direction: column; gap: 14px; }
+    .quiz-qcard.visible { display: flex; }
+
+    .qprog-row { display: flex; align-items: center; gap: 10px; }
+    .qprog-bar { flex: 1; height: 3px; background: var(--border2); border-radius: 99px; overflow: hidden; }
+    .qprog-fill {
+      height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 99px; transition: width 0.35s ease;
+    }
+    .qprog-label { font-size: 0.7rem; color: var(--muted); font-family: 'DM Mono', monospace; white-space: nowrap; }
+
+    .qbox { background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius); padding: 18px 20px; }
+    .q-tag { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-weight: 600; margin-bottom: 7px; }
+    .q-text { font-size: 0.88rem; line-height: 1.55; font-weight: 500; white-space: pre-line; }
+    .q-hint { font-size: 0.68rem; color: var(--muted); margin-top: 9px; }
+
+    .q-choices { display: flex; flex-direction: column; gap: 7px; }
+    .q-choice {
+      display: flex; align-items: flex-start; gap: 11px;
+      padding: 11px 14px; border-radius: 9px; border: 1.5px solid var(--border2);
+      background: var(--surface); cursor: pointer; font-family: inherit;
+      font-size: 0.8rem; line-height: 1.45; color: var(--text); text-align: left;
+      transition: border-color 0.12s, background 0.12s;
+    }
+    .q-choice:hover { border-color: var(--accent); background: var(--surface2); }
+    .q-choice.sel  { border-color: var(--accent);  background: var(--accent-dim); }
+    .q-choice.ok   { border-color: var(--green) !important; background: rgba(92,184,122,0.09) !important; color: var(--green); }
+    .q-choice.bad  { border-color: var(--red) !important;   background: rgba(224,96,96,0.09) !important;  color: var(--red); opacity: 0.8; }
+    .q-choice.done { cursor: default; }
     .choice-letter {
-      width: 22px; height: 22px;
-      border-radius: 50%;
-      border: 1.5px solid var(--border);
-      background: var(--surface2);
-      font-size: 0.68rem;
-      font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
+      width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--border2);
+      background: var(--surface2); font-size: 0.63rem; font-weight: 700;
       font-family: 'DM Mono', monospace;
-      transition: all 0.15s;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      transition: all 0.12s;
     }
-    .quiz-choice.selected .choice-letter { border-color: var(--accent); background: var(--accent); color: #fff; }
-    .quiz-choice.correct  .choice-letter { border-color: var(--green); background: var(--green); color: #0d1f14; }
-    .quiz-choice.wrong    .choice-letter { border-color: var(--red);   background: var(--red);   color: #fff; }
+    .q-choice.sel .choice-letter { border-color: var(--accent); background: var(--accent); color: #fff; }
+    .q-choice.ok  .choice-letter { border-color: var(--green);  background: var(--green);  color: #0d1f14; }
+    .q-choice.bad .choice-letter { border-color: var(--red);    background: var(--red);    color: #fff; }
 
-    .quiz-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-    .quiz-feedback {
-      flex: 1;
-      font-size: 0.8rem;
-      line-height: 1.4;
-      color: var(--muted);
-      display: none;
-    }
-    .quiz-feedback.show { display: block; }
-    .quiz-feedback.ok  { color: var(--green); }
-    .quiz-feedback.bad { color: var(--red); }
+    .q-actions { display: flex; gap: 8px; align-items: center; }
+    .q-feedback { flex: 1; font-size: 0.78rem; display: none; }
+    .q-feedback.show { display: block; }
+    .q-feedback.ok  { color: var(--green); }
+    .q-feedback.bad { color: var(--red); }
 
-    /* ── QUIZ DONE ── */
     .quiz-done {
-      width: 100%; max-width: 480px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px 24px;
-      text-align: center;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
+      width: 100%; max-width: 420px; background: var(--surface);
+      border: 1px solid var(--border2); border-radius: var(--radius);
+      padding: 32px 24px; text-align: center; align-items: center;
+      gap: 14px; display: none; flex-direction: column;
     }
     .quiz-done.visible { display: flex; }
-    .quiz-done h2 { font-size: 1.5rem; }
-    .quiz-score { font-size: 3rem; font-weight: 700; font-family: 'DM Mono', monospace; color: var(--accent2); }
-    .quiz-score span { font-size: 1.2rem; color: var(--muted); font-weight: 400; }
-    .quiz-done p { color: var(--muted); font-size: 0.85rem; }
+    .quiz-done h2 { font-size: 1.4rem; }
+    .qscore { font-size: 2.8rem; font-weight: 700; font-family: 'DM Mono', monospace; color: var(--accent2); }
+    .qscore span { font-size: 1.1rem; color: var(--muted); font-weight: 400; }
+    .quiz-done p { color: var(--muted); font-size: 0.82rem; }
   </style>
 </head>
 <body>
 
-<!-- ── TOPBAR UNIFIÉE ── -->
-<div class="topbar">
-  <div class="topbar-nav">
-    <div class="nav-brand">
-      <div class="dot"></div>
+<!-- ════════════════════════════
+     TOPBAR
+════════════════════════════ -->
+<div id="topbar">
+  <div class="topbar-brand-row">
+    <div class="brand-logo">
+      <div class="brand-pip"></div>
       Pruebas Funcionales
+      <span class="brand-sub">Fisioterapia</span>
     </div>
-    <button class="nav-tab active" id="tab-flash" onclick="switchPage('flash')">
+    <div class="topbar-progress" id="topbar-progress">
+      <div class="prog-bar"><div class="prog-fill" id="progress-fill"></div></div>
+      <span class="prog-label" id="progress-label">0 / 0</span>
+    </div>
+    <div class="lang-wrap" id="lang-wrap">
+      <button class="lang-btn" id="lang-btn" onclick="toggleLangMenu()">
+        <span class="lang-flag" id="lang-flag">🇪🇸</span>
+        <span id="lang-label">ES</span>
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="lang-dropdown" id="lang-dropdown">
+        <button class="lang-option active" data-lang="es" onclick="setLang('es')"><span class="flag">🇪🇸</span> Español</button>
+        <button class="lang-option" data-lang="fr" onclick="setLang('fr')"><span class="flag">🇫🇷</span> Français</button>
+        <button class="lang-option" data-lang="en" onclick="setLang('en')"><span class="flag">🇬🇧</span> English</button>
+      </div>
+    </div>
+  </div>
+  <div class="topbar-tabs">
+    <button class="tab-btn active" id="tab-flash" onclick="switchPage('flash')">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       Flashcards
     </button>
-    <button class="nav-tab" id="tab-quiz" onclick="switchPage('quiz')">
+    <button class="tab-btn" id="tab-quiz" onclick="switchPage('quiz')">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
       Quiz MCQ
     </button>
   </div>
-  <div class="topbar-controls" id="flash-controls">
-    <div class="progress-wrap">
-      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
-      <span class="progress-label" id="progress-label">0 / 0</span>
-    </div>
-    <div class="sep"></div>
-    <label>Región:</label>
-    <select id="filter-region"><option value="all">Todas las regiones</option></select>
-    <label>Categoría:</label>
-    <select id="filter-cat"><option value="all">Todas las categorías</option></select>
-    <div class="topbar-controls-right">
-      <button id="btn-shuffle">🔀 Mezclar</button>
-      <button id="btn-reset">↺ Reiniciar</button>
-      <button class="primary" id="btn-review-hard">🔴 Solo difíciles</button>
-    </div>
-  </div>
 </div>
 
-<!-- ══════════════════════════════
+<!-- ════════════════════════════
      PAGE: FLASHCARDS
-══════════════════════════════ -->
+════════════════════════════ -->
 <div class="page active" id="page-flash">
+  <div class="fc-controls">
+    <label>Región:</label>
+    <select id="filter-region"><option value="all">Todas</option></select>
+    <label>Categoría:</label>
+    <select id="filter-cat"><option value="all">Todas</option></select>
+    <div class="controls-right">
+      <button class="fc-btn" id="btn-shuffle">🔀 Mezclar</button>
+      <button class="fc-btn" id="btn-reset">↺ Reiniciar</button>
+      <button class="fc-btn fc-btn-primary" id="btn-review-hard">🔴 Solo difíciles</button>
+    </div>
+  </div>
 
-  <main>
+  <div class="fc-main">
     <div class="card-counter" id="card-counter"></div>
 
     <div class="card-scene" id="card-scene">
-      <div class="card" id="card" tabindex="0" role="button" aria-label="Voltear tarjeta">
-        <div class="card-face card-front" id="card-front">
+      <div class="card-3d" id="card" tabindex="0" role="button" aria-label="Voltear tarjeta">
+        <div class="card-face card-front">
           <div class="card-region-badge" id="front-region"></div>
           <div class="card-num" id="front-num"></div>
           <div class="card-name" id="front-name"></div>
           <div class="card-category" id="front-category"></div>
           <div class="flip-hint">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6M3 12a9 9 0 0 1 15-6.7L21 8M3 22v-6h6M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6M3 12a9 9 0 0 1 15-6.7L21 8M3 22v-6h6M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
             Clic para ver el reverso
           </div>
         </div>
         <div class="card-face card-back" id="card-back">
           <div class="back-header">
-            <div>
-              <div class="back-title" id="back-name"></div>
-              <div class="back-meta" id="back-meta"></div>
-            </div>
+            <div class="back-title" id="back-name"></div>
+            <div class="back-meta" id="back-meta"></div>
           </div>
           <div class="sections">
             <div class="section">
-              <div class="section-label"><span class="dot"></span>Posición del paciente</div>
+              <div class="section-label"><span class="sdot"></span>Posición paciente</div>
               <div class="section-content" id="back-pos-patient"></div>
             </div>
             <div class="section">
-              <div class="section-label"><span class="dot"></span>Posición del terapeuta</div>
+              <div class="section-label"><span class="sdot"></span>Posición terapeuta</div>
               <div class="section-content" id="back-pos-therapist"></div>
             </div>
             <div class="section full">
-              <div class="section-label"><span class="dot"></span>Ejecución del test</div>
+              <div class="section-label"><span class="sdot"></span>Ejecución</div>
               <div class="section-content" id="back-execution"></div>
             </div>
-            <div class="section interpretation full">
-              <div class="section-label"><span class="dot"></span>Interpretación</div>
+            <div class="section interp full">
+              <div class="section-label"><span class="sdot"></span>Interpretación</div>
               <div class="section-content" id="back-interpretation"></div>
             </div>
           </div>
@@ -626,52 +574,50 @@
       </div>
     </div>
 
-    <div class="nav-row">
-      <button class="nav-btn" id="btn-prev" title="Anterior (←)">←</button>
-      <div class="rating" id="rating" style="display:none">
+    <div class="card-nav-row">
+      <button class="cnav-btn" id="btn-prev">←</button>
+      <div class="rating-row" id="rating" style="display:none">
         <button class="rating-btn easy"   id="btn-easy">✅ Fácil</button>
         <button class="rating-btn medium" id="btn-medium">⚠️ Regular</button>
         <button class="rating-btn hard"   id="btn-hard">❌ Difícil</button>
       </div>
-      <button class="nav-btn" id="btn-next" title="Siguiente (→)">→</button>
+      <button class="cnav-btn" id="btn-next">→</button>
     </div>
 
     <div id="done-screen">
-      <div style="font-size:2.5rem">🎉</div>
+      <div style="font-size:2.2rem">🎉</div>
       <h2>¡Sesión completada!</h2>
-      <p>Has revisado todas las tarjetas de esta sesión.</p>
+      <p>Has revisado todas las tarjetas.</p>
       <div class="stats">
         <div class="stat"><div class="stat-n easy" id="done-easy">0</div><div class="stat-l">Fácil</div></div>
         <div class="stat"><div class="stat-n medium" id="done-medium">0</div><div class="stat-l">Regular</div></div>
         <div class="stat"><div class="stat-n hard" id="done-hard">0</div><div class="stat-l">Difícil</div></div>
       </div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
-        <button class="primary" id="btn-restart-done">↺ Repetir sesión</button>
-        <button id="btn-hard-done">🔴 Repasar difíciles</button>
+      <div class="done-btns">
+        <button class="fc-btn fc-btn-primary" id="btn-restart-done">↺ Repetir sesión</button>
+        <button class="fc-btn" id="btn-hard-done">🔴 Solo difíciles</button>
       </div>
     </div>
-  </main>
+  </div>
 </div>
 
-<!-- ══════════════════════════════
-     PAGE: QUIZ MCQ
-══════════════════════════════ -->
+<!-- ════════════════════════════
+     PAGE: QUIZ
+════════════════════════════ -->
 <div class="page" id="page-quiz">
   <div class="quiz-wrap">
 
-    <!-- Setup panel -->
     <div class="quiz-setup" id="quiz-setup">
-      <h2>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+      <div class="quiz-setup-title">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
         Configurar Quiz
-      </h2>
-
-      <div class="quiz-setup-grid">
-        <div class="quiz-setup-group">
+      </div>
+      <div class="quiz-grid">
+        <div class="quiz-field">
           <label>Región</label>
           <select id="quiz-filter-region"><option value="all">Todas las regiones</option></select>
         </div>
-        <div class="quiz-setup-group">
+        <div class="quiz-field">
           <label>N.º de preguntas</label>
           <select id="quiz-count">
             <option value="5">5 preguntas</option>
@@ -681,66 +627,47 @@
           </select>
         </div>
       </div>
-
-      <div class="quiz-setup-group" style="margin-bottom:14px">
-        <label style="margin-bottom:6px;display:block">¿Qué se pregunta? (selecciona uno o varios)</label>
-        <div class="quiz-param-list" id="quiz-param-list">
-          <button class="quiz-param-chip selected" data-param="name">
-            <span class="chip-dot"></span> Nombre del test
-          </button>
-          <button class="quiz-param-chip selected" data-param="posPatient">
-            <span class="chip-dot"></span> Posición paciente
-          </button>
-          <button class="quiz-param-chip selected" data-param="posTherapist">
-            <span class="chip-dot"></span> Posición terapeuta
-          </button>
-          <button class="quiz-param-chip selected" data-param="execution">
-            <span class="chip-dot"></span> Ejecución
-          </button>
-          <button class="quiz-param-chip selected" data-param="interpretation">
-            <span class="chip-dot"></span> Cuando es positivo
-          </button>
-        </div>
+      <div class="qparams-label">¿Qué se pregunta?</div>
+      <div class="quiz-chips" id="quiz-chips">
+        <button class="chip on" data-param="name"><span class="chip-dot"></span>Nombre del test</button>
+        <button class="chip on" data-param="posPatient"><span class="chip-dot"></span>Posición paciente</button>
+        <button class="chip on" data-param="posTherapist"><span class="chip-dot"></span>Posición terapeuta</button>
+        <button class="chip on" data-param="execution"><span class="chip-dot"></span>Ejecución</button>
+        <button class="chip on" data-param="interpretation"><span class="chip-dot"></span>Cuando es positivo</button>
       </div>
-
-      <div class="quiz-start-row">
-        <button class="primary" id="btn-start-quiz">▶ Empezar Quiz</button>
-        <span class="q-count" id="quiz-available-count"></span>
+      <div class="quiz-launch-row">
+        <button class="gbtn primary" id="btn-start-quiz">▶ Empezar</button>
+        <span class="quiz-avail" id="quiz-avail"></span>
       </div>
     </div>
 
-    <!-- Question card -->
-    <div class="quiz-card" id="quiz-card">
-      <div class="quiz-progress-row">
-        <div class="quiz-prog-bar"><div class="quiz-prog-fill" id="quiz-prog-fill" style="width:0%"></div></div>
-        <span class="quiz-prog-label" id="quiz-prog-label">0 / 0</span>
-        <button style="margin-left:8px" onclick="endQuiz()">✕ Salir</button>
+    <div class="quiz-qcard" id="quiz-qcard">
+      <div class="qprog-row">
+        <div class="qprog-bar"><div class="qprog-fill" id="qprog-fill"></div></div>
+        <span class="qprog-label" id="qprog-label">0 / 0</span>
+        <button class="gbtn" style="margin-left:6px;padding:4px 10px;font-size:0.72rem" onclick="endQuiz()">✕ Salir</button>
       </div>
-
-      <div class="quiz-question-box">
-        <div class="quiz-question-tag" id="quiz-q-tag"></div>
-        <div class="quiz-question-text" id="quiz-q-text"></div>
-        <div class="quiz-question-hint" id="quiz-q-hint"></div>
+      <div class="qbox">
+        <div class="q-tag"  id="q-tag"></div>
+        <div class="q-text" id="q-text"></div>
+        <div class="q-hint" id="q-hint"></div>
       </div>
-
-      <div class="quiz-choices" id="quiz-choices"></div>
-
-      <div class="quiz-actions">
-        <div class="quiz-feedback" id="quiz-feedback"></div>
-        <button class="primary" id="btn-quiz-validate" style="margin-left:auto">Validar</button>
-        <button id="btn-quiz-next" style="display:none">Siguiente →</button>
+      <div class="q-choices" id="q-choices"></div>
+      <div class="q-actions">
+        <div class="q-feedback" id="q-feedback"></div>
+        <button class="gbtn primary" id="btn-validate" style="margin-left:auto">Validar</button>
+        <button class="gbtn" id="btn-qnext" style="display:none">Siguiente →</button>
       </div>
     </div>
 
-    <!-- Quiz done -->
     <div class="quiz-done" id="quiz-done">
-      <div style="font-size:2.5rem">🏆</div>
+      <div style="font-size:2.2rem">🏆</div>
       <h2>Quiz completado</h2>
-      <div class="quiz-score" id="quiz-score-display">0 <span>/ 0</span></div>
-      <p id="quiz-score-msg"></p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:4px">
-        <button class="primary" id="btn-quiz-restart">↺ Repetir</button>
-        <button onclick="backToSetup()">⚙ Nueva config.</button>
+      <div class="qscore" id="qscore">0 <span>/ 0</span></div>
+      <p id="qscore-msg"></p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
+        <button class="gbtn primary" id="btn-quiz-restart">↺ Repetir</button>
+        <button class="gbtn" onclick="backToSetup()">⚙ Nueva config.</button>
       </div>
     </div>
 
@@ -751,78 +678,62 @@
 
 <script src="cards-data.js"></script>
 <script>
-// ══════════════════════════════
-// PAGE SWITCHING
-// ══════════════════════════════
+// ═══════════════════════════════
+// PAGE SWITCH
+// ═══════════════════════════════
 function switchPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
   document.getElementById('page-' + name).classList.add('active');
   document.getElementById('tab-' + name).classList.add('active');
-  // Affiche la barre de controls seulement sur Flashcards
-  document.getElementById('flash-controls').style.display = name === 'flash' ? '' : 'none';
+  document.getElementById('topbar-progress').style.display = name === 'flash' ? '' : 'none';
 }
 
-// ══════════════════════════════
-// FLASHCARD STATE
-// ══════════════════════════════
-let deck = [];
-let currentIndex = 0;
-let isFlipped = false;
+// ═══════════════════════════════
+// FLASHCARDS
+// ═══════════════════════════════
+let deck = [], currentIndex = 0, isFlipped = false;
 const ratings = {};
 let mode = 'all';
 
-const cardEl        = document.getElementById('card');
-const frontRegion   = document.getElementById('front-region');
-const frontNum      = document.getElementById('front-num');
-const frontName     = document.getElementById('front-name');
-const frontCat      = document.getElementById('front-category');
-const backName      = document.getElementById('back-name');
-const backMeta      = document.getElementById('back-meta');
-const backPosPat    = document.getElementById('back-pos-patient');
-const backPosTher   = document.getElementById('back-pos-therapist');
-const backExec      = document.getElementById('back-execution');
-const backInterp    = document.getElementById('back-interpretation');
-const ratingDiv     = document.getElementById('rating');
-const progressFill  = document.getElementById('progress-fill');
-const progressLabel = document.getElementById('progress-label');
-const cardCounter   = document.getElementById('card-counter');
-const doneScreen    = document.getElementById('done-screen');
-const cardScene     = document.getElementById('card-scene');
-const filterRegion  = document.getElementById('filter-region');
-const filterCat     = document.getElementById('filter-cat');
+const cardEl       = document.getElementById('card');
+const ratingDiv    = document.getElementById('rating');
+const progressFill = document.getElementById('progress-fill');
+const progressLbl  = document.getElementById('progress-label');
+const cardCounter  = document.getElementById('card-counter');
+const doneScreen   = document.getElementById('done-screen');
+const cardScene    = document.getElementById('card-scene');
+const filterRegion = document.getElementById('filter-region');
+const filterCat    = document.getElementById('filter-cat');
 
 function populateFilters() {
-  const regions = [...new Set(CARDS.map(c => c.region))];
+  const regions = [...new Set(CARDS.map(c => c.es.region))];
   regions.forEach(r => {
-    const o = document.createElement('option');
-    o.value = r; o.textContent = r;
-    filterRegion.appendChild(o);
-    // also quiz filter
-    const o2 = document.createElement('option');
-    o2.value = r; o2.textContent = r;
-    document.getElementById('quiz-filter-region').appendChild(o2);
+    const card = CARDS.find(c => c.es.region === r);
+    const label = card ? getCardData(card).region : r;
+    [filterRegion, document.getElementById('quiz-filter-region')].forEach(sel => {
+      const o = document.createElement('option');
+      o.value = r; o.textContent = label;
+      sel.appendChild(o);
+    });
   });
-  const cats = [...new Set(CARDS.map(c => c.category))].sort();
-  cats.forEach(c => {
+  const cats = [...new Set(CARDS.map(c => c.es.category))].sort();
+  cats.forEach(cat => {
     const o = document.createElement('option');
-    o.value = c; o.textContent = c;
+    o.value = cat; o.textContent = cat;
     filterCat.appendChild(o);
   });
-  updateQuizCount();
+  updateQuizAvail();
 }
 
 function buildDeck() {
-  const regionVal = filterRegion.value;
-  const catVal    = filterCat.value;
-  let filtered = CARDS.filter(c =>
-    (regionVal === 'all' || c.region === regionVal) &&
-    (catVal    === 'all' || c.category === catVal)
+  const rv = filterRegion.value, cv = filterCat.value;
+  let f = CARDS.filter(c =>
+    (rv === 'all' || c.es.region === rv) &&
+    (cv === 'all' || c.es.category === cv)
   );
-  if (mode === 'hard') filtered = filtered.filter(c => ratings[c.id] === 'hard');
-  deck = filtered;
-  currentIndex = 0;
-  showCard();
+  if (mode === 'hard') f = f.filter(c => ratings[c.id] === 'hard');
+  deck = f; currentIndex = 0; showCard();
 }
 
 function shuffle(arr) {
@@ -839,26 +750,26 @@ function showCard() {
   ratingDiv.style.display  = 'none';
 
   if (deck.length === 0) {
-    cardCounter.textContent = 'No hay tarjetas con estos filtros.';
+    cardCounter.textContent = t('no_cards');
     cardScene.style.display = 'none';
-    updateProgress();
-    return;
+    updateProgress(); return;
   }
   if (currentIndex >= deck.length) { showDone(); return; }
 
-  const c = deck[currentIndex];
-  frontRegion.textContent = c.region;
-  frontNum.textContent    = `Test nº ${c.num}`;
-  frontName.textContent   = c.name;
-  frontCat.textContent    = c.category;
-  backName.textContent    = c.name;
-  backMeta.textContent    = `${c.region}  ·  ${c.category}`;
-  backPosPat.textContent  = c.posPatient;
-  backPosTher.textContent = c.posTherapist;
-  backExec.textContent    = c.execution;
-  backInterp.textContent  = c.interpretation;
+  const raw = deck[currentIndex];
+  const c = getCardData(raw);
+  document.getElementById('front-region').textContent       = c.region;
+  document.getElementById('front-num').textContent          = t('test_no', raw.num);
+  document.getElementById('front-name').textContent         = c.name;
+  document.getElementById('front-category').textContent     = c.category;
+  document.getElementById('back-name').textContent          = c.name;
+  document.getElementById('back-meta').textContent          = `${c.region}  ·  ${c.category}`;
+  document.getElementById('back-pos-patient').textContent   = c.posPatient;
+  document.getElementById('back-pos-therapist').textContent = c.posTherapist;
+  document.getElementById('back-execution').textContent     = c.execution;
+  document.getElementById('back-interpretation').textContent = c.interpretation;
 
-  cardCounter.textContent = `Tarjeta ${currentIndex + 1} de ${deck.length}`;
+  cardCounter.textContent = t('card_of', currentIndex + 1, deck.length);
   updateProgress();
   document.getElementById('btn-prev').disabled = currentIndex === 0;
   document.getElementById('btn-next').disabled = false;
@@ -867,21 +778,16 @@ function showCard() {
 function updateProgress() {
   const rated = deck.filter(c => ratings[c.id]).length;
   const pct   = deck.length ? (rated / deck.length) * 100 : 0;
-  progressFill.style.width  = pct + '%';
-  progressLabel.textContent = `${rated} / ${deck.length}`;
+  progressFill.style.width = pct + '%';
+  progressLbl.textContent  = `${rated} / ${deck.length}`;
 }
 
 function flip() {
   isFlipped = !isFlipped;
   cardEl.classList.toggle('flipped', isFlipped);
   ratingDiv.style.display = isFlipped ? 'flex' : 'none';
-  adjustCardHeight();
-}
-
-function adjustCardHeight() {
   if (isFlipped) {
-    const backH = document.getElementById('card-back').scrollHeight;
-    cardEl.style.height = backH + 'px';
+    cardEl.style.height = document.getElementById('card-back').scrollHeight + 'px';
   } else {
     cardEl.style.height = '';
   }
@@ -899,307 +805,460 @@ function unflip(animate = true) {
 function rate(level) {
   const c = deck[currentIndex];
   if (c) ratings[c.id] = level;
-  currentIndex++;
-  showCard();
+  currentIndex++; showCard();
 }
 
 function showDone() {
-  cardScene.style.display = 'none';
+  cardScene.style.display  = 'none';
   doneScreen.style.display = 'flex';
-  cardCounter.textContent = '';
+  cardCounter.textContent  = '';
   const counts = { easy: 0, medium: 0, hard: 0 };
   deck.forEach(c => { if (ratings[c.id]) counts[ratings[c.id]]++; });
   document.getElementById('done-easy').textContent   = counts.easy;
   document.getElementById('done-medium').textContent = counts.medium;
   document.getElementById('done-hard').textContent   = counts.hard;
-  const hardCount = deck.filter(c => ratings[c.id] === 'hard').length;
-  document.getElementById('btn-hard-done').style.display = hardCount ? '' : 'none';
-  progressFill.style.width  = '100%';
-  progressLabel.textContent = `${deck.length} / ${deck.length}`;
+  document.getElementById('btn-hard-done').style.display =
+    deck.filter(c => ratings[c.id] === 'hard').length ? '' : 'none';
+  progressFill.style.width = '100%';
+  progressLbl.textContent  = `${deck.length} / ${deck.length}`;
 }
 
-function goNext() {
-  if (currentIndex < deck.length - 1 && !isFlipped) { currentIndex++; showCard(); }
-}
-function goPrev() {
-  if (currentIndex > 0) { currentIndex--; showCard(); }
-}
+function goNext() { if (currentIndex < deck.length - 1 && !isFlipped) { currentIndex++; showCard(); } }
+function goPrev() { if (currentIndex > 0) { currentIndex--; showCard(); } }
 
 let toastTimer;
 function toast(msg) {
   const el = document.getElementById('toast');
-  el.textContent = msg;
-  el.classList.add('show');
+  el.textContent = msg; el.classList.add('show');
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => el.classList.remove('show'), 2000);
 }
 
-// Events – flashcard
 cardEl.addEventListener('click', flip);
 cardEl.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }});
 document.getElementById('btn-prev').addEventListener('click', goPrev);
 document.getElementById('btn-next').addEventListener('click', () => { if (isFlipped) rate('medium'); else goNext(); });
-document.getElementById('btn-easy').addEventListener('click', () => rate('easy'));
+document.getElementById('btn-easy').addEventListener('click',   () => rate('easy'));
 document.getElementById('btn-medium').addEventListener('click', () => rate('medium'));
-document.getElementById('btn-hard').addEventListener('click', () => rate('hard'));
-document.getElementById('btn-shuffle').addEventListener('click', () => { shuffle(deck); currentIndex = 0; showCard(); toast('🔀 Mazo mezclado'); });
-document.getElementById('btn-reset').addEventListener('click', () => { Object.keys(ratings).forEach(k => delete ratings[k]); mode = 'all'; buildDeck(); toast('↺ Sesión reiniciada'); });
+document.getElementById('btn-hard').addEventListener('click',   () => rate('hard'));
+document.getElementById('btn-shuffle').addEventListener('click', () => { shuffle(deck); currentIndex = 0; showCard(); toast(t('toast_shuffle')); });
+document.getElementById('btn-reset').addEventListener('click', () => {
+  Object.keys(ratings).forEach(k => delete ratings[k]);
+  mode = 'all'; buildDeck(); toast(t('toast_reset'));
+});
 document.getElementById('btn-review-hard').addEventListener('click', () => {
-  const hardCount = CARDS.filter(c => ratings[c.id] === 'hard').length;
-  if (hardCount === 0) { toast('No hay tarjetas marcadas como difíciles aún.'); return; }
-  mode = 'hard'; buildDeck(); toast(`🔴 ${hardCount} tarjetas difíciles`);
+  const n = CARDS.filter(c => ratings[c.id] === 'hard').length;
+  if (!n) { toast(t('no_hard')); return; }
+  mode = 'hard'; buildDeck(); toast(t('toast_hard', n));
 });
 document.getElementById('btn-restart-done').addEventListener('click', () => { mode = 'all'; buildDeck(); });
 document.getElementById('btn-hard-done').addEventListener('click', () => { mode = 'hard'; buildDeck(); });
 filterRegion.addEventListener('change', buildDeck);
 filterCat.addEventListener('change', buildDeck);
 document.addEventListener('keydown', e => {
-  if (document.getElementById('page-flash').classList.contains('active')) {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { if (isFlipped) rate('medium'); else goNext(); }
-    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') goPrev();
-    else if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); flip(); }
-    else if (e.key === '1' && isFlipped) rate('easy');
-    else if (e.key === '2' && isFlipped) rate('medium');
-    else if (e.key === '3' && isFlipped) rate('hard');
-  }
+  if (!document.getElementById('page-flash').classList.contains('active')) return;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { if (isFlipped) rate('medium'); else goNext(); }
+  else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') goPrev();
+  else if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); flip(); }
+  else if (e.key === '1' && isFlipped) rate('easy');
+  else if (e.key === '2' && isFlipped) rate('medium');
+  else if (e.key === '3' && isFlipped) rate('hard');
 });
 
-// ══════════════════════════════
-// QUIZ MCQ
-// ══════════════════════════════
-const PARAM_LABELS = {
-  name:           'Nombre del test',
-  posPatient:     'Posición del paciente',
-  posTherapist:   'Posición del terapeuta',
-  execution:      'Ejecución del test',
-  interpretation: 'Cuando es positivo'
-};
-
-// Param chip toggle
-document.querySelectorAll('.quiz-param-chip').forEach(chip => {
-  chip.addEventListener('click', () => {
-    chip.classList.toggle('selected');
-    updateQuizCount();
-  });
+// ═══════════════════════════════
+// QUIZ
+// ═══════════════════════════════
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', () => { chip.classList.toggle('on'); updateQuizAvail(); });
 });
-
-document.getElementById('quiz-filter-region').addEventListener('change', updateQuizCount);
+document.getElementById('quiz-filter-region').addEventListener('change', updateQuizAvail);
 
 function getSelectedParams() {
-  return [...document.querySelectorAll('.quiz-param-chip.selected')].map(c => c.dataset.param);
+  return [...document.querySelectorAll('.chip.on')].map(c => c.dataset.param);
 }
-
 function getQuizPool() {
-  const region = document.getElementById('quiz-filter-region').value;
-  return CARDS.filter(c => region === 'all' || c.region === region);
+  const r = document.getElementById('quiz-filter-region').value;
+  return CARDS.filter(c => r === 'all' || c.es.region === r);
 }
-
-function updateQuizCount() {
-  const pool = getQuizPool();
+function updateQuizAvail() {
+  const el = document.getElementById('quiz-avail');
   const params = getSelectedParams();
-  const countEl = document.getElementById('quiz-available-count');
-  if (params.length === 0) {
-    countEl.textContent = '⚠ Selecciona al menos un parámetro';
-    return;
-  }
-  countEl.textContent = `${pool.length} tarjetas disponibles`;
+  if (!params.length) { el.textContent = t('quiz_no_param'); return; }
+  el.textContent = t('quiz_avail', getQuizPool().length);
 }
 
-// Quiz state
-let quizQuestions = [];
-let quizIndex = 0;
-let quizScore = 0;
-let quizSelectedChoices = new Set();
-let quizAnswered = false;
+let quizQs = [], quizIdx = 0, quizScore = 0;
+let quizSel = new Set(), quizAnswered = false;
 
-document.getElementById('btn-start-quiz').addEventListener('click', startQuiz);
-document.getElementById('btn-quiz-validate').addEventListener('click', validateQuiz);
-document.getElementById('btn-quiz-next').addEventListener('click', nextQuizQ);
+document.getElementById('btn-start-quiz').addEventListener('click',  startQuiz);
+document.getElementById('btn-validate').addEventListener('click',    validateQuiz);
+document.getElementById('btn-qnext').addEventListener('click',       nextQ);
 document.getElementById('btn-quiz-restart').addEventListener('click', startQuiz);
 
 function startQuiz() {
   const params = getSelectedParams();
-  if (params.length === 0) { toast('⚠ Selecciona al menos un parámetro'); return; }
-
+  if (!params.length) { toast(t('quiz_no_param')); return; }
   const pool = getQuizPool();
-  if (pool.length < 4) { toast('Necesitas al menos 4 tarjetas'); return; }
+  if (pool.length < 4) { toast(t('quiz_need_4')); return; }
 
-  // Build questions
   const countSel = document.getElementById('quiz-count').value;
   const maxQ = countSel === 'all' ? Infinity : parseInt(countSel);
 
-  // Generate one question per (card × param) then shuffle & slice
   let qList = [];
-  for (const card of pool) {
-    for (const param of params) {
-      if (card[param] && card[param].trim()) {
-        qList.push({ card, param });
-      }
-    }
-  }
-  shuffle(qList);
-  qList = qList.slice(0, maxQ);
+  for (const card of pool)
+    for (const param of params)
+      if (getCardData(card)[param]?.trim()) qList.push({ card, param });
 
-  quizQuestions = qList;
-  quizIndex = 0;
-  quizScore = 0;
+  shuffle(qList);
+  quizQs = qList.slice(0, maxQ);
+  quizIdx = 0; quizScore = 0;
 
   document.getElementById('quiz-setup').style.display = 'none';
   document.getElementById('quiz-done').classList.remove('visible');
-  document.getElementById('quiz-card').classList.add('visible');
-
-  showQuizQuestion();
+  document.getElementById('quiz-qcard').classList.add('visible');
+  showQ();
 }
 
-function showQuizQuestion() {
-  if (quizIndex >= quizQuestions.length) { showQuizDone(); return; }
+function showQ() {
+  if (quizIdx >= quizQs.length) { showQuizDone(); return; }
+  quizAnswered = false; quizSel = new Set();
 
-  quizAnswered = false;
-  quizSelectedChoices = new Set();
+  const { card, param } = quizQs[quizIdx];
+  const total = quizQs.length;
 
-  const { card, param } = quizQuestions[quizIndex];
-  const total = quizQuestions.length;
+  document.getElementById('qprog-fill').style.width  = (quizIdx / total * 100) + '%';
+  document.getElementById('qprog-label').textContent = `${quizIdx + 1} / ${total}`;
+  document.getElementById('q-tag').textContent = t('param_labels')[param];
 
-  // Progress
-  document.getElementById('quiz-prog-fill').style.width = (quizIndex / total * 100) + '%';
-  document.getElementById('quiz-prog-label').textContent = `${quizIndex + 1} / ${total}`;
+  const cd = getCardData(card);
+  document.getElementById('q-text').textContent = t('q_texts')[param](cd);
+  document.getElementById('q-hint').textContent = t('q_hint', cd, param);
 
-  // Question
-  const tag = document.getElementById('quiz-q-tag');
-  const qText = document.getElementById('quiz-q-text');
-  const hint = document.getElementById('quiz-q-hint');
-
-  tag.textContent = PARAM_LABELS[param];
-
-  if (param === 'name') {
-    qText.textContent = `¿Cuál es el nombre del test con la siguiente descripción?\n\n"${card.interpretation}"`;
-    hint.textContent = `Región: ${card.region}  ·  Categoría: ${card.category}`;
-  } else if (param === 'interpretation') {
-    qText.textContent = `Test: "${card.name}"\n\n¿Cuándo es positivo / qué indica?`;
-    hint.textContent = `Región: ${card.region}`;
-  } else if (param === 'posPatient') {
-    qText.textContent = `Test: "${card.name}"\n\n¿Cuál es la posición del PACIENTE?`;
-    hint.textContent = `Región: ${card.region}`;
-  } else if (param === 'posTherapist') {
-    qText.textContent = `Test: "${card.name}"\n\n¿Cuál es la posición del TERAPEUTA?`;
-    hint.textContent = `Región: ${card.region}`;
-  } else if (param === 'execution') {
-    qText.textContent = `Test: "${card.name}"\n\n¿Cómo se ejecuta el test?`;
-    hint.textContent = `Región: ${card.region}`;
-  }
-
-  // Build 4 choices: 1 correct + 3 distractors from same param
-  const correctAnswer = card[param];
-  const pool = getQuizPool().filter(c => c.id !== card.id && c[param] && c[param].trim());
+  const cd = getCardData(card);
+  const correct = cd[param];
+  const pool = getQuizPool().filter(c => c.id !== card.id && getCardData(c)[param]?.trim());
   shuffle(pool);
-  const distractors = pool.slice(0, 3).map(c => c[param]);
-
-  const choices = [correctAnswer, ...distractors];
+  const choices = [correct, ...pool.slice(0, 3).map(c => getCardData(c)[param])];
   shuffle(choices);
+  const correctSet = new Set(choices.map((ch, i) => ch === correct ? i : -1).filter(i => i >= 0));
 
-  const correctIndices = new Set(
-    choices.map((ch, i) => ch === correctAnswer ? i : -1).filter(i => i >= 0)
-  );
-
-  // Render choices
-  const choicesEl = document.getElementById('quiz-choices');
+  const choicesEl = document.getElementById('q-choices');
   choicesEl.innerHTML = '';
-  const letters = ['A', 'B', 'C', 'D'];
-  choices.forEach((text, i) => {
+  ['A','B','C','D'].forEach((letter, i) => {
+    if (i >= choices.length) return;
     const btn = document.createElement('button');
-    btn.className = 'quiz-choice';
-    btn.dataset.index = i;
-    btn.dataset.correct = correctIndices.has(i) ? '1' : '0';
-    btn.innerHTML = `<span class="choice-letter">${letters[i]}</span><span>${text}</span>`;
+    btn.className = 'q-choice';
+    btn.dataset.index   = i;
+    btn.dataset.correct = correctSet.has(i) ? '1' : '0';
+    btn.innerHTML = `<span class="choice-letter">${letter}</span><span>${choices[i]}</span>`;
     btn.addEventListener('click', () => {
       if (quizAnswered) return;
-      if (quizSelectedChoices.has(i)) {
-        quizSelectedChoices.delete(i);
-        btn.classList.remove('selected');
-      } else {
-        quizSelectedChoices.add(i);
-        btn.classList.add('selected');
-      }
+      quizSel.has(i) ? quizSel.delete(i) : quizSel.add(i);
+      btn.classList.toggle('sel', quizSel.has(i));
     });
     choicesEl.appendChild(btn);
   });
 
-  // Reset UI
-  const feedback = document.getElementById('quiz-feedback');
-  feedback.className = 'quiz-feedback';
-  feedback.textContent = '';
-  document.getElementById('btn-quiz-validate').style.display = '';
-  document.getElementById('btn-quiz-next').style.display = 'none';
+  const fb = document.getElementById('q-feedback');
+  fb.className = 'q-feedback'; fb.textContent = '';
+  document.getElementById('btn-validate').style.display = '';
+  document.getElementById('btn-qnext').style.display = 'none';
 }
 
 function validateQuiz() {
   if (quizAnswered) return;
-  if (quizSelectedChoices.size === 0) { toast('Selecciona una respuesta'); return; }
-
+  if (!quizSel.size) { toast(t('quiz_select_answer')); return; }
   quizAnswered = true;
-  const choices = document.querySelectorAll('.quiz-choice');
 
-  let allCorrect = true;
-  choices.forEach(btn => {
-    btn.classList.add('revealed');
-    const idx = parseInt(btn.dataset.index);
-    const isCorrect = btn.dataset.correct === '1';
-    const isSelected = quizSelectedChoices.has(idx);
-
-    if (isCorrect) btn.classList.add('correct');
-    else if (isSelected && !isCorrect) { btn.classList.add('wrong'); allCorrect = false; }
-    if (isCorrect && !isSelected) allCorrect = false;
+  let allOk = true;
+  document.querySelectorAll('.q-choice').forEach(btn => {
+    btn.classList.add('done');
+    const i = parseInt(btn.dataset.index);
+    const isCorrect  = btn.dataset.correct === '1';
+    const isSelected = quizSel.has(i);
+    if (isCorrect)           btn.classList.add('ok');
+    else if (isSelected)   { btn.classList.add('bad'); allOk = false; }
+    if (isCorrect && !isSelected) allOk = false;
   });
 
-  const feedback = document.getElementById('quiz-feedback');
-  if (allCorrect) {
-    quizScore++;
-    feedback.textContent = '✅ ¡Correcto!';
-    feedback.className = 'quiz-feedback show ok';
-  } else {
-    feedback.textContent = '❌ Respuesta incorrecta.';
-    feedback.className = 'quiz-feedback show bad';
-  }
-
-  document.getElementById('btn-quiz-validate').style.display = 'none';
-  document.getElementById('btn-quiz-next').style.display = '';
+  if (allOk) quizScore++;
+  const fb = document.getElementById('q-feedback');
+  fb.textContent = allOk ? t('quiz_correct') : t('quiz_wrong');
+  fb.className = 'q-feedback show ' + (allOk ? 'ok' : 'bad');
+  document.getElementById('btn-validate').style.display = 'none';
+  document.getElementById('btn-qnext').style.display = '';
 }
 
-function nextQuizQ() {
-  quizIndex++;
-  showQuizQuestion();
-}
+function nextQ() { quizIdx++; showQ(); }
 
 function showQuizDone() {
-  document.getElementById('quiz-card').classList.remove('visible');
-  const done = document.getElementById('quiz-done');
-  done.classList.add('visible');
-
-  const total = quizQuestions.length;
-  document.getElementById('quiz-score-display').innerHTML = `${quizScore} <span>/ ${total}</span>`;
-
+  document.getElementById('quiz-qcard').classList.remove('visible');
+  document.getElementById('quiz-done').classList.add('visible');
+  const total = quizQs.length;
+  document.getElementById('qscore').innerHTML = `${quizScore} <span>/ ${total}</span>`;
   const pct = Math.round(quizScore / total * 100);
-  let msg = pct >= 80 ? '¡Excelente trabajo! 🔥' : pct >= 60 ? 'Buen intento, sigue practicando.' : 'Repasa las tarjetas y vuelve a intentarlo.';
-  document.getElementById('quiz-score-msg').textContent = `${pct}% de aciertos. ${msg}`;
-
-  document.getElementById('quiz-prog-fill').style.width = '100%';
-  document.getElementById('quiz-prog-label').textContent = `${total} / ${total}`;
+  document.getElementById('qscore-msg').textContent = t('quiz_score_msg', pct);
+  document.getElementById('qprog-fill').style.width  = '100%';
+  document.getElementById('qprog-label').textContent = `${total} / ${total}`;
 }
 
 function endQuiz() {
-  document.getElementById('quiz-card').classList.remove('visible');
+  document.getElementById('quiz-qcard').classList.remove('visible');
   document.getElementById('quiz-done').classList.remove('visible');
   document.getElementById('quiz-setup').style.display = '';
 }
-
 function backToSetup() {
   document.getElementById('quiz-done').classList.remove('visible');
   document.getElementById('quiz-setup').style.display = '';
 }
 
+// ═══════════════════════════════
+// LANGUE
+// ═══════════════════════════════
+let currentLang = 'es';
+
+// Toutes les strings de l'UI par langue
+const UI = {
+  es: {
+    tab_flash: 'Flashcards', tab_quiz: 'Quiz MCQ',
+    region_label: 'Región:', cat_label: 'Categoría:',
+    all_regions: 'Todas', all_cats: 'Todas',
+    btn_shuffle: '🔀 Mezclar', btn_reset: '↺ Reiniciar', btn_hard: '🔴 Solo difíciles',
+    card_of: (i,n) => `Tarjeta ${i} de ${n}`,
+    test_no: n => `Test nº ${n}`,
+    flip_hint: 'Clic para ver el reverso',
+    sec_pos_patient: 'Posición paciente', sec_pos_therapist: 'Posición terapeuta',
+    sec_execution: 'Ejecución', sec_interpretation: 'Interpretación',
+    btn_easy: '✅ Fácil', btn_medium: '⚠️ Regular', btn_hard_rate: '❌ Difícil',
+    done_title: '¡Sesión completada!', done_sub: 'Has revisado todas las tarjetas.',
+    done_easy: 'Fácil', done_medium: 'Regular', done_hard: 'Difícil',
+    btn_restart: '↺ Repetir sesión', btn_only_hard: '🔴 Solo difíciles',
+    no_cards: 'No hay tarjetas con estos filtros.',
+    no_hard: 'No hay tarjetas difíciles aún.',
+    quiz_title: 'Configurar Quiz',
+    quiz_region: 'Región', quiz_nq: 'N.º de preguntas',
+    quiz_what: '¿Qué se pregunta?',
+    chip_name: 'Nombre del test', chip_posP: 'Posición paciente',
+    chip_posT: 'Posición terapeuta', chip_exec: 'Ejecución', chip_interp: 'Cuando es positivo',
+    quiz_start: '▶ Empezar', quiz_avail: n => `${n} tarjetas disponibles`,
+    quiz_no_param: '⚠ Selecciona al menos un parámetro',
+    quiz_exit: '✕ Salir', quiz_validate: 'Validar', quiz_next: 'Siguiente →',
+    quiz_correct: '✅ ¡Correcto!', quiz_wrong: '❌ Respuesta incorrecta.',
+    quiz_done_title: 'Quiz completado',
+    quiz_restart: '↺ Repetir', quiz_new_config: '⚙ Nueva config.',
+    quiz_score_msg: (pct) => pct >= 80 ? `${pct}% · ¡Excelente! 🔥` : pct >= 60 ? `${pct}% · Buen intento.` : `${pct}% · Repasa las flashcards.`,
+    quiz_select_answer: 'Selecciona una respuesta',
+    quiz_need_4: 'Necesitas al menos 4 tarjetas',
+    param_labels: { name:'Nombre del test', posPatient:'Posición del paciente', posTherapist:'Posición del terapeuta', execution:'Ejecución del test', interpretation:'Cuando es positivo' },
+    q_texts: {
+      name: c => `¿Cuál es el nombre del test?\n\n"${c.interpretation}"`,
+      interpretation: c => `Test: "${c.name}"\n\n¿Cuándo es positivo?`,
+      posPatient: c => `Test: "${c.name}"\n\n¿Posición del PACIENTE?`,
+      posTherapist: c => `Test: "${c.name}"\n\n¿Posición del TERAPEUTA?`,
+      execution: c => `Test: "${c.name}"\n\n¿Cómo se ejecuta?`
+    },
+    q_hint: (c, param) => `Región: ${c.region}` + (param==='name'?`  ·  ${c.category}`:''),
+    toast_shuffle: '🔀 Mazo mezclado', toast_reset: '↺ Sesión reiniciada',
+    toast_hard: n => `🔴 ${n} tarjetas difíciles`,
+  },
+  fr: {
+    tab_flash: 'Flashcards', tab_quiz: 'Quiz QCM',
+    region_label: 'Région :', cat_label: 'Catégorie :',
+    all_regions: 'Toutes', all_cats: 'Toutes',
+    btn_shuffle: '🔀 Mélanger', btn_reset: '↺ Réinitialiser', btn_hard: '🔴 Difficiles seuls',
+    card_of: (i,n) => `Carte ${i} sur ${n}`,
+    test_no: n => `Test n° ${n}`,
+    flip_hint: 'Clic pour voir le verso',
+    sec_pos_patient: 'Position patient', sec_pos_therapist: 'Position thérapeute',
+    sec_execution: 'Exécution', sec_interpretation: 'Interprétation',
+    btn_easy: '✅ Facile', btn_medium: '⚠️ Moyen', btn_hard_rate: '❌ Difficile',
+    done_title: 'Séance terminée !', done_sub: 'Tu as revu toutes les cartes.',
+    done_easy: 'Facile', done_medium: 'Moyen', done_hard: 'Difficile',
+    btn_restart: '↺ Recommencer', btn_only_hard: '🔴 Difficiles seuls',
+    no_cards: 'Aucune carte avec ces filtres.',
+    no_hard: 'Aucune carte difficile pour l\'instant.',
+    quiz_title: 'Configurer le Quiz',
+    quiz_region: 'Région', quiz_nq: 'Nombre de questions',
+    quiz_what: 'Qu\'est-ce qui est demandé ?',
+    chip_name: 'Nom du test', chip_posP: 'Position patient',
+    chip_posT: 'Position thérapeute', chip_exec: 'Exécution', chip_interp: 'Quand c\'est positif',
+    quiz_start: '▶ Commencer', quiz_avail: n => `${n} cartes disponibles`,
+    quiz_no_param: '⚠ Sélectionne au moins un paramètre',
+    quiz_exit: '✕ Quitter', quiz_validate: 'Valider', quiz_next: 'Suivant →',
+    quiz_correct: '✅ Correct !', quiz_wrong: '❌ Mauvaise réponse.',
+    quiz_done_title: 'Quiz terminé',
+    quiz_restart: '↺ Recommencer', quiz_new_config: '⚙ Nouvelle config.',
+    quiz_score_msg: (pct) => pct >= 80 ? `${pct}% · Excellent ! 🔥` : pct >= 60 ? `${pct}% · Bon essai.` : `${pct}% · Révise les flashcards.`,
+    quiz_select_answer: 'Sélectionne une réponse',
+    quiz_need_4: 'Il faut au moins 4 cartes',
+    param_labels: { name:'Nom du test', posPatient:'Position du patient', posTherapist:'Position du thérapeute', execution:'Exécution du test', interpretation:'Quand c\'est positif' },
+    q_texts: {
+      name: c => `Quel est le nom du test ?\n\n"${c.interpretation}"`,
+      interpretation: c => `Test : "${c.name}"\n\nQuand est-il positif ?`,
+      posPatient: c => `Test : "${c.name}"\n\nPosition du PATIENT ?`,
+      posTherapist: c => `Test : "${c.name}"\n\nPosition du THÉRAPEUTE ?`,
+      execution: c => `Test : "${c.name}"\n\nComment s'exécute-t-il ?`
+    },
+    q_hint: (c, param) => `Région : ${c.region}` + (param==='name'?`  ·  ${c.category}`:''),
+    toast_shuffle: '🔀 Cartes mélangées', toast_reset: '↺ Séance réinitialisée',
+    toast_hard: n => `🔴 ${n} cartes difficiles`,
+  },
+  en: {
+    tab_flash: 'Flashcards', tab_quiz: 'MCQ Quiz',
+    region_label: 'Region:', cat_label: 'Category:',
+    all_regions: 'All', all_cats: 'All',
+    btn_shuffle: '🔀 Shuffle', btn_reset: '↺ Reset', btn_hard: '🔴 Hard only',
+    card_of: (i,n) => `Card ${i} of ${n}`,
+    test_no: n => `Test #${n}`,
+    flip_hint: 'Click to flip',
+    sec_pos_patient: 'Patient position', sec_pos_therapist: 'Therapist position',
+    sec_execution: 'Execution', sec_interpretation: 'Interpretation',
+    btn_easy: '✅ Easy', btn_medium: '⚠️ Medium', btn_hard_rate: '❌ Hard',
+    done_title: 'Session complete!', done_sub: 'You reviewed all cards.',
+    done_easy: 'Easy', done_medium: 'Medium', done_hard: 'Hard',
+    btn_restart: '↺ Restart session', btn_only_hard: '🔴 Hard only',
+    no_cards: 'No cards match these filters.',
+    no_hard: 'No hard cards yet.',
+    quiz_title: 'Configure Quiz',
+    quiz_region: 'Region', quiz_nq: 'Number of questions',
+    quiz_what: 'What is tested?',
+    chip_name: 'Test name', chip_posP: 'Patient position',
+    chip_posT: 'Therapist position', chip_exec: 'Execution', chip_interp: 'When positive',
+    quiz_start: '▶ Start', quiz_avail: n => `${n} cards available`,
+    quiz_no_param: '⚠ Select at least one parameter',
+    quiz_exit: '✕ Exit', quiz_validate: 'Check', quiz_next: 'Next →',
+    quiz_correct: '✅ Correct!', quiz_wrong: '❌ Wrong answer.',
+    quiz_done_title: 'Quiz complete',
+    quiz_restart: '↺ Restart', quiz_new_config: '⚙ New config.',
+    quiz_score_msg: (pct) => pct >= 80 ? `${pct}% · Excellent! 🔥` : pct >= 60 ? `${pct}% · Good try.` : `${pct}% · Review the flashcards.`,
+    quiz_select_answer: 'Select an answer',
+    quiz_need_4: 'You need at least 4 cards',
+    param_labels: { name:'Test name', posPatient:'Patient position', posTherapist:'Therapist position', execution:'Test execution', interpretation:'When positive' },
+    q_texts: {
+      name: c => `What is the name of this test?\n\n"${c.interpretation}"`,
+      interpretation: c => `Test: "${c.name}"\n\nWhen is it positive?`,
+      posPatient: c => `Test: "${c.name}"\n\nPATIENT position?`,
+      posTherapist: c => `Test: "${c.name}"\n\nTHERAPIST position?`,
+      execution: c => `Test: "${c.name}"\n\nHow is it performed?`
+    },
+    q_hint: (c, param) => `Region: ${c.region}` + (param==='name'?`  ·  ${c.category}`:''),
+    toast_shuffle: '🔀 Deck shuffled', toast_reset: '↺ Session reset',
+    toast_hard: n => `🔴 ${n} hard cards`,
+  }
+};
+
+function t(key, ...args) {
+  const val = UI[currentLang][key];
+  return typeof val === 'function' ? val(...args) : val;
+}
+
+// Retourne les données de la carte dans la langue active (fallback ES)
+function getCardData(card) {
+  const lang = card[currentLang] || card['es'];
+  return lang || card; // fallback total si ancienne structure
+}
+
+function toggleLangMenu() {
+  document.getElementById('lang-dropdown').classList.toggle('open');
+}
+document.addEventListener('click', e => {
+  if (!document.getElementById('lang-wrap').contains(e.target))
+    document.getElementById('lang-dropdown').classList.remove('open');
+});
+
+function setLang(lang) {
+  document.getElementById('lang-dropdown').classList.remove('open');
+  if (lang === currentLang) return;
+  currentLang = lang;
+
+  const meta = { es:{flag:'🇪🇸',label:'ES'}, fr:{flag:'🇫🇷',label:'FR'}, en:{flag:'🇬🇧',label:'EN'} };
+  document.getElementById('lang-flag').textContent  = meta[lang].flag;
+  document.getElementById('lang-label').textContent = meta[lang].label;
+  document.querySelectorAll('.lang-option').forEach(o =>
+    o.classList.toggle('active', o.dataset.lang === lang));
+
+  applyUIStrings();
+  rebuildFilters();
+  showCard();
+  updateQuizAvail();
+}
+
+function applyUIStrings() {
+  // Tabs
+  document.getElementById('tab-flash').childNodes[1].textContent = ' ' + t('tab_flash');
+  document.getElementById('tab-quiz').childNodes[1].textContent  = ' ' + t('tab_quiz');
+  // Controls labels
+  const labels = document.querySelectorAll('.fc-controls label');
+  if (labels[0]) labels[0].textContent = t('region_label');
+  if (labels[1]) labels[1].textContent = t('cat_label');
+  // Buttons
+  document.getElementById('btn-shuffle').textContent    = t('btn_shuffle');
+  document.getElementById('btn-reset').textContent      = t('btn_reset');
+  document.getElementById('btn-review-hard').textContent= t('btn_hard');
+  // Flip hint
+  const hint = document.querySelector('.flip-hint');
+  if (hint) hint.lastChild.textContent = ' ' + t('flip_hint');
+  // Section labels
+  const secs = document.querySelectorAll('.section-label');
+  const secKeys = ['sec_pos_patient','sec_pos_therapist','sec_execution','sec_interpretation'];
+  secs.forEach((s, i) => { if (secKeys[i]) s.lastChild.textContent = t(secKeys[i]); });
+  // Rating buttons
+  document.getElementById('btn-easy').textContent   = t('btn_easy');
+  document.getElementById('btn-medium').textContent = t('btn_medium');
+  document.getElementById('btn-hard').textContent   = t('btn_hard_rate');
+  // Done screen
+  document.querySelector('#done-screen h2').textContent = t('done_title');
+  document.querySelector('#done-screen p').textContent  = t('done_sub');
+  document.querySelector('.stat-l:nth-child(1)') && (()=>{
+    const ls = document.querySelectorAll('.stat-l');
+    if (ls[0]) ls[0].textContent = t('done_easy');
+    if (ls[1]) ls[1].textContent = t('done_medium');
+    if (ls[2]) ls[2].textContent = t('done_hard');
+  })();
+  document.getElementById('btn-restart-done').textContent = t('btn_restart');
+  document.getElementById('btn-hard-done').textContent    = t('btn_only_hard');
+  // Quiz setup
+  document.querySelector('.quiz-setup-title').lastChild.textContent = ' ' + t('quiz_title');
+  document.querySelector('[for="quiz-filter-region"], .quiz-field:first-child label').textContent = t('quiz_region');
+  document.querySelector('.qparams-label').textContent = t('quiz_what');
+  document.getElementById('btn-start-quiz').textContent = t('quiz_start');
+  // Chips
+  const chips = document.querySelectorAll('.chip');
+  const chipKeys = ['chip_name','chip_posP','chip_posT','chip_exec','chip_interp'];
+  chips.forEach((c,i) => { if (chipKeys[i]) c.lastChild.textContent = t(chipKeys[i]); });
+  // Quiz question buttons
+  document.getElementById('btn-validate').textContent = t('quiz_validate');
+  document.getElementById('btn-qnext').textContent    = t('quiz_next');
+  document.getElementById('btn-quiz-restart').textContent = t('quiz_restart');
+  document.querySelector('#quiz-done [onclick="backToSetup()"]').textContent = t('quiz_new_config');
+}
+
+function rebuildFilters() {
+  // Reconstruit les options des selects avec les valeurs traduites
+  const rv = filterRegion.value, cv = filterCat.value;
+  // "Todas/Toutes/All"
+  filterRegion.options[0].textContent = t('all_regions');
+  filterCat.options[0].textContent    = t('all_cats');
+  document.getElementById('quiz-filter-region').options[0].textContent = t('all_regions');
+  // Les options de région = valeurs issues des cartes dans la langue active
+  // On les garde en valeur ES (clé stable) mais on affiche la traduction
+  for (let i = 1; i < filterRegion.options.length; i++) {
+    const esVal = filterRegion.options[i].value;
+    const card = CARDS.find(c => c.es.region === esVal);
+    if (card) {
+      const translated = getCardData(card).region;
+      filterRegion.options[i].textContent = translated;
+      document.getElementById('quiz-filter-region').options[i].textContent = translated;
+    }
+  }
+  filterRegion.value = rv;
+  filterCat.value    = cv;
+}
+
 // ── INIT ──
 populateFilters();
 buildDeck();
+applyUIStrings();
 </script>
 </body>
 </html>
