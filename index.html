@@ -695,6 +695,7 @@ function switchPage(name) {
 let deck = [], currentIndex = 0, isFlipped = false;
 const ratings = {};
 let mode = 'all';
+let currentLang = 'es';
 
 const cardEl       = document.getElementById('card');
 const ratingDiv    = document.getElementById('rating');
@@ -1015,8 +1016,6 @@ function backToSetup() {
 // ═══════════════════════════════
 // LANGUE
 // ═══════════════════════════════
-let currentLang = 'es';
-
 // Toutes les strings de l'UI par langue
 const UI = {
   es: {
@@ -1218,9 +1217,9 @@ function applyUIStrings() {
   document.getElementById('btn-restart-done').textContent = t('btn_restart');
   document.getElementById('btn-hard-done').textContent    = t('btn_only_hard');
   // Quiz setup
-  document.querySelector('.quiz-setup-title').lastChild.textContent = ' ' + t('quiz_title');
-  document.querySelector('[for="quiz-filter-region"], .quiz-field:first-child label').textContent = t('quiz_region');
-  document.querySelector('.qparams-label').textContent = t('quiz_what');
+  const qst = document.querySelector('.quiz-setup-title'); if(qst) qst.lastChild.textContent = ' ' + t('quiz_title');
+  const qfl = document.querySelector('.quiz-field label'); if(qfl) qfl.textContent = t('quiz_region');
+  const qpl = document.querySelector('.qparams-label'); if(qpl) qpl.textContent = t('quiz_what');
   document.getElementById('btn-start-quiz').textContent = t('quiz_start');
   // Chips
   const chips = document.querySelectorAll('.chip');
