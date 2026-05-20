@@ -29,7 +29,8 @@ const CARDS =
       "posTherapist": "Standing behind (double lunge). Hands on both sides of the head.",
       "execution": "Maximum passive rotation to the left and right without forcing.",
       "interpretation": "✅ Hard end-feel + asymmetry → cervical alteration (localization depending on the point in the arc). ⚠️ Dizziness/nystagmus → rule out vascular or vestibular cause."
-    }
+    },
+    "image": "images/Prueba de rotación de la columna vertebral cervical.webp"
   },
   {
     "id": 2,
@@ -60,7 +61,8 @@ const CARDS =
       "posTherapist": "Standing to the side (double lunge). Posterior hand on the occiput; anterior hand on the chin.",
       "execution": "1. Maximum passive cervical extension (locks the upper cervical segment).\n2. Maintaining extension → rotation to each side.\n(Rotation occurs only with the lower cervical spine, cervicothoracic zone, and upper thoracic spine.)",
       "interpretation": "✅ Pain + limitation in rotation with neck in extension → mid-lower cervical or upper thoracic osteoarthritis/degeneration."
-    }
+    },
+    "image": "images/Prueba de rotación de la cabeza en extension máxima.webp"
   },
   {
     "id": 3,
@@ -91,7 +93,8 @@ const CARDS =
       "posTherapist": "Standing to the side (double lunge). Posterior hand on the occiput; anterior hand on the chin.",
       "execution": "1. Maximum passive cervical flexion (locks the cervical segment below T2/D2).\n2. Maintaining flexion → rotation to each side.\n(Rotation only with the upper cervical spine: occiput, atlas, axis.)",
       "interpretation": "✅ Pain + limitation in rotation with neck in flexion → upper cervical degenerative alteration (occiput, atlas, axis)."
-    }
+    },
+    "image": "images/Prueba de rotación de la cabeza en flexión máxima.webp"
   },
   {
     "id": 4,
@@ -122,7 +125,8 @@ const CARDS =
       "posTherapist": "Standing to the side (double lunge). Posterior hand under the occiput; anterior hand under the mandible.",
       "execution": "Slow and progressive axial traction of the patient's head toward the ceiling.",
       "interpretation": "✅ Pain disappears → radicular entrapment. ✅ Pain increases → capsuloligamentous involvement or monoarticular musculature."
-    }
+    },
+    "image": "images/Prueba de distracción cervical.webp"
   },
   {
     "id": 5,
@@ -153,7 +157,8 @@ const CARDS =
       "posTherapist": "Standing to the side (double lunge), patient's head at chest height. Anterior hand on the forehead; posterior hand on the occiput.",
       "execution": "With the anterior hand → anteroposterior glide of the forehead.\nThis forces movement of the occiput relative to the atlas and of the atlas relative to the axis.",
       "interpretation": "✅ Pain in the cervical region → possible atlantoaxial ligamentous instability. ⚠️ Highly non-specific test."
-    }
+    },
+    "image": "images/Prueba de Sharp-Purser.webp"
   },
   {
     "id": 6,
@@ -184,7 +189,8 @@ const CARDS =
       "posTherapist": "Standing to the side (double lunge). Anterior hand on forehead (elbow stabilizes homolateral shoulder); free posterior hand.",
       "execution": "1. Slight passive flexion of the cervical spine.\n2. With the posterior hand → percuss the cervical spinous processes with fingers.",
       "interpretation": "✅ Localized pain → fracture/ligamentous or muscular involvement. ✅ Radicular pain → nerve root involvement."
-    }
+    },
+    "image": "images/Prueba de percusión de apófisis.webp"
   },
   {
     "id": 7,
@@ -215,7 +221,8 @@ const CARDS =
       "posTherapist": "Standing behind the patient (double lunge). Fingers of both hands interlaced on top of the head; elbows stabilize the patient's shoulders.",
       "execution": "Downward and progressive axial compression on the head.",
       "interpretation": "✅ Cervical pain radiating to the arm → disc or facet involvement. ⚡ Without radiation → rules out cervical disc pathology."
-    }
+    },
+    "image": "images/Prueba de Jackson o de compresión cervical.webp"
   },
   {
     "id": 8,
@@ -246,7 +253,8 @@ const CARDS =
       "posTherapist": "Standing behind the patient (double lunge). One flat hand on top of the head.",
       "execution": "Performed in 3 positions (according to Bradley):\n1. NEUTRAL POSITION: soft, sharp blow with the fist on the hand over the vertex.\n2. Cervical EXTENSION: same.\n3. EXTENSION + homolateral ROTATION: same.\nEach position causes progressive foraminal closure.",
       "interpretation": "✅ Increased symptoms → disc involvement or cervical hernia. The distribution of pain points toward the affected root."
-    }
+    },
+    "image": "images/Prueba de Spurling o de compresión foraminal.webp"
   },
   {
     "id": 9,
@@ -277,7 +285,8 @@ const CARDS =
       "posTherapist": "Observation.",
       "execution": "Patient actively raises the affected arm and places the hand on the head.",
       "interpretation": "✅ Relief or cessation of symptoms → compatible with cervical radiculopathy."
-    }
+    },
+    "image": "images/Test de abducción del hombro.webp"
   },
   {
     "id": 10,
@@ -308,7 +317,8 @@ const CARDS =
       "posTherapist": "Standing, observing the patient.",
       "execution": "The patient ACTIVELY performs:\nRotation + lateral tilt to the same side + cervical extension.\n→ This implies maximum closure of the homolateral intervertebral foramen.",
       "interpretation": "✅ Homolateral local pain → facet joint imbrication. ✅ Contralateral pain → muscular involvement. ✅ Radicular pain → nerve root involvement."
-    }
+    },
+    "image": "images/Prueba de compresión máxima del agujero intervertebral.webp"
   },
   {
     "id": 11,
@@ -339,7 +349,8 @@ const CARDS =
       "posTherapist": "Standing lateral to the patient.",
       "execution": "Therapist applies posteroanterior pressure on the spinous processes or thoracic ribs, segment by segment, using the hands.",
       "interpretation": "✅ Stiffness or localized pain → thoracic segmental hypomobility. ✅ Hypermobility → possible instability."
-    }
+    },
+    "image": "images/Test de movilidad segmentaria posteroanterior.webp"
   },
   {
     "id": 12,
@@ -370,7 +381,8 @@ const CARDS =
       "posTherapist": "Standing behind the patient (double lunge). Passes arms around the patient's thorax and abdomen through the spaces formed by the arms; fingers interlaced on the anterior part of the thorax.",
       "execution": "ANTEROPOSTERIOR and LATERAL compression with both arms simultaneously.",
       "interpretation": "✅ Local pain → rib restriction. ✅ Radicular pain → intercostal neuralgia. ✅ Cannot tolerate the test → possible rib fracture/fissure."
-    }
+    },
+    "image": "images/Prueba de compresión de las costillas.webp"
   },
   {
     "id": 13,
@@ -401,7 +413,8 @@ const CARDS =
       "posTherapist": "Standing behind the patient (double lunge).",
       "execution": "Therapist asks the patient to tilt the body to one side and then the other alternately (active lateral flexion of the trunk).",
       "interpretation": "✅ Pain on the side of the tilt → intercostal neuralgia. ✅ Pain on the opposite side → sign of pleurisy."
-    }
+    },
+    "image": "images/Signo de Shepelman.webp"
   },
   {
     "id": 14,
@@ -432,7 +445,8 @@ const CARDS =
       "posTherapist": "Behind the patient, observing.",
       "execution": "Patient performs:\n1. Maximum cervical flexion.\n2. Trunk flexion ~90°.\n3. Arms hanging in a relaxed manner.",
       "interpretation": "✅ Hump in hemithorax → structural scoliosis. ✅ Curvature disappears with flexion → functional scoliosis."
-    }
+    },
+    "image": "images/Signo de Adam.webp"
   },
   {
     "id": 15,
@@ -463,7 +477,8 @@ const CARDS =
       "posTherapist": "Standing to the side (lunge forward toward the head). Caudal hand under the heel; cranial hand at knee level to fix extension.",
       "execution": "Ask the patient to lift the UNFIXED leg with the knee extended. The therapist holds the other leg. Perform on both legs.",
       "interpretation": "✅ Reports being unable to lift the leg but without down-pressure on the contralateral calcaneus → malingering/simulation."
-    }
+    },
+    "image": "images/Signo de Hoover - test de comportamiento.webp"
   },
   {
     "id": 16,
@@ -494,7 +509,8 @@ const CARDS =
       "posTherapist": "Standing at the patient's side (double lunge).",
       "execution": "1. With a marker: horizontal mark at S1 level and another 10 cm above.\n2. Ask the patient to bend forward → measure distance between marks.\n3. Ask the patient to extend → measure again.",
       "interpretation": "✅ Separation <15 cm in flexion or <8-9 cm in extension → limited lumbar elasticity. Useful in ankylosing spondylitis."
-    }
+    },
+    "image": "images/Prueba de Shober.webp"
   },
   {
     "id": 17,
@@ -525,7 +541,8 @@ const CARDS =
       "posTherapist": "Squatting at the patient's side with a tape measure.",
       "execution": "Patient performs active forward flexion of the spine (arms, hands, and fingers extended and relaxed forward):\n1. Bilateral hip flexion.\n2. Flexion of the lumbar spine (especially L5-S1).\n3. Pelvic retroversion.\nNote: Measure the distance between the fingertips and the floor.",
       "interpretation": "✅ Pain at the beginning → hip restriction. ✅ Pain in the 2nd part → lumbar or sacroiliac dysfunction. ✅ Pain in the 3rd part → upper lumbar or thoracic."
-    }
+    },
+    "image": "images/Prueba de distancia dedo-suelo.webp"
   },
   {
     "id": 18,
@@ -556,7 +573,8 @@ const CARDS =
       "posTherapist": "Standing next to the patient.",
       "execution": "Patient: maximum inspiration → maximum forced expiration WITHOUT expelling air (like bearing down).",
       "interpretation": "✅ Pain or increased spinal pain → disc involvement with possible herniation. ✅ Pain in the inguinal ligament → possible inguinal hernia."
-    }
+    },
+    "image": "images/Test de Valsalva.webp"
   },
   {
     "id": 19,
@@ -587,7 +605,8 @@ const CARDS =
       "posTherapist": "Standing on the side to be assessed (double lunge) at hip height. Cranial hand on the homolateral knee; caudal hand embraces the instep of the same foot.",
       "execution": "Therapist performs ADDUCTION + INTERNAL ROTATION of the hip on the side to be evaluated.",
       "interpretation": "✅ Pain and/or paresthesia along the sciatic nerve pathway → compression of the sciatic nerve at the piriformis muscle level."
-    }
+    },
+    "image": "images/Signo de Bonnet.webp"
   },
   {
     "id": 20,
@@ -618,7 +637,8 @@ const CARDS =
       "posTherapist": "Standing on the side to be assessed (lunge forward in a cranial direction) at the level of the patient's knees.",
       "execution": "1. Flex the patient's knee ~90°.\n2. Caudal hand on the anterior aspect of the homolateral knee.\n3. Cranial hand embraces the foot.\n4. Contact chest with the anterior aspect of the tibia of the side to be evaluated.\n5. Lean back slowly → induce knee flexion + hip extension.",
       "interpretation": "✅ Lumbar pain or pain along the femoral nerve pathway → femoral nerve compression."
-    }
+    },
+    "image": "images/Estiramiento nervio femoral.webp"
   },
   {
     "id": 21,
@@ -649,7 +669,8 @@ const CARDS =
       "posTherapist": "Standing laterally (double lunge) at the level of the tibias. Cranial hand on the anterolateral aspect of the HEALTHY leg slightly above the knee (maintains extension); caudal hand on the calcaneus of the same side.\n💡 Dural stretch is applied on both sides → radicular pain can also appear in the leg resting on the table.",
       "execution": "The therapist passively flexes the HEALTHY hip of the patient while keeping the knee extended. The other leg remains at rest on the table.",
       "interpretation": "✅ Lumbar or sciatic pain during the maneuver → lumbar disc involvement."
-    }
+    },
+    "image": "images/Prueba de Lasegue (SLR; straight leg raising).webp"
   },
   {
     "id": 22,
@@ -680,7 +701,8 @@ const CARDS =
       "posTherapist": "Same as Lasègue.",
       "execution": "1. Perform the Lasègue test up to the point where pain appears.\n2. Lower the limb slightly (reduce tension).\n3. Perform DORSIFLEXION of the foot.",
       "interpretation": "✅ Pain reappears with dorsiflexion → confirms neural origin (complements Lasègue)."
-    }
+    },
+    "image": "images/Signo de Bragard.webp"
   },
   {
     "id": 23,
@@ -711,7 +733,8 @@ const CARDS =
       "posTherapist": "Standing lateral to the patient (lunge forward) at hip height. Cranial hand under the lumbar spine; caudal hand embraces the distal third of the tibia on the side to be evaluated.",
       "execution": "Therapist slowly lowers the leg of the side whose psoas muscle is to be examined into extension. Examine both legs alternately.",
       "interpretation": "✅ Extending the hip increases lumbar lordosis or the patient cannot extend fully → psoas retraction/shortening."
-    }
+    },
+    "image": "images/Prueba de Thomas (Psoas).webp"
   },
   {
     "id": 24,
@@ -742,7 +765,8 @@ const CARDS =
       "posTherapist": "Standing laterally on the side to be assessed (double lunge) at the level of the patient's knees, facing them.",
       "execution": "1. Ask the patient to raise the leg WITHOUT flexing the knee.\n2. Approximately halfway through the range of motion → therapist applies an unexpected and sudden pressure on the anterior aspect of the thigh, forcing it into hip extension.",
       "interpretation": "✅ Lumbar, sacroiliac, or hip pain → lumbar or pelvic involvement (spondyloarthritis, spondylitis, or disc herniation)."
-    }
+    },
+    "image": "images/Prueba del psoas.webp"
   },
   {
     "id": 25,
@@ -773,7 +797,8 @@ const CARDS =
       "posTherapist": "Observing.",
       "execution": "Patient maintains the trunk in a HORIZONTAL position for as long as possible.\nIt ends when the patient contacts the floor with any part of the upper body.",
       "interpretation": "✅ Reduced endurance time → weakness of the lumbar extensor muscles, a risk factor for low back pain."
-    }
+    },
+    "image": "images/Test de Biering-Sorensen.webp"
   },
   {
     "id": 26,
@@ -804,7 +829,8 @@ const CARDS =
       "posTherapist": "Standing (double lunge) on the side to be assessed, at the level of the patient's tibias, facing them.",
       "execution": "1. Superior hand over the homolateral knee joint.\n2. Inferior hand embraces the calcaneus of the leg to be assessed.\n3. Bring hip and knee to 90° of flexion each.\n4. From there, passively guide the hip into abduction and external rotation, bringing the calcaneus closer to the body's midline.",
       "interpretation": "✅ Pain with palpation of spinous processes → sacroiliac dysfunction (compare both sides)."
-    }
+    },
+    "image": "images/Prueba de Laguerre.webp"
   },
   {
     "id": 27,
@@ -835,7 +861,8 @@ const CARDS =
       "posTherapist": "4 corresponding therapist positions:\n1. Standing at one side, cranial lunge. Heel of the right hand on right ASIS and left hand on left ASIS (arms crossed).\n2. Standing in front of the patient (double lunge). Both hands on the external aspect of the iliac bone to be assessed.\n3. Standing at one side, cranial lunge. Hands on the external border of the iliac crests.\n4. Standing at pelvis height (cranial lunge). Inferior hand on top of the sacrum; superior hand reinforces.",
       "execution": "4 corresponding pushes for each position:\n1. Push toward the table as if to OPEN the iliac bones.\n2. Push toward the table COMPRESSING the iliac bone.\n3. Push trying to BRING both hands together (close the iliac bones).\n4. Push COMPRESSING the sacrum toward the table.",
       "interpretation": "✅ Each positive push points toward involvement of the anterior or posterior sacroiliac ligaments depending on the direction."
-    }
+    },
+    "image": "images/Test de compresión.webp"
   },
   {
     "id": 28,
@@ -866,7 +893,8 @@ const CARDS =
       "posTherapist": "Standing on the side to be assessed, lunge forward in a cranial direction, at the level of the patient's knees. Internal hand contacts the anterosuperior iliac spine of the CONTRALATERAL hemipelvis to block it. External hand on the internal aspect of the knee of the limb to be assessed.",
       "execution": "The therapist asks the patient to actively bring the limb on the side to be assessed into hip abduction (knee toward the table). When they can go no further or the knee contacts the table → the therapist exerts a little downward pressure on it. Measure the distance between the knee of the affected side and the table. Repeat on the contralateral limb.",
       "interpretation": "✅ Greater knee-to-table distance + pain → hip or sacroiliac joint dysfunction."
-    }
+    },
+    "image": "images/Test de Patrick-FABER.webp"
   },
   {
     "id": 29,
@@ -897,7 +925,8 @@ const CARDS =
       "posTherapist": "Behind the patient with one hand stabilizing the hemipelvis to be tested.",
       "execution": "1. Proximal hand stabilizes the pelvis.\n2. Caudal hand performs knee extension and hip extension of the upper thigh (the leg remains free).\n3. The free (upper) leg is allowed to drop by gravity to adduct the hip as much as possible until contacting the table.",
       "interpretation": "✅ The knee does not contact the table → shortening of the iliotibial band."
-    }
+    },
+    "image": "images/Prueba de Ober.webp"
   },
   {
     "id": 30,
@@ -928,7 +957,8 @@ const CARDS =
       "posTherapist": "Standing at the patient's back, observing them.",
       "execution": "The therapist asks the patient to lift one foot off the floor by flexing the hip and knee joints of the same side → single-leg stance. Observe the adopted posture. Repeat on the contralateral limb.",
       "interpretation": "✅ Contralateral hemipelvis drops during single-leg stance → pelvic musculature involvement (gluteus medius)."
-    }
+    },
+    "image": "images/Signo de Trendelenburg.webp"
   },
   {
     "id": 31,
@@ -959,7 +989,8 @@ const CARDS =
       "posTherapist": "Standing close to the lower edge of the table (double lunge), facing the patient's head. Places the palms of the hands on the internal region of each foot.",
       "execution": "The patient must keep both knees together while the therapist exerts a separating force on the ankles.",
       "interpretation": "✅ Gluteal pain and/or pain along the sciatic nerve pathway → possible spasm or retraction of the piriformis muscle with sciatic nerve compression."
-    }
+    },
+    "image": "images/Prueba de piriforme-rotadores.webp"
   },
   {
     "id": 32,
@@ -990,7 +1021,8 @@ const CARDS =
       "posTherapist": "Standing, lateral to the patient on the side to be assessed. Places the FIST between the patient's knees.",
       "execution": "The patient is asked to bilaterally contract the hip adductor muscles, pressing the knees against the therapist's fist.",
       "interpretation": "✅ Pain during adductor contraction → tendinous injury of the hip adductors."
-    }
+    },
+    "image": "images/Test de squeeze.webp"
   },
   {
     "id": 33,
@@ -1021,7 +1053,8 @@ const CARDS =
       "posTherapist": "Standing, observing the patient from the feet.",
       "execution": "Observe the height of the knees comparing both sides: assesses whether there is a height difference between the two knees in the same position.",
       "interpretation": "✅ One knee higher → longer tibia. ✅ One knee lower → shorter femur or hip dysplasia/dislocation."
-    }
+    },
+    "image": "images/Prueba de Galeazzi-Allis.webp"
   },
   {
     "id": 34,
@@ -1052,7 +1085,8 @@ const CARDS =
       "posTherapist": "Standing, lateral to the patient on the side to be assessed, at pelvis height. Caudal hand at ankle height; proximal hand on the external aspect of the patient's knee.",
       "execution": "1. Passive flexion of hip and knee to 90°.\n2. From there → hip adduction + internal rotation associated with knee valgus.",
       "interpretation": "✅ Inguinal pain → possible femoroacetabular impingement, labral tear, loose bodies, or chondral lesion."
-    }
+    },
+    "image": "images/Femoroacetabular impingment test-FADIR.webp"
   },
   {
     "id": 35,
@@ -1083,7 +1117,8 @@ const CARDS =
       "posTherapist": "Standing, on the same side as the leg to be evaluated, at knee height (lunge forward in a cranial direction). Superior hand on the knee joint at the EXTERNAL joint line. Inferior hand embraces the heel of the homolateral foot through the internal area, so that the medial border of the foot is in contact with the therapist's forearm.",
       "execution": "The therapist raises the leg of the side to be assessed, separating the heel from the table. Depending on the horn and meniscus to be evaluated:\n• Posterior horn of INTERNAL meniscus: from maximum flexion → external rotation of tibia + knee valgus + extension.\n• Posterior horn of EXTERNAL meniscus: from maximum flexion → internal rotation of tibia + knee varus + extension.\n⚠️ The result must be corroborated with other tests.",
       "interpretation": "✅ Pain or click in the joint line → possible meniscal injury (horn depending on the applied rotation)."
-    }
+    },
+    "image": "images/Prueba de McMurray.webp"
   },
   {
     "id": 36,
@@ -1114,7 +1149,8 @@ const CARDS =
       "posTherapist": "Standing, on the same side as the knee being assessed (double lunge) at its level, facing the patient. Inferior hand on the sole of the foot of the side to be evaluated. Superior hand on the posterior aspect of the distal third of the homolateral thigh, blocking it.",
       "execution": "Through caudal hand contact → rotation of the knee to one side and the other.\nImmediately after: compression toward the table with caudal hand + without changing the compression → internal and external rotations of the tibia.\n💡 Knee extension variant to better assess the anterior horns.\n⚠️ Perform first without compression (distraction) to rule out ligaments.",
       "interpretation": "✅ Pain without compression → ligamentous structures. ✅ Pain with compression → possible meniscal injury (horn depending on rotation)."
-    }
+    },
+    "image": "images/Test de compresión de Apley.webp"
   },
   {
     "id": 37,
@@ -1145,7 +1181,8 @@ const CARDS =
       "posTherapist": "Standing on the OPPOSITE side to the leg to be evaluated (double lunge) at the level of the patient's knees, facing them. Takes contact with the 1st and 2nd fingers of both hands on the superior and inferior poles of the patella of the side to be assessed, embracing it.",
       "execution": "Mobilization of the patella from one side to the other.\nIf significant laxity is observed during the maneuver → an isometric contraction of the quadriceps can be requested and glides repeated.",
       "interpretation": "✅ Discomfort and joint click → patellar chondropathy. ✅ Large displacement → possible patellar instability/dislocation."
-    }
+    },
+    "image": "images/Prueba de desplazamiento de la rotula (Glide test).webp"
   },
   {
     "id": 38,
@@ -1176,7 +1213,8 @@ const CARDS =
       "posTherapist": "Standing next to the patient's knee.",
       "execution": "1. Therapist glides the patella LATERALLY.\n2. From there → performs knee flexion.\n3. The patient will avoid the movement and pull away from the physiotherapist's hand upon sensing imminent dislocation.",
       "interpretation": "✅ Apprehension or hand withdrawal → patellar instability with a tendency to dislocate."
-    }
+    },
+    "image": "images/Prueba de aprehensión.webp"
   },
   {
     "id": 39,
@@ -1207,7 +1245,8 @@ const CARDS =
       "posTherapist": "Standing on the side to be assessed (double lunge) at knee height, facing the patient. Cranial hand on the superior margin of the patella of the side to be evaluated (web space of 1st-2nd finger over the superior portion of the patella; 1st finger on the external border, 2nd on the internal border).",
       "execution": "The patient performs a contraction of the QUADRICEPS muscle of the side to be assessed while the therapist prevents the upward glide of the patella with a CAUDAL compression.\n💡 Perform bilaterally and at different degrees of flexion (30°, 60°, and 90°) for more specificity.",
       "interpretation": "✅ Acute knee pain → possible patellofemoral joint involvement (chondromalacia patellae)."
-    }
+    },
+    "image": "images/Prueba de crepitación de rodilla-opresión roduliana (signo de Clarke).webp"
   },
   {
     "id": 40,
@@ -1238,7 +1277,8 @@ const CARDS =
       "posTherapist": "Standing on the same side as the leg to be evaluated (lunge forward at tibia level), facing cranially. Superior hand on the anterolateral aspect of the distal third of the homolateral femur. Inferior hand embraces the proximal end of the tibia internally (thumb on the anterior part, remaining fingers under the popliteal fossa).",
       "execution": "The therapist stabilizes the femur through superior contact while passively inducing an ANTERIOR translation of the tibia with the inferior hand.",
       "interpretation": "✅ Abnormally increased anterior translation of the tibia → possible ACL tear."
-    }
+    },
+    "image": "images/Test de Lachmann.webp"
   },
   {
     "id": 41,
@@ -1269,7 +1309,8 @@ const CARDS =
       "posTherapist": "Sitting on the dorsum of the foot of the side to be assessed, facing cranially. Both hands embracing the proximal third of the tibia: thumbs on the anterior aspect at the femorotibial joint line; remaining fingers interlaced in the popliteal fossa.",
       "execution": "Anterior traction of the tibia of the side to be assessed generating an anterior translation relative to the femur.\n⚠️ The patient must be completely relaxed so that musculature does not alter the result.",
       "interpretation": "✅ Increased anterior translation of the tibia → possible ACL involvement or tear."
-    }
+    },
+    "image": "images/Test del cajón anterior.webp"
   },
   {
     "id": 42,
@@ -1300,7 +1341,8 @@ const CARDS =
       "posTherapist": "Sitting on the dorsum of the foot of the side to be assessed, facing cranially. Both thenar eminences on the anterior aspect of the tibial condyles: thumbs on both sides of the femorotibial joint line; remaining fingers bracing the posterior aspect of the tibia.",
       "execution": "Push of the tibia in a POSTERIOR direction generating a posterior translation relative to the femur, producing internal or external rotation depending on the stabilizing structures intended for evaluation.",
       "interpretation": "✅ Increased posterior translation of the tibia → possible PCL involvement."
-    }
+    },
+    "image": "images/Test del cajón posterior.webp"
   },
   {
     "id": 43,
@@ -1331,7 +1373,8 @@ const CARDS =
       "posTherapist": "Standing, observing the patient from the side or front.",
       "execution": "1. The patient advances the knee forward (lunge movement) attempting to touch the wall without the heel lifting from the floor.\n2. The maximum distance from the foot to the wall (in cm) is measured where the knee can still touch it without lifting the heel.\n3. Compared with the contralateral side.\n💡 Reference: ≥10 cm is considered a functional weight-bearing dorsiflexion range.",
       "interpretation": "✅ Distance <10 cm or less than the contralateral side → restriction of weight-bearing dorsiflexion (triceps surae, joint stiffness, or anterior talar pinch)."
-    }
+    },
+    "image": "images/Test de carga flexión dorsal (Lunge test).webp"
   },
   {
     "id": 44,
@@ -1362,7 +1405,8 @@ const CARDS =
       "posTherapist": "Standing lateral to the patient, at the level of the shoulder to be evaluated.",
       "execution": "1. Therapist brings the shoulder to 90° abduction.\n2. Flexes the elbow to 90°.\n3. Performs a progressive passive external rotation of the shoulder.\n4. Can add anterior pressure over the humeral head.",
       "interpretation": "✅ Apprehension (fear of dislocation) or anterior pain → anterior glenohumeral instability or labral tear."
-    }
+    },
+    "image": "images/Prueba de Aprehensión (crank test) - Labrum.webp"
   },
   {
     "id": 45,
@@ -1393,7 +1437,8 @@ const CARDS =
       "posTherapist": "Standing in front of or next to the patient.",
       "execution": "1. Arm in 90° flexion with 10° horizontal adduction.\n2. PHASE A: Maximum internal rotation (thumb pointing down) → therapist presses downward.\n3. PHASE B: NEUTRAL rotation (palm facing up) → therapist presses downward.",
       "interpretation": "✅ Pain/click in phase A (internal rot.) that improves in phase B (neutral rot.) → superior labrum tear (SLAP) or acromioclavicular involvement."
-    }
+    },
+    "image": "images/Test de O’Brien (Labrum).webp"
   },
   {
     "id": 46,
@@ -1424,7 +1469,8 @@ const CARDS =
       "posTherapist": "Standing lateral to the patient (double lunge). Anterior hand embraces the elbow joint; posterior hand contacts the superior aspect of the shoulder (thumb on acromion, other fingers on the external end of the clavicle).",
       "execution": "1. Induce 90° elbow flexion.\n2. Bring the arm to 90° abduction.\n3. Perform 45° horizontal flexion.\n4. Internal rotation of the glenohumeral joint (hand pointing down).\n5. Fixed point on the superior aspect of the shoulder with posterior hand + raise the elbow with anterior hand.",
       "interpretation": "✅ Acute shoulder pain → possible subacromial impingement (supraspinatus, biceps, bursa)."
-    }
+    },
+    "image": "images/Test de Hawkins y Kennedy.webp"
   },
   {
     "id": 47,
@@ -1455,7 +1501,8 @@ const CARDS =
       "posTherapist": "Standing lateral to the patient (double lunge). Posterior hand contacts the scapula (dorsal portion). Anterior hand embraces the proximal third of the ipsilateral ulna.",
       "execution": "1. Therapist orients the palm of the hand on the side to be evaluated toward the floor → maximum internal rotation of the glenohumeral joint.\n2. Keeping the elbow in extension → guides the shoulder into MAXIMUM FLEXION.",
       "interpretation": "✅ Acute shoulder pain → subacromial impingement (supraspinatus and long head of biceps tendon)."
-    }
+    },
+    "image": "images/Test del Neer.webp"
   },
   {
     "id": 48,
@@ -1486,7 +1533,8 @@ const CARDS =
       "posTherapist": "Standing behind the patient. Outer hand on the ipsilateral elbow; other hand on the back of the patient's fingers.",
       "execution": "Patient raises the elbow toward the ceiling WITHOUT lifting the hand from the contralateral shoulder, while the therapist provides RESISTANCE.",
       "interpretation": "✅ Anterior shoulder pain → possible subacromial involvement."
-    }
+    },
+    "image": "images/Test de Yocum.webp"
   },
   {
     "id": 49,
@@ -1517,7 +1565,8 @@ const CARDS =
       "posTherapist": "Standing behind. Outer hand on the ipsilateral wrist; other hand on the scapula.",
       "execution": "1. Passive glenohumeral abduction to 90-120° with elbow in extension.\n2. Ask the patient to HOLD the arm in that position.\n3. Ask them to lower it SLOWLY to the starting position.",
       "interpretation": "✅ Inability to hold or slowly lower the arm → possible supraspinatus dysfunction or tear."
-    }
+    },
+    "image": "images/Drop arm test.webp"
   },
   {
     "id": 50,
@@ -1548,7 +1597,8 @@ const CARDS =
       "posTherapist": "Standing behind. Inner hand on the shoulder; outer hand on the distal radioulnar joint.",
       "execution": "Patient HOLDS the position while the therapist pushes the arm downward.",
       "interpretation": "✅ Pain or inability to maintain the position → supraspinatus tendon involvement."
-    }
+    },
+    "image": "images/Prueba de Jobe.webp"
   },
   {
     "id": 51,
@@ -1579,7 +1629,8 @@ const CARDS =
       "posTherapist": "Observation.",
       "execution": "Ask the patient to TOUCH THEIR MOUTH with both hands.",
       "interpretation": "✅ Patient raises the elbow above the shoulder to reach the mouth → complete insufficiency of infraspinatus and teres minor."
-    }
+    },
+    "image": "images/Test de compresión (images sup).webp"
   },
   {
     "id": 52,
@@ -1610,7 +1661,8 @@ const CARDS =
       "posTherapist": "Standing behind. Inner hand on the scapula; outer hand on the distal radioulnar joint.",
       "execution": "Patient moves the hand toward the therapist in EXTERNAL ROTATION. Therapist RESISTS the movement.",
       "interpretation": "✅ Posterior shoulder pain → possible infraspinatus tendon involvement."
-    }
+    },
+    "image": "images/Prueba de Patte.webp"
   },
   {
     "id": 53,
@@ -1641,7 +1693,8 @@ const CARDS =
       "posTherapist": "Standing behind. Outer hand on the scapular spine; other hand on the patient's hand.",
       "execution": "Patient lifts the hand away from the back (POSTERIORLY). Therapist applies RESISTANCE.",
       "interpretation": "✅ Pain and inability to lift the hand off the back → subscapularis muscle involvement."
-    }
+    },
+    "image": "images/Signo de mantenimiento de la rotación interna (prueba de Gerber).webp"
   },
   {
     "id": 54,
@@ -1672,7 +1725,8 @@ const CARDS =
       "posTherapist": "Facing the patient. Fingertips over the BICIPITAL GROOVE; other hand on the wrist.",
       "execution": "Patient performs forearm SUPINATION + elbow FLEXION simultaneously. Therapist RESISTS both movements.",
       "interpretation": "✅ Pain over the long head of biceps tendon → tendinitis or transverse ligament tear (possible tendon subluxation)."
-    }
+    },
+    "image": "images/Prueba de Yergarson.webp"
   },
   {
     "id": 55,
@@ -1703,7 +1757,8 @@ const CARDS =
       "posTherapist": "Standing to the side. Posterior hand palpating the BICIPITAL GROOVE; anterior hand on the distal third of the ulna.",
       "execution": "Patient further FLEXES the glenohumeral joint. Therapist RESISTS by pushing the arm toward the floor.",
       "interpretation": "✅ Pain or inability to overcome resistance → possible long head of biceps brachii tendon involvement."
-    }
+    },
+    "image": "images/Prueba de Speed.webp"
   },
   {
     "id": 56,
@@ -1734,7 +1789,8 @@ const CARDS =
       "posTherapist": "Facing the patient's elbow.",
       "execution": "Tap with a finger over the ULNAR NERVE in the epitrochleo-olecranon groove (medial aspect of the elbow).",
       "interpretation": "✅ Paresthesias radiating to the 4th and 5th fingers → ulnar nerve entrapment in the cubital tunnel."
-    }
+    },
+    "image": "images/Signo de Tinel.webp"
   },
   {
     "id": 57,
@@ -1765,7 +1821,8 @@ const CARDS =
       "posTherapist": "Standing facing the patient.",
       "execution": "1. Palpate the lateral epicondyle.\n2. Full elbow extension.\n3. Forearm pronation.\n4. Wrist flexion.",
       "interpretation": "✅ Pain at the lateral epicondyle → epicondylar muscle involvement (lateral epicondylitis)."
-    }
+    },
+    "image": "images/Test de Mills.webp"
   },
   {
     "id": 58,
@@ -1796,7 +1853,8 @@ const CARDS =
       "posTherapist": "Hands the DYNAMOMETER to the patient and records the value.",
       "execution": "1. Patient squeezes the dynamometer with maximum force.\n2. Several measurements (usually 3) with rest in between.\n3. Compare dominant vs. non-dominant side.",
       "interpretation": "✅ Reduced strength or pain → weakness of the hand flexor muscles."
-    }
+    },
+    "image": "images/Test de presión manual.webp"
   },
   {
     "id": 59,
@@ -1827,7 +1885,8 @@ const CARDS =
       "posTherapist": "Facing the patient's wrist.",
       "execution": "Tap with a finger over the TRANSVERSE CARPAL LIGAMENT on the palmar aspect of the wrist.",
       "interpretation": "✅ Paresthesias radiating to fingers 1–3 and the medial half of the 4th → median nerve entrapment in the carpal tunnel."
-    }
+    },
+    "image": "images/Test de Tinel.webp"
   },
   {
     "id": 60,
@@ -1858,7 +1917,8 @@ const CARDS =
       "posTherapist": "Observation.",
       "execution": "Patient holds both wrists in MAXIMUM FLEXION for 60 seconds (backs of hands touching, elbows flexed, forearms vertical).",
       "interpretation": "✅ Paresthesias in the median nerve territory (fingers 1–3 and medial half of the 4th) during the maneuver → carpal tunnel syndrome."
-    }
+    },
+    "image": "images/Signo de Phalen.webp"
   }
 ]
 ;

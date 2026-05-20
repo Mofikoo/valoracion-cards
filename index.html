@@ -306,6 +306,27 @@
     }
     .sdot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
     .section.interp .sdot { background: var(--green); }
+    /* ── CARD IMAGE ── */
+    .card-img-wrap {
+      grid-column: 1 / -1;
+      border-radius: 9px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-height: 240px;
+    }
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      max-height: 240px;
+      object-fit: contain;
+      display: block;
+    }
+    .card-img-wrap.hidden { display: none; }
+
     .section-content { font-size: 0.8rem; line-height: 1.55; white-space: pre-line; }
 
     .card-nav-row { display: flex; align-items: center; gap: 12px; }
@@ -553,6 +574,7 @@
             <div class="back-meta" id="back-meta"></div>
           </div>
           <div class="sections">
+            <div class="card-img-wrap hidden" id="card-img-wrap"><img id="card-img" src="" alt=""></div>
             <div class="section">
               <div class="section-label"><span class="sdot"></span>Posición paciente</div>
               <div class="section-content" id="back-pos-patient"></div>
@@ -771,6 +793,18 @@ function showCard() {
   document.getElementById('back-interpretation').textContent = c.interpretation;
 
   cardCounter.textContent = t('card_of', currentIndex + 1, deck.length);
+
+  // Image
+  const imgWrap = document.getElementById('card-img-wrap');
+  const imgEl   = document.getElementById('card-img');
+  if (raw.image) {
+    imgEl.src = raw.image;
+    imgEl.alt = raw.es.name;
+    imgWrap.classList.remove('hidden');
+  } else {
+    imgWrap.classList.add('hidden');
+    imgEl.src = '';
+  }
   updateProgress();
   document.getElementById('btn-prev').disabled = currentIndex === 0;
   document.getElementById('btn-next').disabled = false;
