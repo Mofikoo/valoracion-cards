@@ -1629,8 +1629,7 @@ const CARDS =
       "posTherapist": "Observation.",
       "execution": "Ask the patient to TOUCH THEIR MOUTH with both hands.",
       "interpretation": "✅ Patient raises the elbow above the shoulder to reach the mouth → complete insufficiency of infraspinatus and teres minor."
-    },
-    "image": "images/Test de compresión (images sup).webp"
+    }
   },
   {
     "id": 52,
