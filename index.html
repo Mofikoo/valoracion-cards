@@ -306,6 +306,52 @@
     }
     .sdot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
     .section.interp .sdot { background: var(--green); }
+
+    /* ── SEARCH BAR ── */
+    .fc-search-wrap {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 7px 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .fc-search-wrap svg { color: var(--muted); flex-shrink: 0; }
+    #search-input {
+      flex: 1;
+      max-width: 340px;
+      font-family: inherit;
+      font-size: 0.8rem;
+      background: var(--surface2);
+      border: 1px solid var(--border2);
+      border-radius: 7px;
+      color: var(--text);
+      padding: 5px 11px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    #search-input::placeholder { color: var(--muted2); }
+    #search-input:focus { border-color: var(--accent); }
+    .search-count {
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      white-space: nowrap;
+    }
+    #btn-search-clear {
+      font-family: inherit;
+      font-size: 0.72rem;
+      border: none;
+      background: none;
+      color: var(--muted);
+      cursor: pointer;
+      padding: 3px 6px;
+      border-radius: 5px;
+      display: none;
+    }
+    #btn-search-clear:hover { color: var(--text); }
+    #btn-search-clear.visible { display: block; }
+
     /* ── CARD IMAGE ── */
     .card-img-wrap {
       grid-column: 1 / -1;
@@ -553,6 +599,13 @@
     </div>
   </div>
 
+  <div class="fc-search-wrap">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="search-input" placeholder="Buscar test..." autocomplete="off">
+    <span class="search-count" id="search-count"></span>
+    <button id="btn-search-clear" title="Limpiar">✕</button>
+  </div>
+
   <div class="fc-main">
     <div class="card-counter" id="card-counter"></div>
 
@@ -751,13 +804,34 @@ function populateFilters() {
 
 function buildDeck() {
   const rv = filterRegion.value, cv = filterCat.value;
+  const query = (document.getElementById('search-input')?.value || '').trim().toLowerCase();
   let f = CARDS.filter(c =>
     (rv === 'all' || c.es.region === rv) &&
     (cv === 'all' || c.es.category === cv)
   );
   if (mode === 'hard') f = f.filter(c => ratings[c.id] === 'hard');
+  if (query) {
+    f = f.filter(c => {
+      const d = getCardData(c);
+      return (d.name + d.category + d.region + d.execution + d.interpretation + d.posPatient + d.posTherapist)
+        .toLowerCase().includes(query);
+    });
+  }
   deck = f; currentIndex = 0; showCard();
 }
+
+// Search events
+document.getElementById('search-input').addEventListener('input', function() {
+  const clear = document.getElementById('btn-search-clear');
+  clear.classList.toggle('visible', this.value.length > 0);
+  buildDeck();
+});
+document.getElementById('btn-search-clear').addEventListener('click', function() {
+  document.getElementById('search-input').value = '';
+  this.classList.remove('visible');
+  buildDeck();
+  document.getElementById('search-input').focus();
+});
 
 function shuffle(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
@@ -793,6 +867,10 @@ function showCard() {
   document.getElementById('back-interpretation').textContent = c.interpretation;
 
   cardCounter.textContent = t('card_of', currentIndex + 1, deck.length);
+  // Search result count
+  const q = document.getElementById('search-input')?.value.trim();
+  const sc = document.getElementById('search-count');
+  if (sc) sc.textContent = q ? t('search_results', deck.length) : '';
 
   // Image
   const imgWrap = document.getElementById('card-img-wrap');
@@ -1092,6 +1170,8 @@ const UI = {
     q_hint: (c, param) => `Región: ${c.region}` + (param==='name'?`  ·  ${c.category}`:''),
     toast_shuffle: '🔀 Mazo mezclado', toast_reset: '↺ Sesión reiniciada',
     toast_hard: n => `🔴 ${n} tarjetas difíciles`,
+    search_placeholder: 'Buscar test...',
+    search_results: n => `${n} resultado${n!==1?'s':''}`,
   },
   fr: {
     tab_flash: 'Flashcards', tab_quiz: 'Quiz QCM',
@@ -1134,6 +1214,8 @@ const UI = {
     q_hint: (c, param) => `Région : ${c.region}` + (param==='name'?`  ·  ${c.category}`:''),
     toast_shuffle: '🔀 Cartes mélangées', toast_reset: '↺ Séance réinitialisée',
     toast_hard: n => `🔴 ${n} cartes difficiles`,
+    search_placeholder: 'Rechercher un test...',
+    search_results: n => `${n} résultat${n!==1?'s':''}`,
   },
   en: {
     tab_flash: 'Flashcards', tab_quiz: 'MCQ Quiz',
@@ -1176,6 +1258,8 @@ const UI = {
     q_hint: (c, param) => `Region: ${c.region}` + (param==='name'?`  ·  ${c.category}`:''),
     toast_shuffle: '🔀 Deck shuffled', toast_reset: '↺ Session reset',
     toast_hard: n => `🔴 ${n} hard cards`,
+    search_placeholder: 'Search test...',
+    search_results: n => `${n} result${n!==1?'s':''}`,
   }
 };
 
@@ -1262,6 +1346,7 @@ function applyUIStrings() {
   document.getElementById('btn-validate').textContent = t('quiz_validate');
   document.getElementById('btn-qnext').textContent    = t('quiz_next');
   document.getElementById('btn-quiz-restart').textContent = t('quiz_restart');
+  const si = document.getElementById('search-input'); if(si) si.placeholder = t('search_placeholder');
   document.querySelector('#quiz-done [onclick="backToSetup()"]').textContent = t('quiz_new_config');
 }
 
