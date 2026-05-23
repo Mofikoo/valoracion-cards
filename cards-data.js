@@ -62,7 +62,7 @@ const CARDS =
       "execution": "1. Maximum passive cervical extension (locks the upper cervical segment).\n2. Maintaining extension → rotation to each side.\n(Rotation occurs only with the lower cervical spine, cervicothoracic zone, and upper thoracic spine.)",
       "interpretation": "✅ Pain + limitation in rotation with neck in extension → mid-lower cervical or upper thoracic osteoarthritis/degeneration."
     },
-    "image": "images/Prueba de rotación de la cabeza en extension máxima.webp"
+    "image": "images/Prueba de rotación de la cabeza en extension maxima.webp"
   },
   {
     "id": 3,
