@@ -768,7 +768,15 @@ function switchPage(name) {
 // FLASHCARDS
 // ═══════════════════════════════
 let deck = [], currentIndex = 0, isFlipped = false;
-const ratings = {};
+// Ratings persistants dans localStorage
+const RATINGS_KEY = 'fc_ratings';
+function loadRatings() {
+  try { return JSON.parse(localStorage.getItem(RATINGS_KEY) || '{}'); } catch { return {}; }
+}
+function saveRatings(r) {
+  try { localStorage.setItem(RATINGS_KEY, JSON.stringify(r)); } catch {}
+}
+const ratings = loadRatings();
 let mode = 'all';
 let currentLang = 'es';
 
@@ -893,6 +901,12 @@ function updateProgress() {
   const pct   = deck.length ? (rated / deck.length) * 100 : 0;
   progressFill.style.width = pct + '%';
   progressLbl.textContent  = `${rated} / ${deck.length}`;
+  // Badge on hard button
+  const totalHard = CARDS.filter(c => ratings[c.id] === 'hard').length;
+  const hardBtn = document.getElementById('btn-review-hard');
+  if (hardBtn) hardBtn.textContent = totalHard > 0
+    ? `🔴 ${t('btn_hard_label')} (${totalHard})`
+    : `🔴 ${t('btn_hard_label')}`;
 }
 
 function flip() {
@@ -917,7 +931,14 @@ function unflip(animate = true) {
 
 function rate(level) {
   const c = deck[currentIndex];
-  if (c) ratings[c.id] = level;
+  if (c) {
+    if (level === 'easy' || level === 'medium') {
+      delete ratings[c.id];   // easy/medium : retire la carte des difficiles
+    } else {
+      ratings[c.id] = level;  // hard : marque et persiste
+    }
+    saveRatings(ratings);
+  }
   currentIndex++; showCard();
 }
 
@@ -931,7 +952,7 @@ function showDone() {
   document.getElementById('done-medium').textContent = counts.medium;
   document.getElementById('done-hard').textContent   = counts.hard;
   document.getElementById('btn-hard-done').style.display =
-    deck.filter(c => ratings[c.id] === 'hard').length ? '' : 'none';
+    CARDS.filter(c => ratings[c.id] === 'hard').length ? '' : 'none';
   progressFill.style.width = '100%';
   progressLbl.textContent  = `${deck.length} / ${deck.length}`;
 }
@@ -957,15 +978,27 @@ document.getElementById('btn-hard').addEventListener('click',   () => rate('hard
 document.getElementById('btn-shuffle').addEventListener('click', () => { shuffle(deck); currentIndex = 0; showCard(); toast(t('toast_shuffle')); });
 document.getElementById('btn-reset').addEventListener('click', () => {
   Object.keys(ratings).forEach(k => delete ratings[k]);
+  saveRatings(ratings);
   mode = 'all'; buildDeck(); toast(t('toast_reset'));
 });
 document.getElementById('btn-review-hard').addEventListener('click', () => {
   const n = CARDS.filter(c => ratings[c.id] === 'hard').length;
   if (!n) { toast(t('no_hard')); return; }
+  // Reset filters to show ALL hard cards across all regions
+  filterRegion.value = 'all';
+  filterCat.value    = 'all';
+  document.getElementById('search-input').value = '';
+  document.getElementById('btn-search-clear').classList.remove('visible');
   mode = 'hard'; buildDeck(); toast(t('toast_hard', n));
 });
 document.getElementById('btn-restart-done').addEventListener('click', () => { mode = 'all'; buildDeck(); });
-document.getElementById('btn-hard-done').addEventListener('click', () => { mode = 'hard'; buildDeck(); });
+document.getElementById('btn-hard-done').addEventListener('click', () => {
+  filterRegion.value = 'all';
+  filterCat.value    = 'all';
+  document.getElementById('search-input').value = '';
+  document.getElementById('btn-search-clear').classList.remove('visible');
+  mode = 'hard'; buildDeck();
+});
 filterRegion.addEventListener('change', buildDeck);
 filterCat.addEventListener('change', buildDeck);
 document.addEventListener('keydown', e => {
