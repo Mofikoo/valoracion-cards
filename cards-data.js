@@ -1789,7 +1789,7 @@ const CARDS =
       "execution": "Tap with a finger over the ULNAR NERVE in the epitrochleo-olecranon groove (medial aspect of the elbow).",
       "interpretation": "✅ Paresthesias radiating to the 4th and 5th fingers → ulnar nerve entrapment in the cubital tunnel."
     },
-    "image": "images/Signo de Tinel.webp"
+    "image": "images/Test de Tinel.webp"
   },
   {
     "id": 57,
@@ -1885,7 +1885,7 @@ const CARDS =
       "execution": "Tap with a finger over the TRANSVERSE CARPAL LIGAMENT on the palmar aspect of the wrist.",
       "interpretation": "✅ Paresthesias radiating to fingers 1–3 and the medial half of the 4th → median nerve entrapment in the carpal tunnel."
     },
-    "image": "images/Test de Tinel.webp"
+    "image": "images/Signo de Tinel.webp"
   },
   {
     "id": 60,
