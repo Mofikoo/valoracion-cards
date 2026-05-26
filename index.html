@@ -904,9 +904,10 @@ function updateProgress() {
   // Badge on hard button
   const totalHard = CARDS.filter(c => ratings[c.id] === 'hard').length;
   const hardBtn = document.getElementById('btn-review-hard');
-  if (hardBtn) hardBtn.textContent = totalHard > 0
-    ? `🔴 ${t('btn_hard_label')} (${totalHard})`
-    : `🔴 ${t('btn_hard_label')}`;
+  if (hardBtn) {
+    const label = (UI[currentLang] || UI['es']).btn_hard_label || 'Solo difíciles';
+    hardBtn.textContent = totalHard > 0 ? `🔴 ${label} (${totalHard})` : `🔴 ${label}`;
+  }
 }
 
 function flip() {
